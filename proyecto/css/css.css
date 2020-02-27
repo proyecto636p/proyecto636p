@@ -1,0 +1,116 @@
+* {margin:0px;
+padding:0px;
+-webkit-box-sizing:border-box;
+-moz-box-sizing:border-box;
+box-sizing: border-box;
+}
+
+body{
+	background:url(../imagenes/sss.jpg);
+	background-repeat: no-repeat;
+	background-size:100% 100%;
+
+}
+.sa{
+background: rgba(40,167,69,1);
+background: -moz-linear-gradient(left, rgba(40,167,69,1) 0%, rgba(40,167,69,1) 0%, rgba(39,167,74,0.93) 4%, rgba(23,162,184,0.93) 100%);
+background: -webkit-gradient(left top, right top, color-stop(0%, rgba(40,167,69,1)), color-stop(0%, rgba(40,167,69,1)), color-stop(4%, rgba(39,167,74,0.93)), color-stop(100%, rgba(23,162,184,0.93)));
+background: -webkit-linear-gradient(left, rgba(40,167,69,1) 0%, rgba(40,167,69,1) 0%, rgba(39,167,74,0.93) 4%, rgba(23,162,184,0.93) 100%);
+background: -o-linear-gradient(left, rgba(40,167,69,1) 0%, rgba(40,167,69,1) 0%, rgba(39,167,74,0.93) 4%, rgba(23,162,184,0.93) 100%);
+background: -ms-linear-gradient(left, rgba(40,167,69,1) 0%, rgba(40,167,69,1) 0%, rgba(39,167,74,0.93) 4%, rgba(23,162,184,0.93) 100%);
+background: linear-gradient(to right, rgba(40,167,69,1) 0%, rgba(40,167,69,1) 0%, rgba(39,167,74,0.93) 4%, rgba(23,162,184,0.93) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#28a745', endColorstr='#17a2b8', GradientType=1 );
+}
+/*.conta{
+	background:url(imagenes/fondo1.jpg);
+	background-repeat: no-repeat;
+	background-size:100% 1000px;
+}*/
+
+.img{
+	background:url(../imagenes/wiu.jpg);
+	background-repeat: no-repeat;
+	background-size:100% 100px;
+}
+
+.intra{
+	position: absolute; 
+	z-index: 1;
+	padding: 15px;
+	text-align:center;
+	/*padding:80px;*/
+	width:400px;
+	top:200px;
+	left:5px;
+/*	background:rgba(0,0,0,.3);*/
+}
+
+.ia a{
+	background: rgba(40,167,69,1);
+background: -moz-linear-gradient(top, rgba(40,167,69,1) 0%, rgba(36,40,41,1) 0%, rgba(23,162,184,1) 100%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(40,167,69,1)), color-stop(0%, rgba(36,40,41,1)), color-stop(100%, rgba(23,162,184,1)));
+background: -webkit-linear-gradient(top, rgba(40,167,69,1) 0%, rgba(36,40,41,1) 0%, rgba(23,162,184,1) 100%);
+background: -o-linear-gradient(top, rgba(40,167,69,1) 0%, rgba(36,40,41,1) 0%, rgba(23,162,184,1) 100%);
+background: -ms-linear-gradient(top, rgba(40,167,69,1) 0%, rgba(36,40,41,1) 0%, rgba(23,162,184,1) 100%);
+background: linear-gradient(to bottom, rgba(40,167,69,1) 0%, rgba(36,40,41,1) 0%, rgba(23,162,184,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#28a745', endColorstr='#17a2b8', GradientType=0 );
+}
+
+.texter{
+	/*background:#8f0222;*/
+	/*box-shadow:5px 5px 5px ;*/
+background: rgba(40,167,69,1);
+background: -moz-linear-gradient(top, rgba(40,167,69,1) 0%, rgba(36,40,41,1) 0%, rgba(23,162,184,1) 100%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(40,167,69,1)), color-stop(0%, rgba(36,40,41,1)), color-stop(100%, rgba(23,162,184,1)));
+background: -webkit-linear-gradient(top, rgba(40,167,69,1) 0%, rgba(36,40,41,1) 0%, rgba(23,162,184,1) 100%);
+background: -o-linear-gradient(top, rgba(40,167,69,1) 0%, rgba(36,40,41,1) 0%, rgba(23,162,184,1) 100%);
+background: -ms-linear-gradient(top, rgba(40,167,69,1) 0%, rgba(36,40,41,1) 0%, rgba(23,162,184,1) 100%);
+background: linear-gradient(to bottom, rgba(40,167,69,1) 0%, rgba(36,40,41,1) 0%, rgba(23,162,184,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#28a745', endColorstr='#17a2b8', GradientType=0 );
+
+border-radius: 9px 9px 0px 0px;
+-moz-border-radius: 9px 9px 0px 0px;
+-webkit-border-radius: 9px 9px 0px 0px;
+border: 0px solid #000000;
+}
+
+
+
+.carusel{
+	background:rgba(0,0,0,.5,#F2F2F2);
+}
+
+.pp{
+	padding: 5px;
+}
+
+.contain{
+	height: 150px;
+	width: 250px;
+	border-radius:10px 10px 10px;
+	background:rgba(0,0,0,.2);
+}
+
+.cons{
+	background:rgba(0,0,0,.3);
+	height: 100%;
+	width: 100%;
+}
+
+
+/*.intranet{
+	font-family:Arial;
+	text-align:center;
+	font-size:1.5em;
+	margin-bottom:5px;
+	padding:20px;
+	width:100%;
+	background:rgba(0,0,0,.5,#F2F2F2);
+}*/
+
+
+
+
+/*.row{
+	background:rgba(0,0,0,.5);
+}*/
