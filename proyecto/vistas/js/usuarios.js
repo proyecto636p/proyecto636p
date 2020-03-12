@@ -1,333 +1,220 @@
+/*=============================================
+SUBIENDO LA FOTO DEL USUARIO
+=============================================*/
+$(".nuevaFoto").change(function(){
 
-var tabla;
- 
- //Función que se ejecuta al inicio
-  function init(){
-
-      listar();
-
-      //cuando se da click al boton submit entonces se ejecuta la funcion guardaryeditar(e);
-	$("#usuario_form").on("submit",function(e)
-	{
-
-		guardaryeditar(e);	
-	})
-
-	 //cambia el titulo de la ventana modal cuando se da click al boton
-	$("#add_button").click(function(){
-
-		     //habilita los campos cuando se agrega un registro nuevo ya que cuando se editaba un registro asociado entonces aparecia deshabilitado los campos
-			 $("#cedula").attr('disabled', false);
-             $("#nombre").attr('disabled', false);
-             $("#apellido").attr('disabled', false);
-			
-			
-			$(".modal-title").text("Agregar Usuario");
-		
-	  });
-
-
-	   //Mostramos los permisos
-	   /*en este caso NO se envia un id_usuario ya que se va agregar un 
-	   usuario nuevo, solo se enviaría cuando se edita y ahí se enviaría el id_usuario
-	   que se está editando*/
-	   $.post("../ajax/usuario.php?op=permisos&id_usuario=",function(r){
-	        $("#permisos").html(r);
-	 });
-
-  }
-
-  //funcion que limpia los campos del formulario
-
-   function limpiar(){
-
-   	$("#cedula").val("");
-   	$('#nombre').val("");
-	$('#apellido').val("");
-	$('#cargo').val("");
-	$('#usuario').val("");
-	$('#password1').val("");
-	$('#password2').val("");
-	$('#telefono').val("");
-	$('#email').val("");
-	$('#direccion').val("");
-	$('#estado').val("");
-	$('#id_usuario').val("");
-	//limpia los checkbox
-	$('input:checkbox').removeAttr('checked');
-   }
-
-    //function listar 
-
-    function listar(){
-
-    	tabla=$('#usuario_data').dataTable({
-
-    	"aProcessing": true,//Activamos el procesamiento del datatables
-	    "aServerSide": true,//Paginación y filtrado realizados por el servidor
-	    dom: 'Bfrtip',//Definimos los elementos del control de tabla
-	    buttons: [		          
-		            'copyHtml5',
-		            'excelHtml5',
-		            'csvHtml5',
-		            'pdf'
-		        ],
-
-		"ajax":
-
-		   {
-					url: '../ajax/usuario.php?op=listar',
-					type : "get",
-					dataType : "json",						
-					error: function(e){
-						console.log(e.responseText);	
-					}
-				},
-
-	     "bDestroy": true,
-		"responsive": true,
-		"bInfo":true,
-		"iDisplayLength": 10,//Por cada 10 registros hace una paginación
-	    "order": [[ 0, "desc" ]],//Ordenar (columna,orden)
-
-	    "language": {
- 
-			    "sProcessing":     "Procesando...",
-			 
-			    "sLengthMenu":     "Mostrar _MENU_ registros",
-			 
-			    "sZeroRecords":    "No se encontraron resultados",
-			 
-			    "sEmptyTable":     "Ningún dato disponible en esta tabla",
-			 
-			    "sInfo":           "Mostrando un total de _TOTAL_ registros",
-			 
-			    "sInfoEmpty":      "Mostrando un total de 0 registros",
-			 
-			    "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
-			 
-			    "sInfoPostFix":    "",
-			 
-			    "sSearch":         "Buscar:",
-			 
-			    "sUrl":            "",
-			 
-			    "sInfoThousands":  ",",
-			 
-			    "sLoadingRecords": "Cargando...",
-			 
-			    "oPaginate": {
-			 
-			        "sFirst":    "Primero",
-			 
-			        "sLast":     "Último",
-			 
-			        "sNext":     "Siguiente",
-			 
-			        "sPrevious": "Anterior"
-			 
-			    },
-			 
-			    "oAria": {
-			 
-			        "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
-			 
-			        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
-			 
-			    }
-
-			   }//cerrando language
-
-
-
-
-    	}).DataTable();
-    }
-    
-     //Mostrar datos del usuario en la ventana modal del formulario 
-
-     function mostrar(id_usuario){
-
-     $.post("../ajax/usuario.php?op=mostrar",{id_usuario : id_usuario}, function(data, status)
+	var imagen = this.files[0];
 	
-		{ 
+	/*=============================================
+  	VALIDAMOS EL FORMATO DE LA IMAGEN SEA JPG O PNG
+  	=============================================*/
 
-         data = JSON.parse(data);
+  	if(imagen["type"] != "image/jpeg" && imagen["type"] != "image/png"){
 
-                 //si existe la cedula_relacion entonces tiene relacion con otras tablas
-				if(data.cedula_relacion){
+  		$(".nuevaFoto").val("");
 
-						$('#usuarioModal').modal('show');
+  		 swal({
+		      title: "Error al subir la imagen",
+		      text: "¡La imagen debe estar en formato JPG o PNG!",
+		      type: "error",
+		      confirmButtonText: "¡Cerrar!"
+		    });
 
-						$('#cedula').val(data.cedula_relacion);
-						
-						//desactiva el campo
-		                $("#cedula").attr('disabled', 'disabled');
+  	}else if(imagen["size"] > 2000000){
 
-						$('#nombre').val(data.nombre);
-						
-						//desactiva el campo
-		                $("#nombre").attr('disabled', 'disabled');
+  		$(".nuevaFoto").val("");
 
-						$('#apellido').val(data.apellido);
+  		 swal({
+		      title: "Error al subir la imagen",
+		      text: "¡La imagen no debe pesar más de 2MB!",
+		      type: "error",
+		      confirmButtonText: "¡Cerrar!"
+		    });
 
-						//desactiva el campo
-		                $("#apellido").attr('disabled', 'disabled');
+  	}else{
 
-						$('#cargo').val(data.cargo);
-						$('#usuario').val(data.usuario);
-						$('#password1').val(data.password1);
-						$('#password2').val(data.password2);
-						$('#telefono').val(data.telefono);
-						$('#email').val(data.correo);
-						$('#direccion').val(data.direccion);
-						$('#estado').val(data.estado);
-						$('.modal-title').text("Editar Usuario");
-						$('#id_usuario').val(id_usuario);
+  		var datosImagen = new FileReader;
+  		datosImagen.readAsDataURL(imagen);
 
-				  } else{
+  		$(datosImagen).on("load", function(event){
 
-                        $('#usuarioModal').modal('show');
-						$('#cedula').val(data.cedula);
-						$("#cedula").attr('disabled', false);
-						$('#nombre').val(data.nombre);
-						$("#nombre").attr('disabled', false);
-						$('#apellido').val(data.apellido);
-                        $("#apellido").attr('disabled', false);
-                        $('#cargo').val(data.cargo);
-						$('#usuario').val(data.usuario);
-						$('#password1').val(data.password1);
-						$('#password2').val(data.password2);
-						$('#telefono').val(data.telefono);
-						$('#email').val(data.correo);
-						$('#direccion').val(data.direccion);
-						$('#estado').val(data.estado);
-						$('.modal-title').text("Editar Usuario");
-						$('#id_usuario').val(id_usuario);
-                        
+  			var rutaImagen = event.target.result;
 
-				   }		
+  			$(".previsualizar").attr("src", rutaImagen);
 
-		});
+  		})
 
-         //muestra los checkbox en la ventana modal de usuarios
-		$.post("../ajax/usuario.php?op=permisos&id_usuario="+id_usuario,function(r){
-	        $("#permisos").html(r);
-	    });
+  	}
+})
 
-   }
+/*=============================================
+EDITAR USUARIO
+=============================================*/
+$(".tablas").on("click", ".btnEditarUsuario", function(){
 
-    //la funcion guardaryeditar(e); se llama cuando se da click al boton submit  
-      
-      function guardaryeditar(e){
+	var idUsuario = $(this).attr("idUsuario");
+	
+	var datos = new FormData();
+	datos.append("idUsuario", idUsuario);
 
-      	e.preventDefault(); //No se activará la acción predeterminada del evento
-      	var formData = new FormData($("#usuario_form")[0]);
+	$.ajax({
 
-      	  var password1= $("#password1").val();
-	      var password2= $("#password2").val();
-            
-             //si el password conincide entonces se envia el formulario
-	         if(password1 == password2){
+		url:"ajax/usuarios.ajax.php",
+		method: "POST",
+		data: datos,
+		cache: false,
+		contentType: false,
+		processData: false,
+		dataType: "json",
+		success: function(respuesta){
+			
+			$("#editarNombre").val(respuesta["nombre"]);
+			$("#editarUsuario").val(respuesta["usuario"]);
+			$("#editarPerfil").html(respuesta["perfil"]);
+			$("#editarPerfil").val(respuesta["perfil"]);
+			$("#fotoActual").val(respuesta["foto"]);
 
-               $.ajax({
+			$("#passwordActual").val(respuesta["password"]);
 
-               	    url: "../ajax/usuario.php?op=guardaryeditar",
-				    type: "POST",
-				    data: formData,
-				    contentType: false,
-				    processData: false,
+			if(respuesta["foto"] != ""){
 
-				    success: function(datos){
+				$(".previsualizar").attr("src", respuesta["foto"]);
 
-				    	console.log(datos);
+			}
 
-				    	$('#usuario_form')[0].reset();
-						$('#usuarioModal').modal('hide');
+		}
 
-						$('#resultados_ajax').html(datos);
-						$('#usuario_data').DataTable().ajax.reload();
-				
-                        limpiar();
+	});
 
-				    }
-               });
+})
 
-	         } //cierre de la validacion
+/*=============================================
+ACTIVAR USUARIO
+=============================================*/
+$(".tablas").on("click", ".btnActivar", function(){
 
+	var idUsuario = $(this).attr("idUsuario");
+	var estadoUsuario = $(this).attr("estadoUsuario");
 
-	         else {
+	var datos = new FormData();
+ 	datos.append("activarId", idUsuario);
+  	datos.append("activarUsuario", estadoUsuario);
 
-                 bootbox.alert("No coincide el password");
-	         }
+  	$.ajax({
 
-      }  
-       
-       //EDITAR ESTADO DEL USUARIO
-       //importante:id_usuario, est se envia por post via ajax
-       function cambiarEstado(id_usuario,est){
-            
-        bootbox.confirm("¿Está Seguro de cambiar de estado?", function(result){
-		if(result)
-		{
-           
-           $.ajax({
-				url:"../ajax/usuario.php?op=activarydesactivar",
-				 method:"POST",
-				
-				//toma el valor del id y del estado
-				data:{id_usuario:id_usuario, est:est},
-				
-				success: function(data){
-                 
-                  $('#usuario_data').DataTable().ajax.reload();
-			    
-			    }
+	  url:"ajax/usuarios.ajax.php",
+	  method: "POST",
+	  data: datos,
+	  cache: false,
+      contentType: false,
+      processData: false,
+      success: function(respuesta){
 
-			});
+	      	if(window.matchMedia("(max-width:767px)").matches){
+
+	      		 swal({
+			      title: "El usuario ha sido actualizado",
+			      type: "success",
+			      confirmButtonText: "¡Cerrar!"
+			    }).then(function(result) {
+			        if (result.value) {
+
+			        	window.location = "usuarios";
+
+			        }
 
 
-       }
-
-		 });//bootbox
-
-       } 
-
-
-        //ELIMINAR USUARIO
-
-	 function eliminar(id_usuario){
-
-   
-	    bootbox.confirm("¿Está Seguro de eliminar el usuario?", function(result){
-		if(result)
-		{
-
-				$.ajax({
-					url:"../ajax/usuario.php?op=eliminar_usuario",
-					method:"POST",
-					data:{id_usuario:id_usuario},
-
-					success:function(data)
-					{
-						//alert(data);
-						$("#resultados_ajax").html(data);
-						$("#usuario_data").DataTable().ajax.reload();
-					}
 				});
 
-		      }
+	      	}
 
-		 });//bootbox
+      }
 
+  	})
 
-   }
+  	if(estadoUsuario == 0){
 
+  		$(this).removeClass('btn-success');
+  		$(this).addClass('btn-danger');
+  		$(this).html('Desactivado');
+  		$(this).attr('estadoUsuario',1);
 
+  	}else{
 
-  init();
+  		$(this).addClass('btn-success');
+  		$(this).removeClass('btn-danger');
+  		$(this).html('Activado');
+  		$(this).attr('estadoUsuario',0);
 
- 
+  	}
+
+})
+
+/*=============================================
+REVISAR SI EL USUARIO YA ESTÁ REGISTRADO
+=============================================*/
+
+$("#nuevoUsuario").change(function(){
+
+	$(".alert").remove();
+
+	var usuario = $(this).val();
+
+	var datos = new FormData();
+	datos.append("validarUsuario", usuario);
+
+	 $.ajax({
+	    url:"ajax/usuarios.ajax.php",
+	    method:"POST",
+	    data: datos,
+	    cache: false,
+	    contentType: false,
+	    processData: false,
+	    dataType: "json",
+	    success:function(respuesta){
+	    	
+	    	if(respuesta){
+
+	    		$("#nuevoUsuario").parent().after('<div class="alert alert-warning">Este usuario ya existe en la base de datos</div>');
+
+	    		$("#nuevoUsuario").val("");
+
+	    	}
+
+	    }
+
+	})
+})
+
+/*=============================================
+ELIMINAR USUARIO
+=============================================*/
+$(".tablas").on("click", ".btnEliminarUsuario", function(){
+
+  var idUsuario = $(this).attr("idUsuario");
+  var fotoUsuario = $(this).attr("fotoUsuario");
+  var usuario = $(this).attr("usuario");
+
+  swal({
+    title: '¿Está seguro de borrar el usuario?',
+    text: "¡Si no lo está puede cancelar la accíón!",
+    type: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      cancelButtonText: 'Cancelar',
+      confirmButtonText: 'Si, borrar usuario!'
+  }).then(function(result){
+
+    if(result.value){
+
+      window.location = "index.php?ruta=usuarios&idUsuario="+idUsuario+"&usuario="+usuario+"&fotoUsuario="+fotoUsuario;
+
+    }
+
+  })
+
+})
 
 
 
