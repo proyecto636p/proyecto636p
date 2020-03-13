@@ -25,56 +25,14 @@
 				</a>
 
 			</li>
-
-			<li>
-
-				<a href="categorias">
-
-					<i class="fa fa-th"></i>
-					<span>Categorías</span>
-
-				</a>
-
-			</li>
-
-			<li>
-
-				<a href="productos">
-
-					<i class="fa fa-product-hunt"></i>
-					<span>Productos</span>
-
-				</a>
-
-			</li>
-
-			<li>
-
-				<a href="clientes">
-
-					<i class="fa fa-users"></i>
-					<span>Clientes</span>
-
-				</a>
-
-			</li>
-			<li>
-
-				<a href="modelo">
-
-					<i class="fa fa-users"></i>
-					<span>modelo</span>
-
-				</a>
-
-			</li>
+			
 			<li class="treeview">
 
 				<a href="#">
 
 					<i class="fa fa-list-ul"></i>
 					
-					<span>Ventas</span>
+					<span>Inventarios</span>
 					
 					<span class="pull-right-container">
 					
@@ -85,44 +43,162 @@
 				</a>
 
 				<ul class="treeview-menu">
-					
-					<li>
+				    <li class="treeview">
 
-						<a href="ventas">
-							
-							<i class="fa fa-circle-o"></i>
-							<span>Administrar ventas</span>
+                         <a href="#">
 
-						</a>
+	                            <i class="fa fa-list-ul"></i>
+	
+	                              <span>Equipos</span>
+	
+	                               <span class="pull-right-container">
+	
+		                              <i class="fa fa-angle-left pull-right"></i>
 
-					</li>
+	                              </span>
 
-					<li>
+                        </a>
 
-						<a href="crear-venta">
-							
-							<i class="fa fa-circle-o"></i>
-							<span>Crear venta</span>
+                               <ul class="treeview-menu">
+		                           <li>
+	                                   <a href="categorias">
+		                                   <i class="fa fa-circle-o"></i>
+		                                   <span>Categorías</span>
+                                      	</a>
+                                </li>
+								<li>
+                                        <a href="tipos">
+										      <i class="fa fa-circle-o"></i>
+	                                              <span>Tipos</span>
+                                       </a>
+                                </li>             
+								<li>
+	           	                    <a href="marcas">
+		                	              <i class="fa fa-circle-o"></i>
+			                           	<span>Marcas</span>
+		            	            </a>
+	                          </li>
+	                        <li>
+	                      	  <a href="modelo">
+				                 <i class="fa fa-circle-o"></i>
+				                  <span>modelos</span>
+		                      </a>
+	                   </li>
+	                   <li>
+				        <a href="productos">
+						<i class="fa fa-circle-o"></i>
+						 <span>Equipos</span>
+				  </a>
+	  </li>
 
-						</a>
+     </ul>
 
-					</li>
+   </li>	
+   <li class="treeview">
 
-					<li>
+<a href="#">
 
-						<a href="reportes">
-							
-							<i class="fa fa-circle-o"></i>
-							<span>Reporte de ventas</span>
+	<i class="fa fa-list-ul"></i>
+	
+	<span>Consumibles</span>
+	
+	<span class="pull-right-container">
+	
+		<i class="fa fa-angle-left pull-right"></i>
 
-						</a>
+	</span>
 
-					</li>
+</a>
 
-				</ul>
+<ul class="treeview-menu">
+	
+	<li>
 
-			</li>
+	<a href="categorias">
 
+		 <i class="fa fa-circle-o"></i>
+		<span>Categorías</span>
+
+	</a>
+
+   </li>
+
+   <li>
+
+		   <a href="marcas">
+
+			   <i class="fa fa-circle-o"></i>
+				<span>Marcas</span>
+
+			</a>
+
+	</li>
+	<li>
+
+		  <a href="modelo">
+
+				 <i class="fa fa-circle-o"></i>
+				 <span>modelos</span>
+
+		   </a>
+
+	 </li>
+	 <li>
+
+				  <a href="productos">
+
+						<i class="fa fa-circle-o"></i>
+						 <span>Comsumibles</span>
+
+				  </a>
+
+	            </li>
+
+             </ul>
+
+          </li>
+
+
+        </ul>
+
+      </li>
+		
+
+		        <li>
+                 <a href="clientes">
+	                <i class="fa fa-users"></i>
+	                <span>Clientes</span>
+                  </a>
+             </li>
+             <li class="treeview">
+                     <a href="#">
+	                    <i class="fa fa-list-ul"></i>
+		                      <span>Ventas</span>
+		                        <span class="pull-right-container">
+			                    <i class="fa fa-angle-left pull-right"></i>
+	                      </span>
+                    </a>
+                   <ul class="treeview-menu">
+	           	      <li>
+		                  <a href="ventas">
+						    <i class="fa fa-circle-o"></i>
+			                <span>Administrar ventas</span>
+		                  </a>
+	                 </li>
+	                  <li>
+	                 	<a href="crear-venta">
+					        <i class="fa fa-circle-o"></i>
+		                 	<span>Crear venta</span>
+		                </a>
+                      </li>
+	                  <li>
+	                    	<a href="reportes">
+		            	      <i class="fa fa-circle-o"></i>
+		             	      <span>Reporte de ventas</span>
+		                   </a>
+	                  </li>
+                 </ul>
+             </li>
 		</ul>
 
 	 </section>

@@ -48,7 +48,7 @@ $(".tablas").on("click", ".btnEliminarModelo", function(){
 
 	 	if(result.value){
 
-	 		window.location = "index.php?ruta=modelos&idModelo="+idModelo;
+	 		window.location = "index.php?ruta=modelo&idModelo="+idModelo;
 
 	 	}
 

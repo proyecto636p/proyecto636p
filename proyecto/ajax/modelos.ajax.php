@@ -9,14 +9,14 @@ class AjaxModelos{
 	EDITAR MODELOS
 	=============================================*/	
 
-	public $idModelos;
+	public $idModelo;
 
 	public function ajaxEditarModelos(){
 
 		$item = "id";
-		$valor = $this->idModelos;
+		$valor = $this->idModelo;
 
-		$respuesta = ControladorModelos::ctrMostrarModelos($item, $valor);
+		$respuesta = ControladorModelo::ctrMostrarModelos($item, $valor);
 
 		echo json_encode($respuesta);
 
@@ -26,9 +26,9 @@ class AjaxModelos{
 /*=============================================
 EDITAR MODELOS
 =============================================*/	
-if(isset($_POST["idModelos"])){
+if(isset($_POST["idModelo"])){
 
 	$modelos = new AjaxModelos();
-	$modelos -> idModelos = $_POST["idModelos"];
+	$modelos -> idModelo = $_POST["idModelo"];
 	$modelos -> ajaxEditarModelos();
 }

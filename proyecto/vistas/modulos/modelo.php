@@ -61,7 +61,7 @@
            
             echo ' <tr>
 
-                    <td>'.($key+1).'</td>
+                   <td>'.$value["id"].'</td>
 
                     <td class="text-uppercase">'.$value["modelo"].'</td>
 
