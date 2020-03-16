@@ -12,8 +12,8 @@ class ModeloTipos{
 
 		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(descripcion, idcategoriaf) VALUES (:descripcion, :idcategoriaf)");
 
-		$stmt->bindParam(":descripcion", $datos, PDO::PARAM_STR);
-		$stmt->bindParam(":idcategoriaf", $datos, PDO::PARAM_STR);
+		$stmt->bindParam(":descripcion", $datos["descripcion"], PDO::PARAM_STR);
+		$stmt->bindParam(":idcategoriaf", $datos["idcategoriaf"], PDO::PARAM_STR);
 
 		if($stmt->execute()){
 
@@ -61,6 +61,8 @@ class ModeloTipos{
 		$stmt = null;
 
 	}
+
+	
 
 	/*=============================================
 	EDITAR TIPO

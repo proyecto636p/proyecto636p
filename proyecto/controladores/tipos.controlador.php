@@ -14,7 +14,9 @@ class ControladorTipos{
 
 				$tabla = "tipos";
 
-				$datos = $_POST["nuevoTipo"];
+				$datos = array("descripcion" => $_POST["nuevoTipo"] ,
+				               "idcategoriaf" => $_POST["nuevaCategoria"]) ;
+				
 				
 
 				$respuesta = ModeloTipos::mdlIngresarTipo($tabla, $datos);

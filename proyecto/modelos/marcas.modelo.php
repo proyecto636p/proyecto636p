@@ -12,8 +12,8 @@ class ModeloMarcas{
 
 		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(descripcion, idtipof) VALUES (:descripcion, :idtipof)");
 
-		$stmt->bindParam(":descripcion", $datos, PDO::PARAM_STR);
-		$stmt->bindParam(":idtipof", $datos, PDO::PARAM_STR);
+		$stmt->bindParam(":descripcion", $datos["descripcion"], PDO::PARAM_STR);
+		$stmt->bindParam(":idtipof", $datos["idtipof"], PDO::PARAM_STR);
 
 		if($stmt->execute()){
 

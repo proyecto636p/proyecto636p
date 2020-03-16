@@ -10,9 +10,10 @@ class ModeloModelos{
 
 	static public function mdlIngresarModelo($tabla, $datos){
 
-		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(modelo) VALUES (:modelos)");
+		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(modelo,idmarcaf) VALUES (:modelos,:idmarcaf)");
 
-		$stmt->bindParam(":modelos", $datos, PDO::PARAM_STR);
+		$stmt->bindParam(":modelos", $datos["descripcion"], PDO::PARAM_STR);
+		$stmt->bindParam(":idmarcaf", $datos["idmarcaf"], PDO::PARAM_STR);
 
 		if($stmt->execute()){
 

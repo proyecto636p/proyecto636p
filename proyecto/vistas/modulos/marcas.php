@@ -139,6 +139,38 @@ MODAL AGREGAR MARCA
               </div>
 
             </div>
+
+                                            <!-- ENTRADA PARA SELECCIONAR CATEGORÍA -->
+
+                                            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+
+                <select class="form-control input-lg" id="nuevoTipo" name="nuevoTipo" required>
+                  
+                  <option value="">Selecionar Tipo</option>
+
+                  <?php
+
+                  $item = null;
+                  $valor = null;
+
+                  $categorias = ControladorTipos::ctrMostrarTipos($item, $valor);
+
+                  foreach ($categorias as $key => $value) {
+                    
+                    echo '<option value="'.$value["id"].'">'.$value["descripcion"].'</option>';
+                  }
+
+                  ?>
+  
+                </select>
+
+              </div>
+
+            </div>  
   
           </div>
 

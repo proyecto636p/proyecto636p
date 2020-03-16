@@ -4,7 +4,7 @@
     
     <h1>
       
-      Administrar productos
+      Administrar Equipos
     
     </h1>
 
@@ -12,7 +12,7 @@
       
       <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
       
-      <li class="active">Administrar productos</li>
+      <li class="active">Administrar Equipos</li>
     
     </ol>
 
@@ -26,7 +26,7 @@
   
         <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarProducto">
           
-          Agregar producto
+          Agregar Equipo
 
         </button>
 
@@ -87,7 +87,7 @@ MODAL AGREGAR PRODUCTO
 
           <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-          <h4 class="modal-title">Agregar producto</h4>
+          <h4 class="modal-title">Agregar Equipo</h4>
 
         </div>
 
@@ -146,15 +146,33 @@ MODAL AGREGAR PRODUCTO
 
             </div>
 
-            <!-- ENTRADA PARA LA DESCRIPCIÓN -->
+              <!-- ENTRADA PARA LA DESCRIPCIÓN -->
 
-             <div class="form-group">
+              <div class="form-group">
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-product-hunt"></i></span> 
+                <span class="input-group-addon"><i  class="fa fa-product-hunt"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nuevaDescripcion" placeholder="Ingresar descripción" required>
+                <select class="form-control input-lg" id="nuevaDescripcion" name="nuevaDescripcion" required>
+                  
+                  <option value="">Selecionar Descripcion</option>
+
+                  <?php
+
+                  $item = null;
+                  $valor = null;
+
+                  $tipos = ControladorTipos::ctrMostrarTipos($item, $valor);
+
+                  foreach ($tipos as $key => $value) {
+                    
+                    echo '<option value="'.$value["descripcion"].'">'.$value["descripcion"].'</option>';
+                  }
+
+                  ?>
+  
+                </select>
 
               </div>
 
@@ -264,7 +282,7 @@ MODAL AGREGAR PRODUCTO
 
           <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
 
-          <button type="submit" class="btn btn-primary">Guardar producto</button>
+          <button type="submit" class="btn btn-primary">Guardar Equipo</button>
 
         </div>
 
@@ -303,7 +321,7 @@ MODAL EDITAR PRODUCTO
 
           <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-          <h4 class="modal-title">Editar producto</h4>
+          <h4 class="modal-title">Editar Equipo</h4>
 
         </div>
 
@@ -342,7 +360,7 @@ MODAL EDITAR PRODUCTO
               
                 <span class="input-group-addon"><i class="fa fa-code"></i></span> 
 
-                <input type="text" class="form-control input-lg" id="editarCodigo" name="editarCodigo" readonly required>
+                <input type="text" class="form-control input-lg" | name="editarCodigo" readonly required>
 
               </div>
 

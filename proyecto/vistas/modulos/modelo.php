@@ -139,6 +139,39 @@ MODAL AGREGAR MODELO
               </div>
 
             </div>
+
+            
+                                <!-- ENTRADA PARA SELECCIONAR MARCA -->
+
+                                <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+
+                <select class="form-control input-lg" id="nuevaMarca" name="nuevaMarca" required>
+                  
+                  <option value="">Selecionar marca</option>
+
+                  <?php
+
+                  $item = null;
+                  $valor = null;
+
+                  $marcas = ControladorMarcas::ctrMostrarMarcas($item, $valor);
+
+                  foreach ($marcas as $key => $value) {
+                    
+                    echo '<option value="'.$value["id"].'">'.$value["descripcion"].'</option>';
+                  }
+
+                  ?>
+  
+                </select>
+
+              </div>
+
+            </div>  
   
           </div>
 

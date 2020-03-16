@@ -40,7 +40,7 @@ class ModeloClientes{
 
 	static public function mdlMostrarClientes($tabla, $item, $valor){
 
-		if($item != null){
+		if($item == "id"){
 
 			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :$item");
 
@@ -49,6 +49,17 @@ class ModeloClientes{
 			$stmt -> execute();
 
 			return $stmt -> fetch();
+
+		}if($item == "nombre"){
+
+			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE $item = :$item");
+
+			$stmt -> bindParam(":".$item, $valor, PDO::PARAM_STR);
+
+			$stmt -> execute();
+
+			return $stmt -> fetchAll();
+
 
 		}else{
 

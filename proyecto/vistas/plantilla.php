@@ -88,7 +88,9 @@ session_start();
 CUERPO DOCUMENTO
 ======================================-->
 
-<body class="hold-transition skin-blue sidebar-collapse sidebar-mini login-page">
+<!-- agregar para que inicie mini  sidebar-collapse-->
+
+<body class="hold-transition skin-blue  sidebar-mini login-page">
  
   <?php
 
@@ -105,14 +107,17 @@ CUERPO DOCUMENTO
     /*=============================================
     MENU
     =============================================*/
-
+    if($_SESSION["iniciarSesion"] == "ok" && $_SESSION["perfil"] == "Administrador"){
     include "modulos/menu.php";
+    }else{
+      include "modulos/menu2.php";
+    }
 
     /*=============================================
     CONTENIDO
     =============================================*/
 
-    if(isset($_GET["ruta"])){
+    if(isset($_GET["ruta"])&& $_SESSION["perfil"] == "Administrador"){
 
       if($_GET["ruta"] == "inicio" ||
          $_GET["ruta"] == "usuarios" ||
@@ -121,6 +126,7 @@ CUERPO DOCUMENTO
          $_GET["ruta"] == "marcas" ||
          $_GET["ruta"] == "modelo" ||
          $_GET["ruta"] == "productos" ||
+         $_GET["ruta"] == "equipos" ||
          $_GET["ruta"] == "clientes" ||
          $_GET["ruta"] == "ventas" ||
          $_GET["ruta"] == "crear-venta" ||
@@ -135,9 +141,27 @@ CUERPO DOCUMENTO
 
       }
 
-    }else{
+    }if(isset($_GET["ruta"])&& $_SESSION["perfil"] == "Vendedor"){
+      if($_GET["ruta"] == "inicio" ||
+      $_GET["ruta"] == "usuarios" ||
+      $_GET["ruta"] == "equipos" ||
+      $_GET["ruta"] == "clientes" ||
+      $_GET["ruta"] == "ventas" ||
+      $_GET["ruta"] == "crear-venta" ||
+      $_GET["ruta"] == "reportes" ||
+      $_GET["ruta"] == "salir"){
 
-      include "modulos/inicio.php";
+     include "modulos/".$_GET["ruta"].".php";
+
+   }else{
+    echo '<script>alert("no tienes permiso")</script>';
+    include "modulos/inicio.php";
+   //  include "modulos/404.php";
+
+   }
+    }else {
+
+    
 
     }
 
@@ -165,7 +189,9 @@ CUERPO DOCUMENTO
 <script src="vistas/js/tipos.js"></script>
 <script src="vistas/js/marcas.js"></script>
 <script src="vistas/js/productos.js"></script>
+<script src="vistas/js/equipos.js"></script>
 <script src="vistas/js/clientes.js"></script>
+<script src="vistas/js/cargar.js"></script>
 
 </body>
 </html>

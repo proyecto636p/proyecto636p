@@ -42,22 +42,6 @@
 
 				</a>
 
-				<ul class="treeview-menu">
-				    <li class="treeview">
-
-                         <a href="#">
-
-	                            <i class="fa fa-list-ul"></i>
-	
-	                              <span>Equipos</span>
-	
-	                               <span class="pull-right-container">
-	
-		                              <i class="fa fa-angle-left pull-right"></i>
-
-	                              </span>
-
-                        </a>
 
                                <ul class="treeview-menu">
 		                           <li>
@@ -86,77 +70,16 @@
 	                   </li>
 	                   <li>
 				        <a href="productos">
-						<i class="fa fa-circle-o"></i>
-						 <span>Equipos</span>
-				  </a>
-	  </li>
-
-     </ul>
-
-   </li>	
-   <li class="treeview">
-
-<a href="#">
-
-	<i class="fa fa-list-ul"></i>
-	
-	<span>Consumibles</span>
-	
-	<span class="pull-right-container">
-	
-		<i class="fa fa-angle-left pull-right"></i>
-
-	</span>
-
-</a>
-
-<ul class="treeview-menu">
-	
-	<li>
-
-	<a href="categorias">
-
-		 <i class="fa fa-circle-o"></i>
-		<span>Categorías</span>
-
-	</a>
-
-   </li>
-
-   <li>
-
-		   <a href="marcas">
-
-			   <i class="fa fa-circle-o"></i>
-				<span>Marcas</span>
-
-			</a>
-
-	</li>
-	<li>
-
-		  <a href="modelo">
-
-				 <i class="fa fa-circle-o"></i>
-				 <span>modelos</span>
-
-		   </a>
-
-	 </li>
-	 <li>
-
-				  <a href="productos">
-
-						<i class="fa fa-circle-o"></i>
-						 <span>Comsumibles</span>
-
-				  </a>
-
-	            </li>
-
-             </ul>
-
-          </li>
+					     	<i class="fa fa-circle-o"></i>
+						       <span>Equipos</span>
+				        </a>
+	                   </li>
+					   <li>
+				        <a href="equipos">
+					     	<i class="fa fa-circle-o"></i>
+						       <span>Equipos2</span>
+				        </a>
+	                   </li>
 
 
         </ul>
@@ -167,7 +90,7 @@
 		        <li>
                  <a href="clientes">
 	                <i class="fa fa-users"></i>
-	                <span>Clientes</span>
+	                <span>Solicitudes</span>
                   </a>
              </li>
              <li class="treeview">

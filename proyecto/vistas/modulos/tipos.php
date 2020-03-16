@@ -139,10 +139,43 @@ MODAL AGREGAR TIPO
               </div>
 
             </div>
+
+                                <!-- ENTRADA PARA SELECCIONAR CATEGORÍA -->
+
+                                <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+
+                <select class="form-control input-lg" id="nuevaCategoria" name="nuevaCategoria" required>
+                  
+                  <option value="">Selecionar categoría</option>
+
+                  <?php
+
+                  $item = null;
+                  $valor = null;
+
+                  $categorias = ControladorCategorias::ctrMostrarCategorias($item, $valor);
+
+                  foreach ($categorias as $key => $value) {
+                    
+                    echo '<option value="'.$value["id"].'">'.$value["categoria"].'</option>';
+                  }
+
+                  ?>
+  
+                </select>
+
+              </div>
+
+            </div>  
   
           </div>
 
         </div>
+
 
         <!--=====================================
         PIE DEL MODAL

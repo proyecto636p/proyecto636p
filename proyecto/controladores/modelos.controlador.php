@@ -14,7 +14,9 @@ class ControladorModelo{
 
 				$tabla = "modelos";
 
-				$datos = $_POST["nuevoModelo"];
+				
+				$datos = array("descripcion" => $_POST["nuevoModelo"] ,
+				               "idmarcaf" => $_POST["nuevaMarca"]) ;
 
 				$respuesta = ModeloModelos::mdlIngresarModelo($tabla, $datos);
 

@@ -14,7 +14,8 @@ class ControladorMarcas{
 
 				$tabla = "marcas";
 
-				$datos = $_POST["nuevaMarca"];
+				$datos = array("descripcion" => $_POST["nuevaMarca"] ,
+				"idtipof" => $_POST["nuevoTipo"]) ;
 				
 
 				$respuesta = ModeloMarcas::mdlIngresarMarca($tabla, $datos);
