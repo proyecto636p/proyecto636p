@@ -38,7 +38,7 @@ session_start();
   <link rel="stylesheet" href="vistas/dist/css/skins/_all-skins.min.css">
 
   <!-- Google Font -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+  <link rel="stylesheet" href="vistas/plugins/sweetalert2/italic.js">
 
    <!-- DataTables -->
   <link rel="stylesheet" href="vistas/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
@@ -72,7 +72,7 @@ session_start();
   <!-- SweetAlert 2 -->
   <script src="vistas/plugins/sweetalert2/sweetalert2.all.js"></script>
   <!-- By default SweetAlert2 doesn't support IE. To enable IE 11 support, include Promise polyfill:-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
+ <script src="vistas/plugins/sweetalert2/core.js"></script>
 
   <!-- iCheck 1.0.1 -->
   <script src="vistas/plugins/iCheck/icheck.min.js"></script>
@@ -122,15 +122,15 @@ CUERPO DOCUMENTO
       if($_GET["ruta"] == "inicio" ||
          $_GET["ruta"] == "usuarios" ||
          $_GET["ruta"] == "categorias" ||
+         $_GET["ruta"] == "departamentos" ||
+         $_GET["ruta"] == "cargos" ||
+         $_GET["ruta"] == "personal" ||
          $_GET["ruta"] == "tipos" ||
          $_GET["ruta"] == "marcas" ||
          $_GET["ruta"] == "modelo" ||
          $_GET["ruta"] == "productos" ||
          $_GET["ruta"] == "equipos" ||
          $_GET["ruta"] == "clientes" ||
-         $_GET["ruta"] == "ventas" ||
-         $_GET["ruta"] == "crear-venta" ||
-         $_GET["ruta"] == "reportes" ||
          $_GET["ruta"] == "salir"){
 
         include "modulos/".$_GET["ruta"].".php";
@@ -146,9 +146,6 @@ CUERPO DOCUMENTO
       $_GET["ruta"] == "usuarios" ||
       $_GET["ruta"] == "equipos" ||
       $_GET["ruta"] == "clientes" ||
-      $_GET["ruta"] == "ventas" ||
-      $_GET["ruta"] == "crear-venta" ||
-      $_GET["ruta"] == "reportes" ||
       $_GET["ruta"] == "salir"){
 
      include "modulos/".$_GET["ruta"].".php";
@@ -192,6 +189,9 @@ CUERPO DOCUMENTO
 <script src="vistas/js/equipos.js"></script>
 <script src="vistas/js/clientes.js"></script>
 <script src="vistas/js/cargar.js"></script>
+<script src="vistas/js/departamentos.js"></script>
+<script src="vistas/js/cargos.js"></script>
+<script src="vistas/js/personal.js"></script>
 
 </body>
 </html>

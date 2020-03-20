@@ -4,7 +4,7 @@
     
     <h1>
       
-      Administrar marcas
+      Administrar Cargos
     
     </h1>
 
@@ -12,7 +12,7 @@
       
       <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
       
-      <li class="active">Administrar marcas</li>
+      <li class="active">Administrar Cargos</li>
     
     </ol>
 
@@ -24,9 +24,9 @@
 
       <div class="box-header with-border">
   
-        <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarMarca">
+        <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarCargo">
           
-          Agregar marca
+          Agregar Cargo
 
         </button>
 
@@ -41,7 +41,7 @@
          <tr>
            
            <th style="width:10px">#</th>
-           <th>Marcas</th>
+           <th>Cargos</th>
            <th>Acciones</th>
 
          </tr> 
@@ -55,13 +55,13 @@
           $item = null;
           $valor = null;
 
-          $marcas = ControladorMarcas::ctrMostrarMarcas($item, $valor);
+          $cargos = ControladorCargos::ctrMostrarCargos($item, $valor);
 
-          foreach ($marcas as $key => $value) {
+          foreach ($cargos as $key => $value) {
            
             echo ' <tr>
 
-                    <td>'.$value["id"].'</td>
+                    <td>'.($key+1).'</td>
 
                     <td class="text-uppercase">'.$value["descripcion"].'</td>
 
@@ -69,9 +69,9 @@
 
                       <div class="btn-group">
                           
-                        <button class="btn btn-warning btnEditarMarca" id="'.$value["id"].'" data-toggle="modal" data-target="#modalEditarMarca"><i class="fa fa-pencil"></i></button>
+                        <button class="btn btn-warning btnEditarCargo" idCargo="'.$value["id"].'" data-toggle="modal" data-target="#modalEditarCargo"><i class="fa fa-pencil"></i></button>
 
-                        <button class="btn btn-danger btnEliminarMarca" id="'.$value["id"].'"><i class="fa fa-times"></i></button>
+                        <button class="btn btn-danger btnEliminarCargo" idCargo="'.$value["id"].'"><i class="fa fa-times"></i></button>
 
                       </div>  
 
@@ -95,10 +95,10 @@
 </div>
 
 <!--=====================================
-MODAL AGREGAR MARCA
+MODAL AGREGAR CARGO
 ======================================-->
 
-<div id="modalAgregarMarca" class="modal fade" role="dialog">
+<div id="modalAgregarCargo" class="modal fade" role="dialog">
   
   <div class="modal-dialog">
 
@@ -114,7 +114,7 @@ MODAL AGREGAR MARCA
 
           <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-          <h4 class="modal-title">Agregar marca</h4>
+          <h4 class="modal-title">Agregar Cargo</h4>
 
         </div>
 
@@ -126,7 +126,7 @@ MODAL AGREGAR MARCA
 
           <div class="box-body">
 
-            <!-- ENTRADA PARA EL NOMBRE -->
+            <!-- ENTRADA PARA EL CARGO -->
             
             <div class="form-group">
               
@@ -134,32 +134,32 @@ MODAL AGREGAR MARCA
               
                 <span class="input-group-addon"><i class="fa fa-th"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nuevaMarca" placeholder="Ingresar Marca" required>
+                <input type="text" class="form-control input-lg" name="nuevoCargo" placeholder="Ingresar El Cargo" required>
 
               </div>
 
             </div>
 
-            <!-- ENTRADA PARA SELECCIONAR CATEGORÍA -->
+              <!-- ENTRADA PARA SELECCIONAR CATEGORÍA -->
 
-            <div class="form-group">
+              <div class="form-group">
               
               <div class="input-group">
               
                 <span class="input-group-addon"><i class="fa fa-th"></i></span> 
 
-                <select class="form-control input-lg" id="nuevoTipo" name="nuevoTipo" required>
+                <select class="form-control input-lg" id="nuevoDepartamento" name="nuevoDepartamento" required>
                   
-                  <option value="">Selecionar Tipo</option>
+                  <option value="">Selecionar Departamento</option>
 
                   <?php
 
                   $item = null;
                   $valor = null;
 
-                  $categorias = ControladorTipos::ctrMostrarTipos($item, $valor);
+                  $departamentos = ControladorDepartamentos::ctrMostrarDepartamentos($item, $valor);
 
-                  foreach ($categorias as $key => $value) {
+                  foreach ($departamentos as $key => $value) {
                     
                     echo '<option value="'.$value["id"].'">'.$value["descripcion"].'</option>';
                   }
@@ -184,14 +184,14 @@ MODAL AGREGAR MARCA
 
           <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
 
-          <button type="submit" class="btn btn-primary">Guardar marca</button>
+          <button type="submit" class="btn btn-primary">Guardar Cargo</button>
 
         </div>
 
         <?php
 
-          $crearMarca = new ControladorMarcas();
-          $crearMarca -> ctrCrearMarca();
+          $crearCargo = new ControladorCargos();
+          $crearCargo -> ctrCrearCargo();
 
         ?>
 
@@ -204,10 +204,10 @@ MODAL AGREGAR MARCA
 </div>
 
 <!--=====================================
-MODAL EDITAR MARCA
+MODAL EDITAR CARGO
 ======================================-->
 
-<div id="modalEditarMarca" class="modal fade" role="dialog">
+<div id="modalEditarCargo" class="modal fade" role="dialog">
   
   <div class="modal-dialog">
 
@@ -223,7 +223,7 @@ MODAL EDITAR MARCA
 
           <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-          <h4 class="modal-title">Editar marca</h4>
+          <h4 class="modal-title">Editar Cargo</h4>
 
         </div>
 
@@ -235,7 +235,7 @@ MODAL EDITAR MARCA
 
           <div class="box-body">
 
-            <!-- ENTRADA PARA LA DESCRIPCION -->
+            <!-- ENTRADA PARA EL CARGO -->
             
             <div class="form-group">
               
@@ -243,7 +243,7 @@ MODAL EDITAR MARCA
               
                 <span class="input-group-addon"><i class="fa fa-th"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="editarMarca" id="editarMarca" required>
+                <input type="text" class="form-control input-lg" name="editarCargo" id="editarCargo" required>
 
                  <input type="hidden"  name="id" id="id" required>
 
@@ -269,8 +269,8 @@ MODAL EDITAR MARCA
 
       <?php
 
-          $editarMarca = new ControladorMarcas();
-          $editarMarca -> ctrEditarMarca();
+          $editarCargo = new ControladorCargos();
+          $editarCargo -> ctrEditarCargo();
 
         ?> 
 
@@ -284,8 +284,8 @@ MODAL EDITAR MARCA
 
 <?php
 
-  $borrarMarca = new ControladorMarcas();
-  $borrarMarca -> ctrBorrarMarca();
+  $borrarCargo = new ControladorCargos();
+  $borrarCargo -> ctrBorrarCargo();
 
 ?>
 

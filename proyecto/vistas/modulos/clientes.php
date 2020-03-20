@@ -228,13 +228,16 @@ MODAL AGREGAR CLIENTE
 
             <!-- ENTRADA PARA EL EMAIL -->
             <div class="form-group">
-                         <div class="input-group">
-                                    <span class="input-group-addon"><i  class="fa fa-product-hunt"></i></span> 
-                             <select class="form-control input-lg"  name="nuevoEmail" readonly required>
-                                  <option value="en proceso">en proceso</option>
-                             </select>
-                         </div>
-                   </div>
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-key"></i></span> 
+
+                <input type="text" class="form-control input-lg"  name="nuevoEmail" placeholder="Ingresar su solicitud" required>
+
+              </div>
+
+            </div>
 
             <!-- ENTRADA PARA EL TELÉFONO -->
             

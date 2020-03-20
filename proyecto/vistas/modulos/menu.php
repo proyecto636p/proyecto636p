@@ -25,6 +25,24 @@
 				</a>
 
 			</li>
+			<li>
+                 <a href="departamentos">
+	                <i class="fa fa-users"></i>
+	                <span>Departamentos</span>
+                  </a>
+             </li>
+			 <li>
+                 <a href="cargos">
+	                <i class="fa fa-users"></i>
+	                <span>Cargos</span>
+                  </a>
+             </li>
+			 <li>
+                 <a href="personal">
+	                <i class="fa fa-users"></i>
+	                <span>Personal</span>
+                  </a>
+             </li>
 			
 			<li class="treeview">
 

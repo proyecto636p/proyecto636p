@@ -4,7 +4,7 @@
     
     <h1>
       
-      Administrar Equipos
+      Administrar Personal
     
     </h1>
 
@@ -12,7 +12,7 @@
       
       <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
       
-      <li class="active">Administrar Equipos</li>
+      <li class="active">Administrar Personal</li>
     
     </ol>
 
@@ -24,9 +24,9 @@
 
       <div class="box-header with-border">
   
-        <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarEquipo">
+        <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarPersonal">
           
-          Agregar Equipo
+          Agregar Personal
 
         </button>
 
@@ -34,23 +34,24 @@
 
       <div class="box-body">
         
-       <table class="table table-bordered table-striped dt-responsive tablaEquipos" width="100%">
+       <table class="table table-bordered table-striped dt-responsive tablaPersonal" width="100%">
          
         <thead>
          
          <tr>
            
-           <th>Código</th>
-           <th>Serial</th>
-           <th>Categoría</th>
-           <th>Descripción</th>
-           <th>Marca</th>
-           <th>Modelo</th>
-           <th>Estado</th>
-           <th>Stock</th>
-           <th>Asignacion</th>
-           <th>Agregado</th>
-           <th>Observacion</th>
+
+         <th>Cedula</th>
+           <th>Nombres</th>
+           <th>Apellidos</th>
+           <th>Email</th>
+           <th>Teléfono</th>
+           <th>Dirección</th>
+           <th>Fecha Nacimiento</th> 
+           <th>Departamento</th>
+           <th>Cargo</th>
+           <th>Status</th>
+           <th>Ingreso al sistema</th>
            <th>Acciones</th>
            
          </tr> 
@@ -70,10 +71,10 @@
 </div>
 
 <!--=====================================
-MODAL AGREGAR PRODUCTO
+MODAL AGREGAR PERSONAL
 ======================================-->
 
-<div id="modalAgregarEquipo" class="modal fade" role="dialog">
+<div id="modalAgregarPersonal" class="modal fade" role="dialog">
   
   <div class="modal-dialog">
 
@@ -89,7 +90,7 @@ MODAL AGREGAR PRODUCTO
 
           <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-          <h4 class="modal-title">Agregar Equipo</h4>
+          <h4 class="modal-title">Agregar Personal</h4>
 
         </div>
 
@@ -97,50 +98,120 @@ MODAL AGREGAR PRODUCTO
         CUERPO DEL MODAL
         ======================================-->
 
+
         <div class="modal-body">
 
           <div class="box-body">
 
-
-            <!-- ENTRADA PARA SELECCIONAR CATEGORÍA -->
-
-            <div class="form-group">
+                      <!-- ENTRADA PARA EL DOCUMENTO ID -->
+            
+                      <div class="form-group">
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-key"></i></span> 
 
-                <select class="form-control input-lg" id="nuevaCategoria" name="nuevaCategoria" required>
-  
-                </select>
+                <input type="text" class="form-control input-lg" name="nuevoDocumentoId" placeholder="Ingresar su Cedula" required>
 
               </div>
 
             </div>
 
-            <!-- ENTRADA PARA EL CÓDIGO -->
+            <!-- ENTRADA PARA LOS NOMBRES -->
             
             <div class="form-group">
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-code"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-key"></i></span> 
 
-                <input type="text" class="form-control input-lg" id="nuevoCodigo" name="nuevoCodigo" placeholder="Ingresar código" readonly required>
+                <input type="text" class="form-control input-lg" name="nuevoNombres" placeholder="Ingresar sus Nombres" required>
+
+              </div>
+
+            </div>
+                        <!-- ENTRADA PARA LOS APELLIDOS -->
+            
+                        <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-key"></i></span> 
+
+                <input type="text" class="form-control input-lg" name="nuevoApellidos" placeholder="Ingresar sus Apellidos" required>
 
               </div>
 
             </div>
 
+
+
+            <!-- ENTRADA PARA EL EMAIL -->
+            
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-envelope"></i></span> 
+
+                <input type="email" class="form-control input-lg" name="nuevoEmail" placeholder="Ingresar email" required>
+
+              </div>
+
+            </div>
+
+
+            <!-- ENTRADA PARA EL TELÉFONO -->
+            
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-phone"></i></span> 
+
+                <input type="text" class="form-control input-lg" name="nuevoTelefono" placeholder="Ingresar teléfono" data-inputmask="'mask':'(999) 999-9999'" data-mask required>
+
+              </div>
+
+            </div>
+
+            <!-- ENTRADA PARA LA DIRECCIÓN -->
+            
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-map-marker"></i></span> 
+
+                <input type="text" class="form-control input-lg" name="nuevaDireccion" placeholder="Ingresar dirección" required>
+
+              </div>
+
+            </div>
+
+
+             <!-- ENTRADA PARA LA FECHA DE NACIMIENTO -->
+            
+             <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-calendar"></i></span> 
+
+                <input type="text" class="form-control input-lg" name="nuevaFechaNacimiento" placeholder="Ingresar fecha nacimiento" data-inputmask="'alias': 'yyyy/mm/dd'" data-mask required>
+
+              </div>
+
+            </div>
                           <!-- ENTRADA PARA LA DESCRIPCIÓN -->
 
                           <div class="form-group">
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i  class="fa fa-product-hunt"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
 
-                <select class="form-control input-lg" id="nuevaDescripcion" name="nuevaDescripcion" required>
+                <select class="form-control input-lg" id="nuevaDescripcion" name="nuevaDescripcion" >
                 </select>
 
               </div>
@@ -156,61 +227,23 @@ MODAL AGREGAR PRODUCTO
               
                 <span class="input-group-addon"><i  class="fa fa-product-hunt"></i></span> 
 
-                <select class="form-control input-lg" id="nuevaMarca" name="nuevaMarca" required>
-                  
-                  <option value="">Selecionar Marca</option>
-  
-                </select>
-
-              </div>
-
-            </div>
-
-                                      <!-- ENTRADA PARA EL MODELO -->
-
-                                      <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i  class="fa fa-product-hunt"></i></span> 
-
-                <select class="form-control input-lg" id="nuevaModelo" name="nuevaModelo" required>
-                  
-                  <option value="">Selecionar Modelo</option>
-  
-                </select>
-
-              </div>
-
-            </div>
-
-               <!-- ENTRADA PARA LA ASIGNACION -->
-
-              <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i  class="fa fa-product-hunt"></i></span> 
-
-                <select class="form-control input-lg" id="nuevoAsignado" name="nuevoAsignado" required>
-                  <option value="">Asignacion</option>
-                  <option value="no asignado"> no asignado</option>
-                  <option value="asignado">asignado</option>
+                <select class="form-control input-lg" id="nuevoCargo" name="nuevoCargo" >
 
                 </select>
 
               </div>
 
             </div>
-                           <!-- ENTRADA PARA EL STATUS -->
 
-                           <div class="form-group">
+             <!-- ENTRADA PARA EL STATUS -->
+
+               <div class="form-group">
               
               <div class="input-group">
               
                 <span class="input-group-addon"><i  class="fa fa-product-hunt"></i></span> 
 
-                <select class="form-control input-lg" id="nuevoEstado" name="nuevoEstado" required>
+                <select class="form-control input-lg"  name="nuevoStatus" required>
                   <option value="">Estado</option>
                   <option value="activo">activo</option>
                   <option value="inactivo">inactivo</option>
@@ -219,51 +252,9 @@ MODAL AGREGAR PRODUCTO
 
               </div>
 
-            </div>
-
-                         <!-- ENTRADA PARA SERIAL -->
-
-                         <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-check"></i></span> 
-
-                <input type="text" class="form-control input-lg" name="nuevoSerial"  placeholder="Serial" required>
-
-              </div>
-
-            </div>
-
-             <!-- ENTRADA PARA STOCK -->
-
-             <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-check"></i></span> 
-
-                <input type="number" class="form-control input-lg" name="nuevoStock" min="0" placeholder="Stock" required>
-
-              </div>
-
-            </div>
-
-            <!-- ENTRADA PARA LA OBSERVACION -->
-                 <div class="form-group">
-              
-              <div class="input-group">
-              
-                <span class="input-group-addon"><i class="fa fa-check"></i></span> 
-
-                <input type="text" class="form-control input-lg" name="nuevaObservacion"  placeholder="Observacion" required>
-
-              </div>
-
-            </div>
+            </div>    
 
         </div>
-
         <!--=====================================
         PIE DEL MODAL
         ======================================-->
@@ -272,7 +263,7 @@ MODAL AGREGAR PRODUCTO
 
           <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
 
-          <button type="submit" class="btn btn-primary">Guardar Equipo</button>
+          <button type="submit" class="btn btn-primary">Guardar Personal</button>
 
         </div>
 
@@ -280,9 +271,8 @@ MODAL AGREGAR PRODUCTO
 
         <?php
 
-          $crearEquipo = new ControladorEquipos();
-          $crearEquipo -> ctrCrearEquipo();
-
+$crearPersonal = new ControladorPersonals();
+$crearPersonal -> ctrCrearPersonal();
         ?>  
 
     </div>

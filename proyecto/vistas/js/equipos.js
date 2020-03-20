@@ -94,7 +94,7 @@ EDITAR EQUIPO
 $(".tablaEquipos tbody").on("click", "button.btnEditarEquipo",function(){
 
 	var idEquipo = $(this).attr("idEquipo");
-    console.log("idEquipo",idEquipo);
+    
 
     
 	var datos = new FormData();
