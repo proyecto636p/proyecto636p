@@ -37,20 +37,23 @@ $('.tablaPersonal').DataTable( {
 } );
 
 /*=============================================
-EDITAR EQUIPO
+EDITAR PERSONAL
 =============================================*/
 
-$(".tablaEquipos tbody").on("click", "button.btnEditarEquipo",function(){
+$(".tablaPersonal tbody").on("click", "button.btnEditarPersonal",function(){
 
-var idEquipo = $(this).attr("idEquipo");
+var id = $(this).attr("idPersonal");
+
+
 
   
 var datos = new FormData();
-  datos.append("idEquipo", idEquipo);
+
+  datos.append("id", id);
 
    $.ajax({
 
-    url:"ajax/equipos.ajax.php",
+    url:"ajax/personal.ajax.php",
     method: "POST",
     data: datos,
     cache: false,
@@ -59,83 +62,67 @@ var datos = new FormData();
     dataType:"json",
     success:function(respuesta){
         
-        var datosCategoria = new FormData();
-        datosCategoria.append("idCategoria",respuesta["categoria"]);
+         $("#editarCedula").val(respuesta["cedula"]);
 
-         $.ajax({
 
-            url:"ajax/categorias.ajax.php",
-            method: "POST",
-            data: datosCategoria,
-            cache: false,
-            contentType: false,
-            processData: false,
-            dataType:"json",
-            success:function(respuesta){
-                
-                $("#editarCategoria").val(respuesta["id"]);
-                $("#editarCategoria").html(respuesta["categoria"]);
-                
-            }
+         $("#editarNombres").val(respuesta["nombres"]);
 
-        })
+         $("#editarApellidos").val(respuesta["apellidos"]);
 
-         $("#editarCodigo").val(respuesta["codigo"]);
+         $("#editarEmail").val(respuesta["email"]);
 
-         var datosTipo = new FormData();
-         datosTipo.append("id",respuesta["tipo"]);
+         $("#editarTelefono").val(respuesta["telefono"]);
+
+         $("#editarDireccion").val(respuesta["direccion"]);
+
+         $("#editarFechaNac").val(respuesta["fecha_nac"]);
+
+         var datosDepartamentos = new FormData();
+         datosDepartamentos.append("idDepartamento",respuesta["departamento"]);
 
           $.ajax({
 
-             url:"ajax/tipos.ajax.php",
+             url:"ajax/departamentos.ajax.php",
              method: "POST",
-             data: datosTipo,
+             data: datosDepartamentos,
              cache: false,
              contentType: false,
              processData: false,
              dataType:"json",
              success:function(respuesta){
                  
-              $("#editarDescripcion").val(respuesta["id"]);
-                 $("#editarDescripcion").html(respuesta["descripcion"]);
+              $("#editarDepartamento").val(respuesta["id"]);
+              $("#editarDepartamento").html(respuesta["descripcion"]);
                  
              }
 
          })
 
-         var datosMarca = new FormData();
-         datosMarca.append("id",respuesta["marca"]);
-
+         var datosCargo = new FormData();
+         datosCargo.append("id",respuesta["cargo"]);
+ 
           $.ajax({
-
-             url:"ajax/marcas.ajax.php",
+ 
+             url:"ajax/cargos.ajax.php",
              method: "POST",
-             data: datosMarca,
+             data: datosCargo,
              cache: false,
              contentType: false,
              processData: false,
              dataType:"json",
              success:function(respuesta){
                  
-              $("#editarMarca").val(respuesta["id"]);
-              $("#editarMarca").html(respuesta["descripcion"]);
+                 $("#editarCargo").val(respuesta["id"]);
+                 $("#editarCargo").html(respuesta["descripcion"]);
                  
              }
-
+ 
          })
 
-         $("#editarModelo").html(respuesta["modelo"]);
-
-
-         $("#editarAsignado").val(respuesta["asignacion"]);
+         
 
          $("#editarEstado").val(respuesta["estado"]);
-
-         $("#editarSerial").val(respuesta["seriales"]);
-
-         $("#editarStock").val(respuesta["stock"]);
-
-         $("#editarObservacion").val(respuesta["observacion"]);
+         $("#editarEstado").html(respuesta["estado"]);
 
 
     }
@@ -145,28 +132,28 @@ var datos = new FormData();
 })
 
 /*=============================================
-ELIMINAR EQUIPO
+ELIMINAR PERSONAL
 =============================================*/
 
-$(".tablaEquipos tbody").on("click", "button.btnEliminarEquipo", function(){
+$(".tablaPersonal tbody").on("click", "button.btnEliminarPersonal", function(){
 
-var idEquipo = $(this).attr("idEquipo");
-var codigo = $(this).attr("codigo");
+var idPersonal = $(this).attr("idPersonal");
+var cedula = $(this).attr("cedula");
 
 swal({
 
-  title: '¿Está seguro de borrar el Equipo?',
+  title: '¿Está seguro de borrar el Personal?',
   text: "¡Si no lo está puede cancelar la accíón!",
   type: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
       cancelButtonText: 'Cancelar',
-      confirmButtonText: 'Si, borrar equipo!'
+      confirmButtonText: 'Si, borrar personal!'
       }).then(function(result){
       if (result.value) {
 
-        window.location = "index.php?ruta=equipos&idEquipo="+idEquipo+"&codigo="+codigo;
+        window.location = "index.php?ruta=personal&idPersonal="+idPersonal+"&cedula="+cedula;
 
       }
 

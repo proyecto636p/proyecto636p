@@ -26,12 +26,15 @@ class ControladorEquipos{
 
 			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoAsignado"])){
 
+		
+
+		
 		   		
 
 				$tabla = "equipos";
 
 				$datos = array("codigo" => $_POST["nuevoCodigo"],
-							   "seriales" => $_POST["nuevoSerial"],
+							   "seriales" => $_POST["nuevoCodigo"],
 							   "categoria" => $_POST["nuevaCategoria"],
 							   "tipo" => $_POST["nuevaDescripcion"],
 							   "marca" => $_POST["nuevaMarca"],

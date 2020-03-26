@@ -22,10 +22,19 @@ class ControladorUsuarios{
 
 				$respuesta = ModeloUsuarios::MdlMostrarUsuarios($tabla, $item, $valor);
 
+			/*	$tabla = "personal";
+
+				$item = "id";
+				$valor = $respuesta["nombre"];
+
+				$respuesta1 = ModeloPersonal::MdlMostrarPersonals($tabla, $item, $valor);*/
+
 				if($respuesta["usuario"] == $_POST["ingUsuario"] && $respuesta["password"] == $encriptar){
+
 
 					if($respuesta["estado"] == 1){
 
+						
 						$_SESSION["iniciarSesion"] = "ok";
 						$_SESSION["id"] = $respuesta["id"];
 						$_SESSION["nombre"] = $respuesta["nombre"];

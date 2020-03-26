@@ -15,34 +15,61 @@
 
 			</li>
 
-			<li>
 
-				<a href="usuarios">
 
-					<i class="fa fa-user"></i>
-					<span>Usuarios</span>
+			 <!----area de utilitario-->
+			 <li class="treeview">
 
-				</a>
+<a href="#">
 
-			</li>
-			<li>
-                 <a href="departamentos">
-	                <i class="fa fa-users"></i>
-	                <span>Departamentos</span>
-                  </a>
-             </li>
-			 <li>
-                 <a href="cargos">
-	                <i class="fa fa-users"></i>
-	                <span>Cargos</span>
-                  </a>
-             </li>
-			 <li>
-                 <a href="personal">
-	                <i class="fa fa-users"></i>
-	                <span>Personal</span>
-                  </a>
-             </li>
+	<i class="fa fa-list-ul"></i>
+	
+	<span>Utilitario</span>
+	
+	<span class="pull-right-container">
+	
+		<i class="fa fa-angle-left pull-right"></i>
+
+	</span>
+
+</a>
+
+
+			   <ul class="treeview-menu">
+			   <li>
+
+<a href="usuarios">
+
+	<i class="fa fa-user"></i>
+	<span>Usuarios</span>
+
+</a>
+
+</li>
+<li>
+ <a href="departamentos">
+	<i class="fa fa-users"></i>
+	<span>Departamentos</span>
+  </a>
+</li>
+<li>
+ <a href="cargos">
+	<i class="fa fa-users"></i>
+	<span>Cargos</span>
+  </a>
+</li>
+<li>
+ <a href="personal">
+	<i class="fa fa-users"></i>
+	<span>Personal</span>
+  </a>
+</li>
+
+
+</ul>
+
+</li>
+			 <!---area de utilitario-->
 			
 			<li class="treeview">
 
@@ -89,13 +116,13 @@
 	                   <li>
 				        <a href="productos">
 					     	<i class="fa fa-circle-o"></i>
-						       <span>Equipos</span>
+						       <span>productos</span>
 				        </a>
 	                   </li>
 					   <li>
 				        <a href="equipos">
 					     	<i class="fa fa-circle-o"></i>
-						       <span>Equipos2</span>
+						       <span>Equipos</span>
 				        </a>
 	                   </li>
 
@@ -106,9 +133,15 @@
 		
 
 		        <li>
-                 <a href="clientes">
+                 <a href="solicitudes">
 	                <i class="fa fa-users"></i>
 	                <span>Solicitudes</span>
+                  </a>
+             </li>
+			 <li>
+                 <a href="asignaciones">
+	                <i class="fa fa-users"></i>
+	                <span>Asignaciones</span>
                   </a>
              </li>
              <li class="treeview">

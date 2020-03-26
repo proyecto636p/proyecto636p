@@ -60,8 +60,16 @@
 
 
 					?>
+
+                      <?php  $tabla = "personal";
+
+                             $item = "id";
+                             $valor = $_SESSION["nombre"];
+
+							   $respuesta1 = ModeloPersonal::MdlMostrarPersonals($tabla, $item, $valor);
+							   ?>
 						
-						<span class="hidden-xs"><?php  echo $_SESSION["nombre"]; ?></span>
+						<span class="hidden-xs"><?php  echo $respuesta1["nombres"] ?></span>
 
 					</a>
 

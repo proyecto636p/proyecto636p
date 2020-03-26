@@ -67,8 +67,30 @@ $(".tablas").on("click", ".btnEditarUsuario", function(){
 		processData: false,
 		dataType: "json",
 		success: function(respuesta){
+
+			var datosCedula = new FormData();
+			datosCedula.append("id",respuesta["nombre"]);
+	
+			 $.ajax({
+	
+				url:"ajax/personal.ajax.php",
+				method: "POST",
+				data: datosCedula,
+				cache: false,
+				contentType: false,
+				processData: false,
+				dataType:"json",
+				success:function(respuesta){
+					
+					$("#editarNombre").val(respuesta["id"]);
+					$("#editarNombre").html(respuesta["nombres"]);
+					
+				}
+	
+			})
+   
 			
-			$("#editarNombre").val(respuesta["nombre"]);
+			//$("#editarNombre").val(respuesta["nombre"]);
 			$("#editarUsuario").val(respuesta["usuario"]);
 			$("#editarPerfil").html(respuesta["perfil"]);
 			$("#editarPerfil").val(respuesta["perfil"]);

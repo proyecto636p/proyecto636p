@@ -80,7 +80,7 @@ MODAL AGREGAR PERSONAL
 
     <div class="modal-content">
 
-      <form role="form" method="post" enctype="multipart/form-data">
+      <form role="form" method="post">
 
         <!--=====================================
         CABEZA DEL MODAL
@@ -123,7 +123,7 @@ MODAL AGREGAR PERSONAL
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-key"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
 
                 <input type="text" class="form-control input-lg" name="nuevoNombres" placeholder="Ingresar sus Nombres" required>
 
@@ -136,7 +136,7 @@ MODAL AGREGAR PERSONAL
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-key"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
 
                 <input type="text" class="form-control input-lg" name="nuevoApellidos" placeholder="Ingresar sus Apellidos" required>
 
@@ -211,7 +211,7 @@ MODAL AGREGAR PERSONAL
               
                 <span class="input-group-addon"><i class="fa fa-th"></i></span> 
 
-                <select class="form-control input-lg" id="nuevaDescripcion" name="nuevaDescripcion" >
+                <select class="form-control input-lg" id="nuevaDescripcion" name="nuevaDescripcion" required >
                 </select>
 
               </div>
@@ -225,10 +225,10 @@ MODAL AGREGAR PERSONAL
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i  class="fa fa-product-hunt"></i></span> 
+                <span class="input-group-addon"><i  class="fa fa-th"></i></span> 
 
-                <select class="form-control input-lg" id="nuevoCargo" name="nuevoCargo" >
-
+                <select class="form-control input-lg" id="nuevoCargo" name="nuevoCargo" required >
+                <option value="">Elige un Cargo</option>
                 </select>
 
               </div>
@@ -241,12 +241,12 @@ MODAL AGREGAR PERSONAL
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i  class="fa fa-product-hunt"></i></span> 
+                <span class="input-group-addon"><i  class="fa fa-th"></i></span> 
 
-                <select class="form-control input-lg"  name="nuevoStatus" required>
-                  <option value="">Estado</option>
-                  <option value="activo">activo</option>
-                  <option value="inactivo">inactivo</option>
+                <select class="form-control input-lg" id="nuevoEstado" name="nuevoEstado" required>
+                  <option value="0">Estado</option>
+                  <option value="Activo">Activo</option>
+                  <option value="Inactivo">Inactivo</option>
 
                 </select>
 
@@ -283,9 +283,9 @@ $crearPersonal -> ctrCrearPersonal();
 </div>
 
 <!--=====================================
-MODAL EDITAR EQUIPO
+MODAL EDITAR PERSONAL
 ======================================-->
-<div id="modalEditarEquipo" class="modal fade" role="dialog">
+<div id="modalEditarPersonal" class="modal fade" role="dialog">
   
   <div class="modal-dialog">
 
@@ -301,128 +301,171 @@ MODAL EDITAR EQUIPO
 
           <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-          <h4 class="modal-title">Editar Equipo</h4>
+          <h4 class="modal-title">Editar Personal</h4>
 
         </div>
 
         <!--=====================================
         CUERPO DEL MODAL
         ======================================-->
-
         <div class="modal-body">
 
-            <div class="box-body">
+          <div class="box-body">
 
-
-                  <!-- ENTRADA PARA SELECCIONAR CATEGORÍA -->
-
-               <div class="form-group">              
-                    <div class="input-group">              
-                              <span class="input-group-addon"><i class="fa fa-th"></i></span> 
-                        <select class="form-control input-lg"  name="editarCategoria" readonly required>
-                             <option id="editarCategoria"></option>
-                       </select>                
-                   </div>
-               </div>
-
-            <!-- ENTRADA PARA EL CÓDIGO -->
+                      <!-- ENTRADA PARA EL DOCUMENTO ID -->
             
-                <div class="form-group">              
-                   <div class="input-group">              
-                         <span class="input-group-addon"><i class="fa fa-code"></i></span> 
-                       <input type="text" class="form-control input-lg" id="editarCodigo" name="editarCodigo"  readonly required>
-                   </div>
-               </div>
-
-                          <!-- ENTRADA PARA LA DESCRIPCIÓN -->
-
                       <div class="form-group">
-                           <div class="input-group">
-                                  <span class="input-group-addon"><i  class="fa fa-product-hunt"></i></span> 
-                                <select class="form-control input-lg"  name="editarDescripcion" readonly required>               
-                                     <option id="editarDescripcion"></option>  
-                               </select>
-                           </div>
-                      </div>
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-key"></i></span> 
 
-            
-                          <!-- ENTRADA PARA LA MARCA -->
+                <input type="text" class="form-control input-lg" name="editarCedula" id="editarCedula" readonly required>
 
-                     <div class="form-group">              
-                       <div class="input-group">              
-                               <span class="input-group-addon"><i  class="fa fa-product-hunt"></i></span> 
-                              <select class="form-control input-lg"  name="editarMarca" readonly required>                  
-                               <option id="editarMarca"></option>  
-                             </select>
-                      </div>
-                    </div>
-
-                                      <!-- ENTRADA PARA EL MODELO -->
-
-             <div class="form-group">
-                 <div class="input-group">
-                               <span class="input-group-addon"><i  class="fa fa-product-hunt"></i></span> 
-                    <select class="form-control input-lg"  name="editarModelo" readonly required>
-                  
-                              <option id="editarModelo"></option>
-  
-                    </select>
               </div>
+
             </div>
 
-               <!-- ENTRADA PARA LA ASIGNACION -->
+            <!-- ENTRADA PARA LOS NOMBRES -->
+            
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
 
-                <div class="form-group">
-                       <div class="input-group">
-                              <span class="input-group-addon"><i  class="fa fa-product-hunt"></i></span> 
-                             <select class="form-control input-lg" id="editarAsignado" name="editarAsignado" required>
-                               <option value="">Asignacion</option>
-                                <option value="no asignado"> no asignado</option>
-                               <option value="asignado">asignado</option>
-                             </select>
-                       </div>
-                </div>
-                           <!-- ENTRADA PARA EL STATUS -->
+                <input type="text" class="form-control input-lg" name="editarNombres" id="editarNombres" readonly required>
 
-                  <div class="form-group">
-                         <div class="input-group">
-                                    <span class="input-group-addon"><i  class="fa fa-product-hunt"></i></span> 
-                             <select class="form-control input-lg" id="editarEstado" name="editarEstado" required>
-                                  <option value="">Estado</option>
-                                  <option value="activo">activo</option>
-                                  <option value="inactivo">inactivo</option>
-                             </select>
-                         </div>
-                   </div>
+              </div>
 
-                         <!-- ENTRADA PARA SERIAL -->
+            </div>
+                        <!-- ENTRADA PARA LOS APELLIDOS -->
+            
+                        <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
 
-                         <div class="form-group">
-                                <div class="input-group">
-                                        <span class="input-group-addon"><i class="fa fa-check"></i></span> 
-                                       <input type="text" class="form-control input-lg" id="editarSerial" name="editarSerial"   required>
-                                </div>
-                          </div>
+                <input type="text" class="form-control input-lg" name="editarApellidos" id="editarApellidos" readonly required>
 
-             <!-- ENTRADA PARA STOCK -->
+              </div>
 
-                 <div class="form-group">             
-                     <div class="input-group">              
-                           <span class="input-group-addon"><i class="fa fa-check"></i></span>
-                           <input type="number" class="form-control input-lg" name="editarStock" min="0" id="editarStock" required>
-                    </div>
-                </div>
+            </div>
 
-            <!-- ENTRADA PARA LA OBSERVACION -->
-                 <div class="form-group">              
-                      <div class="input-group">              
-                            <span class="input-group-addon"><i class="fa fa-check"></i></span> 
-                          <input type="text" class="form-control input-lg" name="editarObservacion"  id="editarObservacion" required>
-                     </div>
-                 </div>
 
-         </div>
-    </div>
+
+            <!-- ENTRADA PARA EL EMAIL -->
+            
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-envelope"></i></span> 
+
+                <input type="email" class="form-control input-lg" name="editarEmail" id="editarEmail"  required>
+
+              </div>
+
+            </div>
+
+
+            <!-- ENTRADA PARA EL TELÉFONO -->
+            
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-phone"></i></span> 
+
+                <input type="text" class="form-control input-lg" name="editarTelefono" id="editarTelefono"  data-inputmask="'mask':'(999) 999-9999'" data-mask required>
+
+              </div>
+
+            </div>
+
+            <!-- ENTRADA PARA LA DIRECCIÓN -->
+            
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-map-marker"></i></span> 
+
+                <input type="text" class="form-control input-lg" name="editarDireccion" id="editarDireccion"  required>
+
+              </div>
+
+            </div>
+
+
+             <!-- ENTRADA PARA LA FECHA DE NACIMIENTO -->
+            
+             <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-calendar"></i></span> 
+
+                <input type="text" class="form-control input-lg" name="editarFechaNac" id="editarFechaNac"  data-inputmask="'alias': 'yyyy/mm/dd'" data-mask readonly required>
+
+              </div>
+
+            </div>
+                          <!-- ENTRADA PARA LA DEPARTAMENTO -->
+
+                          <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+
+                <select class="form-control input-lg"  name="editarDepartamento" required >
+                <option id="editarDepartamento"></option>
+                </select>
+
+              </div>
+
+            </div>
+
+            
+                          <!-- ENTRADA PARA LA CARGO -->
+
+                          <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i  class="fa fa-th"></i></span> 
+
+                <select class="form-control input-lg"   name="editarCargo" required >
+                <option id="editarCargo"></option>
+                </select>
+
+              </div>
+
+            </div>
+
+             <!-- ENTRADA PARA EL STATUS -->
+
+               <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i  class="fa fa-th"></i></span> 
+
+                <select class="form-control input-lg"  name="editarEstado" required>
+                  <option id="editarEstado">Activo</option>
+                  <option value="Activo">Activo</option>
+                  <option value="Inactivo">Inactivo</option>
+
+                </select>
+
+              </div>
+
+            </div>    
+
+        </div>
+        </div>
         <!--=====================================
         PIE DEL MODAL
         ======================================-->
@@ -437,8 +480,8 @@ MODAL EDITAR EQUIPO
 
       </form>
       <?php
-            $editarEquipo = new ControladorEquipos();
-             $editarEquipo -> ctrEditarEquipo();
+            $editarPersonal = new ControladorPersonals();
+             $editarPersonal -> ctrEditarPersonal();
 
       ?>
 
@@ -450,8 +493,8 @@ MODAL EDITAR EQUIPO
 
 <?php
 
-  $eliminarEquipo = new ControladorEquipos();
-  $eliminarEquipo -> ctrEliminarEquipo();
+  $eliminarPersonal = new ControladorPersonals();
+  $eliminarPersonal -> ctrEliminarPersonal();
 
 ?>      
 

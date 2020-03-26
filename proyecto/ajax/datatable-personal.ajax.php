@@ -70,7 +70,7 @@ class TablaPersonal{
 				  "'.$personal[$i]["fecha_nac"].'",
 				  "'.$departamentos["descripcion"].'",
 				  "'.$cargos["descripcion"].'",
-				  "'.$personal[$i]["status"].'",
+				  "'.$personal[$i]["estado"].'",
 			      "'.$personal[$i]["fecha"].'",
 			      "'.$botones.'"
 			    ],';

@@ -26,7 +26,7 @@
   
         <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarUsuario">
           
-          Agregar usuario
+          Agregar Usuario
 
         </button>
 
@@ -40,8 +40,8 @@
          
          <tr>
            
-           <th style="width:10px">#</th>
-           <th>Nombre</th>
+
+           <th>Nombres</th>
            <th>Usuario</th>
            <th>Foto</th>
            <th>Perfil</th>
@@ -62,11 +62,17 @@
 
         $usuarios = ControladorUsuarios::ctrMostrarUsuarios($item, $valor);
 
+
+
        foreach ($usuarios as $key => $value){
+
+        $item = "id";
+		  	$valor = $value["nombre"];
+
+			  $personal = ControladorPersonals::ctrMostrarPersonals($item, $valor);
          
           echo ' <tr>
-                  <td>'.($key+1).'</td>
-                  <td>'.$value["nombre"].'</td>
+                  <td>'.$personal["nombres"].'</td>
                   <td>'.$value["usuario"].'</td>';
 
                   if($value["foto"] != ""){
@@ -154,6 +160,21 @@ MODAL AGREGAR USUARIO
 
           <div class="box-body">
 
+          
+            <!-- ENTRADA PARA LA CEDULA -->
+
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-lock"></i></span> 
+
+                <input type="text" class="form-control input-lg" id="nuevaCedula" name="nuevaCedula" placeholder="Ingresar cedula" required>
+
+              </div>
+
+            </div>
+
             <!-- ENTRADA PARA EL NOMBRE -->
             
             <div class="form-group">
@@ -162,7 +183,9 @@ MODAL AGREGAR USUARIO
               
                 <span class="input-group-addon"><i class="fa fa-user"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nuevoNombre" placeholder="Ingresar nombre" required>
+               <!-- <input type="text" class="form-control input-lg" id="nuevoNombre" name="nuevoNombre"  required>-->
+                <select class="form-control input-lg" id="nuevoNombre" name="nuevoNombre" required >
+                </select>
 
               </div>
 
@@ -246,7 +269,7 @@ MODAL AGREGAR USUARIO
 
           <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
 
-          <button type="submit" class="btn btn-primary">Guardar usuario</button>
+          <button type="submit" class="btn btn-primary">Guardar Usuario</button>
 
         </div>
 
@@ -285,7 +308,7 @@ MODAL EDITAR USUARIO
 
           <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-          <h4 class="modal-title">Editar usuario</h4>
+          <h4 class="modal-title">Editar Usuario</h4>
 
         </div>
 
@@ -305,7 +328,10 @@ MODAL EDITAR USUARIO
               
                 <span class="input-group-addon"><i class="fa fa-user"></i></span> 
 
-                <input type="text" class="form-control input-lg" id="editarNombre" name="editarNombre" value="" required>
+          
+                <select class="form-control input-lg"  name="editarNombre" readonly >
+                <option id="editarNombre"></option>
+                </select>
 
               </div>
 
@@ -393,7 +419,7 @@ MODAL EDITAR USUARIO
 
           <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
 
-          <button type="submit" class="btn btn-primary">Modificar usuario</button>
+          <button type="submit" class="btn btn-primary">Modificar Usuario</button>
 
         </div>
 

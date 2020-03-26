@@ -104,4 +104,25 @@ data: {'id': id}
 })
 
 })
+
+
+
+/*=============================================
+cargo
+=============================================*/
+$("#nuevaCedula").on("change", function(){
+
+var id = $("#nuevaCedula").val()
+$.ajax({
+type: 'POST',
+url: 'vistas/js/combo.usuario.php',
+data: {'id': id}
+}).done(function(lista){
+    $('#nuevoNombre').html(lista)
+})
+.fail(function(){
+        alert('Hubo un error al cargar')
+})
+
+})
 })
