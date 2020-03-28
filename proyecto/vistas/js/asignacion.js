@@ -44,8 +44,6 @@ $(".tablaAsignacion tbody").on("click", "button.btnEditarAsignacion",function(){
 
 var id = $(this).attr("idAsignacion");
 
-
-
   
 var datos = new FormData();
 
@@ -61,18 +59,50 @@ var datos = new FormData();
     processData: false,
     dataType:"json",
     success:function(respuesta){
+
+      
         
          $("#editarId").val(respuesta["id"]);
+         $("#EQUIPO").val(respuesta["equipo"]);
+         $("#USUARIO").val(respuesta["usuario"]);
+         $("#OBSER").val(respuesta["observacion"]);
+    
 
-
-         $("#editarSolicitud").val(respuesta["solicitud"]);
 
 
     }
 })
 
+   /*=============================================
+    equipo
+=============================================*/
+
+$.ajax({
+  type: 'POST',
+  url: 'vistas/js/combo.equipos.php',
+  data: {'peticion': 'cargar_listas'}
+}).done(function(listas_rep){
+$('#editarAsignacion').html(listas_rep)
+}).fail(function(){
+  alert("hubo un error al carga")
 })
 
+})
+
+
+     /*=============================================
+    equipo
+=============================================*/
+
+$.ajax({
+  type: 'POST',
+  url: 'vistas/js/combo.usuarios.php',
+  data: {'peticion': 'cargar_listas'}
+}).done(function(listas_rep){
+$('#editarUsuario').html(listas_rep)
+}).fail(function(){
+  alert("hubo un error al carga")
+})
 /*=============================================
 ELIMINAR SOLICITUD
 =============================================*/
@@ -80,7 +110,6 @@ ELIMINAR SOLICITUD
 $(".tablaAsignacion tbody").on("click", "button.btnEliminarAsignacion", function(){
 
 var idAsignacion = $(this).attr("idAsignacion");
-var usuario = $(this).attr("usuario");
 
 swal({
 
@@ -95,7 +124,7 @@ swal({
       }).then(function(result){
       if (result.value) {
 
-        window.location = "index.php?ruta=solicitudes&idSolicitud="+idSolicitud+"&usuario="+usuario;
+        window.location = "index.php?ruta=asignaciones&idAsignacion="+idAsignacion;
 
       }
 

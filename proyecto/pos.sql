@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 20-03-2020 a las 18:11:32
--- Versión del servidor: 10.1.37-MariaDB
--- Versión de PHP: 7.0.33
+-- Servidor: localhost
+-- Tiempo de generación: 28-03-2020 a las 17:19:29
+-- Versión del servidor: 10.4.11-MariaDB
+-- Versión de PHP: 7.2.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -21,6 +21,29 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `pos`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `asignacion`
+--
+
+CREATE TABLE `asignacion` (
+  `id` int(11) NOT NULL,
+  `equipo` int(11) NOT NULL,
+  `usuario` int(11) NOT NULL,
+  `asignadoPor` int(11) NOT NULL,
+  `observacion` text COLLATE utf8_spanish_ci NOT NULL,
+  `fecha` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `asignacion`
+--
+
+INSERT INTO `asignacion` (`id`, `equipo`, `usuario`, `asignadoPor`, `observacion`, `fecha`) VALUES
+(18, 1801, 1, 1, '', '2020-03-28 15:34:15'),
+(19, 1801, 1, 1, '', '2020-03-28 15:40:46');
 
 -- --------------------------------------------------------
 
@@ -52,7 +75,7 @@ INSERT INTO `cargos` (`id`, `descripcion`, `iddepartamentof`) VALUES
 CREATE TABLE `categorias` (
   `id` int(11) NOT NULL,
   `categoria` text COLLATE utf8_spanish_ci NOT NULL,
-  `fecha` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `fecha` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
@@ -60,8 +83,8 @@ CREATE TABLE `categorias` (
 --
 
 INSERT INTO `categorias` (`id`, `categoria`, `fecha`) VALUES
-(14, 'equipos', '2020-03-15 23:15:46'),
-(15, 'consumibles', '2020-03-13 04:17:25');
+(18, 'monitor', '2020-03-28 15:24:01'),
+(19, 'teclado', '2020-03-28 15:24:15');
 
 -- --------------------------------------------------------
 
@@ -78,7 +101,7 @@ CREATE TABLE `clientes` (
   `direccion` text COLLATE utf8_spanish_ci NOT NULL,
   `fecha_nacimiento` date NOT NULL,
   `compras` int(11) NOT NULL,
-  `fecha` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `fecha` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
@@ -86,8 +109,39 @@ CREATE TABLE `clientes` (
 --
 
 INSERT INTO `clientes` (`id`, `nombre`, `documento`, `email`, `telefono`, `direccion`, `fecha_nacimiento`, `compras`, `fecha`) VALUES
-(2, 'elias', '18745555', 'elias@gmail.com', '(424) 577-7945', 'avenidad 1', '2020-03-15', 0, '2020-03-16 00:44:25'),
-(5, 'cesar', 'fgffgf', '122', '(111) 111-1111', 'ffffff', '2011-11-11', 0, '2020-03-17 01:19:21');
+(2, 'elias', '18799886', 'elias2021@gmail.com', '(424) 577-7980', 'avenidad 1', '2020-03-15', 0, '2020-03-16 00:44:25'),
+(3, 'ratia', '18799886', 'cesar_ratia_1988@hotmail.com', '(424) 577-7980', 'av bolivae', '2020-03-15', 0, '2020-03-16 01:39:39'),
+(4, 'ratia', '18799886', 'cesar_ratia_1988@hotmail.com', '(424) 577-7980', 'la ciudadela', '1988-08-05', 0, '2020-03-16 02:03:14'),
+(6, 'cesar', '22102779', 'deglid@gmai', '(533) 533-5335', 'hghgg', '2011-11-11', 0, '2020-03-20 17:28:30');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `consumibles`
+--
+
+CREATE TABLE `consumibles` (
+  `id` int(11) NOT NULL,
+  `codigo` int(11) NOT NULL,
+  `seriales` text COLLATE utf8_unicode_ci NOT NULL,
+  `categoria` text COLLATE utf8_unicode_ci NOT NULL,
+  `tipo` text COLLATE utf8_unicode_ci NOT NULL,
+  `marca` text COLLATE utf8_unicode_ci NOT NULL,
+  `modelo` text COLLATE utf8_unicode_ci NOT NULL,
+  `estado` text COLLATE utf8_unicode_ci NOT NULL,
+  `stock` int(11) NOT NULL,
+  `asignacion` text COLLATE utf8_unicode_ci NOT NULL,
+  `fecha` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `observacion` text COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `consumibles`
+--
+
+INSERT INTO `consumibles` (`id`, `codigo`, `seriales`, `categoria`, `tipo`, `marca`, `modelo`, `estado`, `stock`, `asignacion`, `fecha`, `observacion`) VALUES
+(27, 1801, '1801', '18', '17', '23', 'SyncMaster740nw', 'activo', 10, 'no asignado', '2020-03-28 15:26:26', 'ninguna'),
+(28, 180127, '180127', '18', '17', '23', 'SyncMaster740nw', 'activo', 12, 'no asignado', '2020-03-28 15:54:12', 'ninguna');
 
 -- --------------------------------------------------------
 
@@ -125,7 +179,7 @@ CREATE TABLE `equipos` (
   `estado` text COLLATE utf8_unicode_ci NOT NULL,
   `stock` int(11) NOT NULL,
   `asignacion` text COLLATE utf8_unicode_ci NOT NULL,
-  `fecha` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `fecha` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `observacion` text COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -134,14 +188,8 @@ CREATE TABLE `equipos` (
 --
 
 INSERT INTO `equipos` (`id`, `codigo`, `seriales`, `categoria`, `tipo`, `marca`, `modelo`, `estado`, `stock`, `asignacion`, `fecha`, `observacion`) VALUES
-(13, 1501, 'rytyt', '15', '15', '19', 'nuevo', 'activo', 23, 'no asignado', '2012-11-01 19:03:36', 'ninguna'),
-(16, 1402, 'hhho', '14', '13', '18', 'pclite', 'inactivo', 66, 'asignado', '2020-03-15 23:10:37', 'ningunao'),
-(18, 1402, 'hhyyg5454', '14', '13', '16', 'lcd flash', 'activo', 12, 'no asignado', '2020-03-15 23:16:23', 'ninguna'),
-(19, 140218, 'cvvctt', '14', '13', '18', 'pclite', 'activo', 13, 'no asignado', '2020-03-15 23:16:48', 'ninguna'),
-(20, 1402, 'hhh', '14', '12', '21', 'toush pack', 'activo', 87, 'no asignado', '2020-03-15 23:17:18', 'ninguna'),
-(21, 140220, 'rth567', '14', '13', '16', 'lcd flash', 'activo', 99, 'no asignado', '2020-03-15 23:17:46', 'ninguna'),
-(22, 14022021, 'jhghh', '14', '13', '16', 'lcd flash', 'activo', 34, 'no asignado', '2020-03-17 02:12:51', 'ninguna'),
-(23, 1402, 'ñ}ñ.', '14', '12', '21', 'toush pack', 'inactivo', 44, 'no asignado', '2020-03-20 02:49:09', '{ñññ');
+(27, 1801, '1801', '18', '17', '23', 'SyncMaster740nw', 'activo', 10, 'no asignado', '2020-03-28 15:26:26', 'ninguna'),
+(28, 180127, '180127', '18', '17', '23', 'SyncMaster740nw', 'activo', 12, 'no asignado', '2020-03-28 15:54:12', 'ninguna');
 
 -- --------------------------------------------------------
 
@@ -153,7 +201,7 @@ CREATE TABLE `marcas` (
   `id` int(11) NOT NULL,
   `descripcion` text COLLATE utf8_unicode_ci NOT NULL,
   `idtipof` int(11) NOT NULL,
-  `fecha` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `fecha` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -161,11 +209,7 @@ CREATE TABLE `marcas` (
 --
 
 INSERT INTO `marcas` (`id`, `descripcion`, `idtipof`, `fecha`) VALUES
-(16, 'samsung', 13, '2012-11-01 18:33:43'),
-(18, 'syragon', 13, '2012-11-01 18:34:40'),
-(19, 'hp', 15, '2012-11-01 18:34:50'),
-(20, 'epson', 15, '2012-11-01 18:34:59'),
-(21, 'sony', 12, '2012-11-01 18:41:23');
+(23, 'samsung', 17, '2020-03-28 15:24:52');
 
 -- --------------------------------------------------------
 
@@ -177,7 +221,7 @@ CREATE TABLE `modelos` (
   `id` int(11) NOT NULL,
   `modelo` text COLLATE utf8_unicode_ci NOT NULL,
   `idmarcaf` int(11) NOT NULL,
-  `fecha` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `fecha` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -185,11 +229,7 @@ CREATE TABLE `modelos` (
 --
 
 INSERT INTO `modelos` (`id`, `modelo`, `idmarcaf`, `fecha`) VALUES
-(9, 'lcd flash', 16, '2012-11-01 18:37:45'),
-(10, 'pclite', 18, '2012-11-01 18:38:12'),
-(11, 'double print', 20, '2012-11-01 18:38:23'),
-(12, 'nuevo', 19, '2012-11-01 18:38:43'),
-(13, 'toush pack', 21, '2012-11-01 18:41:52');
+(15, 'SyncMaster740nw', 23, '2020-03-28 15:25:43');
 
 -- --------------------------------------------------------
 
@@ -200,24 +240,26 @@ INSERT INTO `modelos` (`id`, `modelo`, `idmarcaf`, `fecha`) VALUES
 CREATE TABLE `personal` (
   `id` int(11) NOT NULL,
   `cedula` int(11) NOT NULL,
-  `nombres` text COLLATE utf8_unicode_ci NOT NULL,
-  `apellidos` text COLLATE utf8_unicode_ci NOT NULL,
-  `email` text COLLATE utf8_unicode_ci NOT NULL,
-  `telefono` text COLLATE utf8_unicode_ci NOT NULL,
-  `direccion` text COLLATE utf8_unicode_ci NOT NULL,
-  `fecha_nac` text COLLATE utf8_unicode_ci NOT NULL,
+  `nombres` text COLLATE utf8_spanish_ci NOT NULL,
+  `apellidos` text COLLATE utf8_spanish_ci NOT NULL,
+  `email` text COLLATE utf8_spanish_ci NOT NULL,
+  `telefono` text COLLATE utf8_spanish_ci NOT NULL,
+  `direccion` text COLLATE utf8_spanish_ci NOT NULL,
+  `fecha_nac` text COLLATE utf8_spanish_ci NOT NULL,
   `cargo` int(11) NOT NULL,
   `departamento` int(11) NOT NULL,
-  `status` text COLLATE utf8_unicode_ci NOT NULL,
-  `fecha` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  `estado` text COLLATE utf8_spanish_ci NOT NULL,
+  `fecha` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `personal`
 --
 
-INSERT INTO `personal` (`id`, `cedula`, `nombres`, `apellidos`, `email`, `telefono`, `direccion`, `fecha_nac`, `cargo`, `departamento`, `status`, `fecha`) VALUES
-(1, 18799886, 'cesar', 'ratia', 'informatico@gmail.com', '(222) 222-2222', 'dsdssdsds', '32323', 4, 4, 'Activo', '2012-11-01 11:55:02');
+INSERT INTO `personal` (`id`, `cedula`, `nombres`, `apellidos`, `email`, `telefono`, `direccion`, `fecha_nac`, `cargo`, `departamento`, `estado`, `fecha`) VALUES
+(1, 18799886, 'cesar augusto', 'ratia parra', 'informaticoc.r05@gmail.com', '(412) 150-3288', 'la ciudadela', '2032/03/23', 4, 4, 'Activo', '2012-11-01 07:06:12'),
+(2, 22102779, 'deglis yoelis', 'parra alvarado', 'deglis@gmail.com', '(424) 577-7980', 'la ciudadela', '1990/04/19', 7, 4, 'Activo', '2012-11-01 07:05:28'),
+(3, 21054420, 'ana maria', 'perez rojas', 'ana@gmail.com', '(424) 577-7980', 'la ciudadela', '1980/03/20', 4, 2, 'Inactivo', '2012-11-01 08:58:48');
 
 -- --------------------------------------------------------
 
@@ -235,7 +277,7 @@ CREATE TABLE `productos` (
   `precio_compra` float NOT NULL,
   `precio_venta` float NOT NULL,
   `ventas` int(11) NOT NULL,
-  `fecha` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `fecha` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `id_modelo` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
@@ -252,6 +294,28 @@ INSERT INTO `productos` (`id`, `id_categoria`, `codigo`, `descripcion`, `imagen`
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `solicitud`
+--
+
+CREATE TABLE `solicitud` (
+  `id` int(11) NOT NULL,
+  `solicitud` text COLLATE utf8_spanish_ci NOT NULL,
+  `usuariof` int(11) NOT NULL,
+  `estado` int(11) NOT NULL,
+  `fecha` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `solicitud`
+--
+
+INSERT INTO `solicitud` (`id`, `solicitud`, `usuariof`, `estado`, `fecha`) VALUES
+(15, 'un monitor', 1, 0, '2020-03-28 15:46:51'),
+(16, 'un lapiz', 2, 0, '2020-03-28 15:41:21');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `tipos`
 --
 
@@ -259,7 +323,7 @@ CREATE TABLE `tipos` (
   `id` int(11) NOT NULL,
   `descripcion` text COLLATE utf8_unicode_ci NOT NULL,
   `idcategoriaf` int(11) NOT NULL,
-  `fecha` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `fecha` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -267,11 +331,7 @@ CREATE TABLE `tipos` (
 --
 
 INSERT INTO `tipos` (`id`, `descripcion`, `idcategoriaf`, `fecha`) VALUES
-(11, 'cpu', 7, '2012-11-01 09:00:37'),
-(12, 'mouse', 14, '2020-03-13 04:17:55'),
-(13, 'monitor', 14, '2020-03-13 04:18:07'),
-(14, 'dvd', 15, '2012-11-01 12:10:11'),
-(15, 'toner', 15, '2012-11-01 12:10:27');
+(17, 'lcd', 18, '2020-03-28 15:24:40');
 
 -- --------------------------------------------------------
 
@@ -281,6 +341,7 @@ INSERT INTO `tipos` (`id`, `descripcion`, `idcategoriaf`, `fecha`) VALUES
 
 CREATE TABLE `usuarios` (
   `id` int(11) NOT NULL,
+  `cedulaf` int(11) NOT NULL,
   `nombre` text COLLATE utf8_spanish_ci NOT NULL,
   `usuario` text COLLATE utf8_spanish_ci NOT NULL,
   `password` text COLLATE utf8_spanish_ci NOT NULL,
@@ -288,24 +349,27 @@ CREATE TABLE `usuarios` (
   `foto` text COLLATE utf8_spanish_ci NOT NULL,
   `estado` int(11) NOT NULL,
   `ultimo_login` datetime NOT NULL,
-  `fecha` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `fecha` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id`, `nombre`, `usuario`, `password`, `perfil`, `foto`, `estado`, `ultimo_login`, `fecha`) VALUES
-(1, 'Administrador', 'admin', '$2a$07$asxx54ahjppf45sd87a5auXBm1Vr2M1NV5t/zNQtGHGpS5fFirrbG', 'Administrador', 'vistas/img/usuarios/admin/191.jpg', 1, '2020-03-08 22:00:54', '2020-03-16 01:15:44'),
-(57, 'Juan Fernando Urrego', 'juan', '$2a$07$asxx54ahjppf45sd87a5auwRi.z6UsW7kVIpm0CUEuCpmsvT2sG6O', 'Vendedor', 'vistas/img/usuarios/juan/461.jpg', 1, '2017-12-21 12:07:24', '2012-11-01 04:40:39'),
-(58, 'Julio Gómez', 'julio', '$2a$07$asxx54ahjppf45sd87a5auQhldmFjGsrgUipGlmQgDAcqevQZSAAC', 'Especial', 'vistas/img/usuarios/julio/100.png', 1, '2017-12-21 12:07:39', '2017-12-21 17:07:39'),
-(59, 'Ana Gonzalez', 'ana', '$2a$07$asxx54ahjppf45sd87a5auLd2AxYsA/2BbmGKNk2kMChC3oj7V0Ca', 'Vendedor', 'vistas/img/usuarios/ana/260.png', 1, '2017-12-21 12:07:47', '2020-03-08 03:47:48'),
-(60, 'cesar', 'cesar', '$2a$07$asxx54ahjppf45sd87a5auJRR6foEJ7ynpjisKtbiKJbvJsoQ8VPS', 'Administrador', 'vistas/img/usuarios/cesar/510.jpg', 1, '2020-03-19 21:05:29', '2020-03-20 01:05:29'),
-(61, 'ratia', 'ratia', '$2a$07$asxx54ahjppf45sd87a5auJRR6foEJ7ynpjisKtbiKJbvJsoQ8VPS', 'Vendedor', '', 1, '2020-03-15 22:52:59', '2020-03-16 02:52:59');
+INSERT INTO `usuarios` (`id`, `cedulaf`, `nombre`, `usuario`, `password`, `perfil`, `foto`, `estado`, `ultimo_login`, `fecha`) VALUES
+(59, 0, '3', 'ana', '$2a$07$asxx54ahjppf45sd87a5auLd2AxYsA/2BbmGKNk2kMChC3oj7V0Ca', 'Vendedor', 'vistas/img/usuarios/ana/260.png', 1, '2017-12-21 12:07:47', '2020-03-28 15:38:47'),
+(60, 0, '1', 'cesar', '$2a$07$asxx54ahjppf45sd87a5auJRR6foEJ7ynpjisKtbiKJbvJsoQ8VPS', 'Administrador', 'vistas/img/usuarios/cesar/510.jpg', 1, '2020-03-28 11:46:41', '2020-03-28 15:46:41'),
+(65, 0, '2', 'deglis', '$2a$07$asxx54ahjppf45sd87a5auJRR6foEJ7ynpjisKtbiKJbvJsoQ8VPS', 'Vendedor', '', 1, '2020-03-28 11:41:07', '2020-03-28 15:41:07');
 
 --
 -- Índices para tablas volcadas
 --
+
+--
+-- Indices de la tabla `asignacion`
+--
+ALTER TABLE `asignacion`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `cargos`
@@ -323,6 +387,12 @@ ALTER TABLE `categorias`
 -- Indices de la tabla `clientes`
 --
 ALTER TABLE `clientes`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `consumibles`
+--
+ALTER TABLE `consumibles`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -362,6 +432,12 @@ ALTER TABLE `productos`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `solicitud`
+--
+ALTER TABLE `solicitud`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `tipos`
 --
 ALTER TABLE `tipos`
@@ -378,6 +454,12 @@ ALTER TABLE `usuarios`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `asignacion`
+--
+ALTER TABLE `asignacion`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+
+--
 -- AUTO_INCREMENT de la tabla `cargos`
 --
 ALTER TABLE `cargos`
@@ -387,13 +469,19 @@ ALTER TABLE `cargos`
 -- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT de la tabla `consumibles`
+--
+ALTER TABLE `consumibles`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT de la tabla `departamento`
@@ -405,25 +493,25 @@ ALTER TABLE `departamento`
 -- AUTO_INCREMENT de la tabla `equipos`
 --
 ALTER TABLE `equipos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT de la tabla `marcas`
 --
 ALTER TABLE `marcas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT de la tabla `modelos`
 --
 ALTER TABLE `modelos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `personal`
 --
 ALTER TABLE `personal`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
@@ -432,16 +520,22 @@ ALTER TABLE `productos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 
 --
+-- AUTO_INCREMENT de la tabla `solicitud`
+--
+ALTER TABLE `solicitud`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
 -- AUTO_INCREMENT de la tabla `tipos`
 --
 ALTER TABLE `tipos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

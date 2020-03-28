@@ -19,33 +19,14 @@
 
 			 <!----area de utilitario-->
 			 <li class="treeview">
-
 <a href="#">
-
 	<i class="fa fa-list-ul"></i>
-	
 	<span>Utilitario</span>
-	
 	<span class="pull-right-container">
-	
 		<i class="fa fa-angle-left pull-right"></i>
-
 	</span>
-
 </a>
-
-
-			   <ul class="treeview-menu">
-			   <li>
-
-<a href="usuarios">
-
-	<i class="fa fa-user"></i>
-	<span>Usuarios</span>
-
-</a>
-
-</li>
+<ul class="treeview-menu">
 <li>
  <a href="departamentos">
 	<i class="fa fa-users"></i>
@@ -64,8 +45,12 @@
 	<span>Personal</span>
   </a>
 </li>
-
-
+<li>
+  <a href="usuarios">
+	   <i class="fa fa-user"></i>
+	  <span>Usuarios</span>
+     </a>
+</li>
 </ul>
 
 </li>
@@ -113,12 +98,12 @@
 				                  <span>modelos</span>
 		                      </a>
 	                   </li>
-	                   <li>
+	                 <!--  <li>
 				        <a href="productos">
 					     	<i class="fa fa-circle-o"></i>
 						       <span>productos</span>
 				        </a>
-	                   </li>
+	                   </li>-->
 					   <li>
 				        <a href="equipos">
 					     	<i class="fa fa-circle-o"></i>
@@ -144,7 +129,7 @@
 	                <span>Asignaciones</span>
                   </a>
              </li>
-             <li class="treeview">
+           <!--  <li class="treeview">
                      <a href="#">
 	                    <i class="fa fa-list-ul"></i>
 		                      <span>Ventas</span>
@@ -172,7 +157,7 @@
 		                   </a>
 	                  </li>
                  </ul>
-             </li>
+             </li>-->
 		</ul>
 
 	 </section>

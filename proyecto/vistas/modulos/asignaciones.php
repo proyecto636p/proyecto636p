@@ -100,13 +100,33 @@ MODAL AGREGAR ASIGNACION
 
                       <!-- ENTRADA PARA LA asignacion -->
             
+
                       <div class="form-group">
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nuevaAsignacion" placeholder="Ingresar su Solicitud" required>
+                <select class="form-control input-lg" id="nuevaAsignacion" name="nuevaAsignacion" required>
+  
+                </select>
+
+              </div>
+
+            </div>
+
+                                  <!-- ENTRADA PARA EL USUARIO -->
+            
+
+                                  <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+
+                <select class="form-control input-lg" id="nuevoUsuario" name="nuevoUsuario" required>
+  
+                </select>
 
               </div>
 
@@ -114,15 +134,22 @@ MODAL AGREGAR ASIGNACION
 
             <!-- entrada para el usuario -->
 
-            <input type="hidden" value='<?php echo $_SESSION['nombre']; ?>' name="nuevoUsuariof">
+            <input type="hidden" value='<?php echo $_SESSION['nombre']; ?>' name="nuevoAsignadoPor">
 
                         
- 
-               <!-- ENTRADA PARA el status -->
+                      <!-- ENTRADA PARA EL  solicitud -->
+            
+                      <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
 
-               <input type="hidden" value="en espera" name="nuevoEstado">
-             
+                <input type="text" class="form-control input-lg" name="nuevaObservacion" id="nuevaObservacion" placeholder="ingrese una observacion">
 
+              </div>
+
+            </div>
         </div>
         <!--=====================================
         PIE DEL MODAL
@@ -154,7 +181,7 @@ $crearAsignacion -> ctrCrearAsignacion();
 <!--=====================================
 MODAL EDITAR SOLICITUD
 ======================================-->
-<div id="modalEditarSolicitud" class="modal fade" role="dialog">
+<div id="modalEditarAsignacion" class="modal fade" role="dialog">
   
   <div class="modal-dialog">
 
@@ -181,15 +208,73 @@ MODAL EDITAR SOLICITUD
 
           <div class="box-body">
 
-                      <!-- ENTRADA PARA EL  solicitud -->
+                                <!-- ENTRADA PARA EL  ASIGNACION -->
             
-                      <div class="form-group">
+                                <div class="form-group">
               
               <div class="input-group">
               
                 <span class="input-group-addon"><i class="fa fa-user"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="editarSolicitud" id="editarSolicitud"  required>
+                <input type="text" class="form-control input-lg" name="EQUIPO" id="EQUIPO" readonly>
+
+              </div>
+              </div>
+
+                                    <!-- ENTRADA PARA EL  USUARIO -->
+            
+                                    <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
+
+                <input type="text" class="form-control input-lg" name="USUARIO" id="USUARIO" readonly>
+
+              </div>
+              </div>
+                                                  <!-- ENTRADA PARA EL  OBSERVACION -->
+            
+                                                  <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
+
+                <input type="text" class="form-control input-lg" name="OBSER" id="OBSER" readonly>
+
+              </div>
+              </div>
+
+                       <!-- ENTRADA PARA LA asignacion -->
+            
+
+                       <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+
+                <select class="form-control input-lg" id="editarAsignacion" name="editarAsignacion" required>
+  
+                </select>
+
+              </div>
+
+            </div>
+
+                                  <!-- ENTRADA PARA EL USUARIO -->
+            
+
+                                  <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+
+                <select class="form-control input-lg" id="editarUsuario" name="editarUsuario" required>
+  
+                </select>
 
               </div>
 
@@ -197,16 +282,22 @@ MODAL EDITAR SOLICITUD
 
             <!-- entrada para el usuario -->
 
-            <input type="hidden" value='<?php echo $_SESSION['nombre']; ?>' name="editarUsuariof">
+            <input type="hidden" value='<?php echo $_SESSION['nombre']; ?>' name="editarAsignadoPor">
 
+            <input type="hidden" id="editarId"  name="editarId">
                         
- 
-               <!-- ENTRADA PARA el status -->
+                      <!-- ENTRADA PARA EL  solicitud -->
+            
+               <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
 
-               <input type="hidden" value="en espera" name="editarEstado"> 
+                <input type="text" class="form-control input-lg" name="editarObservacion" id="editarObservacion" placeholder="ingrese la observacion">
 
-               <input type="hidden" id="editarId" name="editarId"> 
-
+              </div>
+              </div>
         </div>
         </div>
         <!--=====================================

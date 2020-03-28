@@ -5,13 +5,13 @@ require_once "../modelos/asignacion.modelo.php";
 
 require_once "../controladores/usuarios.controlador.php";
 require_once "../modelos/usuarios.modelo.php";
+
+require_once "../controladores/tipos.controlador.php";
+require_once "../modelos/tipos.modelo.php";
+
+require_once "../controladores/equipos.controlador.php";
+require_once "../modelos/equipos.modelo.php";
 /*
-require_once "../controladores/cargos.controlador.php";
-require_once "../modelos/cargos.modelo.php";
-
-require_once "../controladores/marcas.controlador.php";
-require_once "../modelos/marcas.modelo.php";
-
 require_once "../controladores/modelos.controlador.php";
 require_once "../modelos/modelos.modelo.php";*/
 
@@ -28,23 +28,48 @@ class TablaAsignacion{
 		
 		
 
-  		$solicitud = ControladorAsignaciones::ctrMostrarAsignaciones($item, $valor);	
+  		$asignacion = ControladorAsignaciones::ctrMostrarAsignaciones($item, $valor);	
 		
   		$datosJson = '{
 		  "data": [';
 
-		  for($i = 0; $i < count($solicitud); $i++){
+		  for($i = 0; $i < count($asignacion); $i++){
 
+
+		    /*=============================================
+ 	 		TRAEMOS EQUIPO
+				  =============================================*/ 
+				  
+				
+				  $item = "codigo";
+				  $valor = $asignacion[$i]["equipo"];
+				  $equipo2 = ControladorEquipos::ctrMostrarEquipos($item, $valor);
+	
+  
+				  $item = "id";
+				  $valor = $equipo2["tipo"];
+				  $equipo = ControladorTipos::ctrMostrarTipos($item, $valor);				  
+				  
 		
 		  	/*=============================================
- 	 		TRAEMOS USUARIO
+ 	 		TRAEMOS USUARIO ASIGNADO
   				=============================================*/ 
 
 		  	$item = "nombre";
-		  	$valor = $solicitud[$i]["usuario"];
+		  	$valor = $asignacion[$i]["usuario"];
 
 			  $usuario = ControladorUsuarios::ctrMostrarUsuarios($item, $valor);
 			  
+
+			  		  	/*=============================================
+ 	 		TRAEMOS USUARIO ASIGNADO POR
+  				=============================================*/ 
+
+				  $item = "nombre";
+				  $valor = $asignacion[$i]["asignadoPor"];
+	
+				  $usuariopor = ControladorUsuarios::ctrMostrarUsuarios($item, $valor);
+				  
 	      	/*=============================================
  	 		TRAEMOS EL CARGO
   			
@@ -58,19 +83,19 @@ class TablaAsignacion{
  	 		TRAEMOS LAS ACCIONES
   			=============================================*/ 
 
-		  	$botones =  "<div class='btn-group'><button class='btn btn-warning btnEditarAsignacion' idAsignacion='".$solicitud[$i]["id"]."' data-toggle='modal' data-target='#modalEditarAsignacion'><i class='fa fa-pencil'></i></button><button class='btn btn-danger btnEliminarAsignacion' idAsignacion='".$solicitud[$i]["id"]."' usuario='".$solicitud[$i]["usuariof"]."'><i class='fa fa-times'></i></button></div>";  
+		  	$botones =  "<div class='btn-group'><button class='btn btn-warning btnEditarAsignacion' idAsignacion='".$asignacion[$i]["id"]."' data-toggle='modal' data-target='#modalEditarAsignacion'><i class='fa fa-pencil'></i></button><button class='btn btn-danger btnEliminarAsignacion' idAsignacion='".$asignacion[$i]["id"]."'><i class='fa fa-times'></i></button></div>";  
 
 		  	$datosJson .='[
 	
 
 				 
 				 
-				  "'.$solicitud[$i]["id"].'",
-				  "'.$solicitud[$i]["equipo"].'",
+				  "'.$asignacion[$i]["id"].'",
+				  "'.$equipo["descripcion"].'",
 				  "'.$usuario["usuario"].'",
-				  "'.$solicitud[$i]["asignadoPor"].'",
-				  "'.$solicitud[$i]["observacion"].'",
-				  "'.$solicitud[$i]["fecha"].'",
+				  "'.$usuariopor["usuario"].'",
+				  "'.$asignacion[$i]["observacion"].'",
+				  "'.$asignacion[$i]["fecha"].'",
 			      "'.$botones.'"
 			    ],';
 

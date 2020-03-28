@@ -125,4 +125,35 @@ data: {'id': id}
 })
 
 })
+
+     /*=============================================
+    equipo
+=============================================*/
+
+$.ajax({
+    type: 'POST',
+    url: 'vistas/js/combo.equipos.php',
+    data: {'peticion': 'cargar_listas'}
+}).done(function(listas_rep){
+  $('#nuevaAsignacion').html(listas_rep)
+}).fail(function(){
+    alert("hubo un error al carga")
+})
+
+     /*=============================================
+    equipo
+=============================================*/
+
+$.ajax({
+    type: 'POST',
+    url: 'vistas/js/combo.usuarios.php',
+    data: {'peticion': 'cargar_listas'}
+}).done(function(listas_rep){
+  $('#nuevoUsuario').html(listas_rep)
+}).fail(function(){
+    alert("hubo un error al carga")
+})
+
+
+
 })

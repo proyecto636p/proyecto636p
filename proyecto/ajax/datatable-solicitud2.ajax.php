@@ -1,5 +1,8 @@
 <?php
 
+
+session_start();
+
 require_once "../controladores/solicitud.controlador.php";
 require_once "../modelos/solicitud.modelo.php";
 
@@ -25,12 +28,11 @@ class TablaSolicitud{
 
 	
 
-		$item = null;
-		$valor = null;
-		
+		$item1 = "usuariof";
+		$valor1 = $_SESSION["nombre"];
 		
 
-  		$solicitud = ControladorSolicitudes::ctrMostrarSolicitudes($item, $valor);	
+  		$solicitud = ControladorSolicitudes::ctrMostrarSolicitudes($item1, $valor1);	
 		
   		$datosJson = '{
 		  "data": [';
@@ -51,11 +53,11 @@ class TablaSolicitud{
 
 			  if($solicitud[$i]["estado"] != 0){
 
-				$botones2 =  "<button class='btn btn-success btn-xs btn-xs btnActivar' idSolicitud='".$solicitud[$i]["id"]."' estadoSolicitud='0'>Procesada</button>";  
+				$botones2 =  "<button class='btn btn-success btn-xs btn-xs ' idSolicitud='".$solicitud[$i]["id"]."' estadoSolicitud='0'>Procesada</button>";  
 
 	    	  }else{
 
-		     	$botones2 =  "<button class='btn btn-danger btn-xs btnActivar' idSolicitud='".$solicitud[$i]["id"]."' estadoSolicitud='1'>En Proceso</button";  
+		     	$botones2 =  "<button class='btn btn-danger btn-xs ' idSolicitud='".$solicitud[$i]["id"]."' estadoSolicitud='1'>En Proceso</button";  
 
 			 } 
 

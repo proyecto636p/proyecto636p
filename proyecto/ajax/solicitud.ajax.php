@@ -22,6 +22,28 @@ class AjaxSolicitud{
 	  echo json_encode($respuesta);
   
 	}
+
+		/*=============================================
+	ACTIVAR SOLICITUD
+	=============================================*/	
+
+	public $activarSolicitud;
+	public $activarId;
+
+
+	public function ajaxActivarSolicitud(){
+
+		$tabla = "solicitud";
+
+		$item1 = "estado";
+		$valor1 = $this->activarSolicitud;
+
+		$item2 = "id";
+		$valor2 = $this->activarId;
+
+		$respuesta = ModeloSolicitudes::mdlActualizarSolicitud($tabla, $item1, $valor1, $item2, $valor2);
+
+	}
   
   }
 
@@ -37,3 +59,16 @@ class AjaxSolicitud{
   
   }
   
+
+  /*=============================================
+ACTIVAR USUARIO
+=============================================*/	
+
+if(isset($_POST["activarSolicitud"])){
+
+	$activarSolicitud = new AjaxSolicitud();
+	$activarSolicitud -> activarSolicitud = $_POST["activarSolicitud"];
+	$activarSolicitud -> activarId = $_POST["activarId"];
+	$activarSolicitud -> ajaxActivarSolicitud();
+
+}

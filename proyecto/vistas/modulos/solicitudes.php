@@ -33,13 +33,14 @@
       </div>
 
       <div class="box-body">
-        
+      <?php
+         if($_SESSION["perfil"]=="Administrador"){
+         echo '       
        <table class="table table-bordered table-striped dt-responsive tablaSolicitud" width="100%">
          
         <thead>
          
          <tr>
-           
 
            <th>codigo</th>
            <th>solicitud</th>
@@ -47,15 +48,38 @@
            <th>estado</th>
            <th>fecha</th>
            <th>Acciones</th>
-           
+
          </tr> 
 
         </thead>
 
        
 
-       </table>
+       </table>';
+      }else {
+        echo '
+        <table class="table table-bordered table-striped dt-responsive tablaSolicitud2" width="100%">
+         
+        <thead>
+         
+         <tr>
 
+           <th>codigo</th>
+           <th>solicitud</th>
+           <th>usuario</th>
+           <th>estado</th>
+           <th>fecha</th>
+           <th>Acciones</th>
+
+         </tr> 
+
+        </thead>
+
+       
+
+       </table>';
+       }
+         ?>
       </div>
 
     </div>
@@ -119,7 +143,7 @@ MODAL AGREGAR SOLICITUD
  
                <!-- ENTRADA PARA el status -->
 
-               <input type="hidden" value="en espera" name="nuevoEstado">
+               <input type="hidden" value="0" name="nuevoEstado">
              
 
         </div>
@@ -202,7 +226,7 @@ MODAL EDITAR SOLICITUD
  
                <!-- ENTRADA PARA el status -->
 
-               <input type="hidden" value="en espera" name="editarEstado"> 
+               <input type="hidden" id=editarEstado name="editarEstado"> 
 
                <input type="hidden" id="editarId" name="editarId"> 
 
