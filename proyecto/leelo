@@ -1,0 +1,27 @@
+la base de datos tiene 3 usuario
+
+1 Administrador
+cesar
+1234
+
+2 Tecnico
+tecnico
+1234
+
+3 Usuario
+usuario
+1234
+
+
+estan funcionando solo el usuario administrador y usuario
+
+hay dos archivo de conexion uno para el sistema en general y el otro para los combos
+
+1 en la carpeta modelos/conexion.php
+
+2 en la carpeta vistas/js/conexion2.php
+
+
+hay dos menus uno para el usuario administrador y otro para el usuario sin permisos
+
+

@@ -142,7 +142,7 @@ CUERPO DOCUMENTO
 
       }
 
-    }if(isset($_GET["ruta"])&& $_SESSION["perfil"] == "Vendedor"){
+    }if(isset($_GET["ruta"])&& $_SESSION["perfil"] == "Usuario"){
       if($_GET["ruta"] == "inicio" ||
       $_GET["ruta"] == "usuarios" ||
       $_GET["ruta"] == "equipos" ||

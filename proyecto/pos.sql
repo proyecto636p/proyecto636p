@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 28-03-2020 a las 17:19:29
+-- Tiempo de generación: 28-03-2020 a las 19:13:13
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.2.28
 
@@ -62,7 +62,7 @@ CREATE TABLE `cargos` (
 --
 
 INSERT INTO `cargos` (`id`, `descripcion`, `iddepartamentof`) VALUES
-(4, 'Programador', 2),
+(4, 'secretaria', 2),
 (6, 'desarrollador', 4),
 (7, 'tecnico', 4);
 
@@ -258,8 +258,8 @@ CREATE TABLE `personal` (
 
 INSERT INTO `personal` (`id`, `cedula`, `nombres`, `apellidos`, `email`, `telefono`, `direccion`, `fecha_nac`, `cargo`, `departamento`, `estado`, `fecha`) VALUES
 (1, 18799886, 'cesar augusto', 'ratia parra', 'informaticoc.r05@gmail.com', '(412) 150-3288', 'la ciudadela', '2032/03/23', 4, 4, 'Activo', '2012-11-01 07:06:12'),
-(2, 22102779, 'deglis yoelis', 'parra alvarado', 'deglis@gmail.com', '(424) 577-7980', 'la ciudadela', '1990/04/19', 7, 4, 'Activo', '2012-11-01 07:05:28'),
-(3, 21054420, 'ana maria', 'perez rojas', 'ana@gmail.com', '(424) 577-7980', 'la ciudadela', '1980/03/20', 4, 2, 'Inactivo', '2012-11-01 08:58:48');
+(4, 19799886, 'jose jose', 'perez perez', 'jose@gmail.com', '(042) 444-4444', 'acarigua', '1990/02/23', 7, 4, 'Activo', '2020-03-28 16:38:42'),
+(5, 20799886, 'ana maria', 'rojas sanchez', 'ana@gmail.com', '(424) 577-7888', 'araure', '1990/01/01', 4, 2, 'Activo', '2020-03-28 16:41:55');
 
 -- --------------------------------------------------------
 
@@ -310,8 +310,8 @@ CREATE TABLE `solicitud` (
 --
 
 INSERT INTO `solicitud` (`id`, `solicitud`, `usuariof`, `estado`, `fecha`) VALUES
-(15, 'un monitor', 1, 0, '2020-03-28 15:46:51'),
-(16, 'un lapiz', 2, 0, '2020-03-28 15:41:21');
+(15, 'un monitor', 1, 0, '2020-03-28 18:12:41'),
+(17, 'un monitor', 5, 1, '2020-03-28 18:12:41');
 
 -- --------------------------------------------------------
 
@@ -357,9 +357,9 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `cedulaf`, `nombre`, `usuario`, `password`, `perfil`, `foto`, `estado`, `ultimo_login`, `fecha`) VALUES
-(59, 0, '3', 'ana', '$2a$07$asxx54ahjppf45sd87a5auLd2AxYsA/2BbmGKNk2kMChC3oj7V0Ca', 'Vendedor', 'vistas/img/usuarios/ana/260.png', 1, '2017-12-21 12:07:47', '2020-03-28 15:38:47'),
-(60, 0, '1', 'cesar', '$2a$07$asxx54ahjppf45sd87a5auJRR6foEJ7ynpjisKtbiKJbvJsoQ8VPS', 'Administrador', 'vistas/img/usuarios/cesar/510.jpg', 1, '2020-03-28 11:46:41', '2020-03-28 15:46:41'),
-(65, 0, '2', 'deglis', '$2a$07$asxx54ahjppf45sd87a5auJRR6foEJ7ynpjisKtbiKJbvJsoQ8VPS', 'Vendedor', '', 1, '2020-03-28 11:41:07', '2020-03-28 15:41:07');
+(60, 0, '1', 'cesar', '$2a$07$asxx54ahjppf45sd87a5auJRR6foEJ7ynpjisKtbiKJbvJsoQ8VPS', 'Administrador', 'vistas/img/usuarios/cesar/510.jpg', 1, '2020-03-28 13:55:41', '2020-03-28 17:55:41'),
+(66, 0, '4', 'tecnico', '$2a$07$asxx54ahjppf45sd87a5auJRR6foEJ7ynpjisKtbiKJbvJsoQ8VPS', 'Tecnico', 'vistas/img/usuarios/cesar/510.jpg', 1, '2020-03-28 13:53:47', '2020-03-28 17:53:47'),
+(67, 0, '5', 'usuario', '$2a$07$asxx54ahjppf45sd87a5auJRR6foEJ7ynpjisKtbiKJbvJsoQ8VPS', 'Usuario', 'vistas/img/usuarios/cesar/510.jpg', 1, '2020-03-28 13:55:09', '2020-03-28 17:55:09');
 
 --
 -- Índices para tablas volcadas
@@ -511,7 +511,7 @@ ALTER TABLE `modelos`
 -- AUTO_INCREMENT de la tabla `personal`
 --
 ALTER TABLE `personal`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
@@ -523,7 +523,7 @@ ALTER TABLE `productos`
 -- AUTO_INCREMENT de la tabla `solicitud`
 --
 ALTER TABLE `solicitud`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de la tabla `tipos`
@@ -535,7 +535,7 @@ ALTER TABLE `tipos`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
