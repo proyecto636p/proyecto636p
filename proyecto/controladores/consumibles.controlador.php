@@ -1,26 +1,26 @@
 <?php
 
-class ControladorEquipos{
+class ControladorConsumibles{
 
 	/*=============================================
-	MOSTRAR EQUIPOS
+	MOSTRAR CONSUMIBLES
 	=============================================*/
 
-	static public function ctrMostrarEquipos($item, $valor){
+	static public function ctrMostrarConsumibles($item, $valor){
 
-		$tabla = "equipos";
+		$tabla = "consumibles";
 
-		$respuesta = ModeloEquipos::mdlMostrarEquipos($tabla, $item, $valor);
+		$respuesta = ModeloConsumibles::mdlMostrarConsumibles($tabla, $item, $valor);
 
 		return $respuesta;
 
 	}
 
 	/*=============================================
-	CREAR EQUIPO
+	CREAR CONSUMIBLE
 	=============================================*/
 
-	static public function ctrCrearEquipo(){
+	static public function ctrCrearConsumible(){
 
 		if(isset($_POST["nuevaDescripcion"])){
 
@@ -31,7 +31,7 @@ class ControladorEquipos{
 		
 		   		
 
-				$tabla = "equipos";
+				$tabla = "consumibles";
 
 				$datos = array("codigo" => $_POST["nuevoCodigo"],
 							   "seriales" => $_POST["nuevoSerial"],
@@ -44,7 +44,7 @@ class ControladorEquipos{
 							   "asignacion" => $_POST["nuevoAsignado"],
 							   "observacion" => $_POST["nuevaObservacion"]);
 
-				$respuesta = ModeloEquipos::mdlIngresarEquipo($tabla, $datos);
+				$respuesta = ModeloConsumibles::mdlIngresarConsumible($tabla, $datos);
 
 				if($respuesta == "ok"){
 
@@ -52,13 +52,13 @@ class ControladorEquipos{
 
 						swal({
 							  type: "success",
-							  title: "El equipo ha sido guardado correctamente",
+							  title: "El Consumible ha sido guardado correctamente",
 							  showConfirmButton: true,
 							  confirmButtonText: "Cerrar"
 							  }).then(function(result){
 										if (result.value) {
 
-										window.location = "equipos";
+										window.location = "consumibles";
 
 										}
 									})
@@ -77,7 +77,7 @@ class ControladorEquipos{
 					  }).then(function(result){
 						if (result.value) {
 
-						window.location = "equipos";
+						window.location = "consumibles";
 
 						}
 					})
@@ -92,13 +92,13 @@ class ControladorEquipos{
 
 					swal({
 						  type: "error",
-						  title: "¡El equipo no puede ir con los campos vacíos o llevar caracteres especiales!",
+						  title: "¡El Consumible no puede ir con los campos vacíos o llevar caracteres especiales!",
 						  showConfirmButton: true,
 						  confirmButtonText: "Cerrar"
 						  }).then(function(result){
 							if (result.value) {
 
-							window.location = "equipos";
+							window.location = "consumibles";
 
 							}
 						})
@@ -110,16 +110,16 @@ class ControladorEquipos{
 	}
 
 	/*=============================================
-	EDITAR EQUIPO
+	EDITAR CONSUMIBLE
 	=============================================*/
 
-	static public function ctrEditarEquipo(){
+	static public function ctrEditarConsumible(){
 
 		if(isset($_POST["editarDescripcion"])){
 
 			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["editarDescripcion"])){
 
-				$tabla = "equipos";
+				$tabla = "consumibles";
 
 				$datos = array("codigo" => $_POST["editarCodigo"],
 							   "seriales" => $_POST["editarSerial"],
@@ -132,7 +132,7 @@ class ControladorEquipos{
 							   "asignacion" => $_POST["editarAsignado"],
 							   "observacion" => $_POST["editarObservacion"]);
 
-				$respuesta = ModeloEquipos::mdlEditarEquipo($tabla, $datos);
+				$respuesta = ModeloConsumibles::mdlEditarConsumible($tabla, $datos);
 
 				if($respuesta == "ok"){
 
@@ -140,13 +140,13 @@ class ControladorEquipos{
 
 						swal({
 							  type: "success",
-							  title: "El equipo ha sido editado correctamente",
+							  title: "El Consumible ha sido editado correctamente",
 							  showConfirmButton: true,
 							  confirmButtonText: "Cerrar"
 							  }).then(function(result){
 										if (result.value) {
 
-										window.location = "equipos";
+										window.location = "consumibles";
 
 										}
 									})
@@ -162,13 +162,13 @@ class ControladorEquipos{
 
 					swal({
 						  type: "error",
-						  title: "¡El equipo no puede ir con los campos vacíos o llevar caracteres especiales!",
+						  title: "¡El Consumible no puede ir con los campos vacíos o llevar caracteres especiales!",
 						  showConfirmButton: true,
 						  confirmButtonText: "Cerrar"
 						  }).then(function(result){
 							if (result.value) {
 
-							window.location = "equipos";
+							window.location = "consumibles";
 
 							}
 						})
@@ -181,22 +181,20 @@ class ControladorEquipos{
 
 
 	/*=============================================
-	BORRAR EQUIPO
+	BORRAR CONSUMIBLE
 	=============================================*/
-	static public function ctrEliminarEquipo(){
+	static public function ctrEliminarConsumible(){
 
 		if(isset($_GET["idEquipo"])){
-
-			echo'<script>alert('.$_GET["asignado"].')</script>';
 
 			if ($_GET["asignado"]=="no asignado") {
 				
 
-				$tabla ="equipos";
+				$tabla ="consumibles";
 				$datos = $_GET["idEquipo"];
 	
 	
-				$respuesta = ModeloEquipos::mdlEliminarEquipo($tabla, $datos);
+				$respuesta = ModeloConsumibles::mdlEliminarConsumible($tabla, $datos);
 	
 				if($respuesta == "ok"){
 	
@@ -204,13 +202,13 @@ class ControladorEquipos{
 	
 					swal({
 						  type: "success",
-						  title: "El equipo ha sido borrado correctamente",
+						  title: "El Consumible ha sido borrado correctamente",
 						  showConfirmButton: true,
 						  confirmButtonText: "Cerrar"
 						  }).then(function(result){
 									if (result.value) {
 	
-									window.location = "equipos";
+									window.location = "consumibles";
 	
 									}
 								})
@@ -224,23 +222,21 @@ class ControladorEquipos{
 
 					swal({
 						  type: "error",
-						  title: "¡El Equipo no puede estar Asignado!",
+						  title: "¡El Consumible no puede estar Asignado!",
 						  showConfirmButton: true,
 						  confirmButtonText: "Cerrar"
 						  }).then(function(result){
 							if (result.value) {
 
-							window.location = "equipos";
+							window.location = "consumibles";
 
 							}
 						})
 
 			  	</script>';
-			}
-			
-
-
+			}	
 		}
+
 
 	}
 

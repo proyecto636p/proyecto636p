@@ -62,7 +62,7 @@
 
 					<i class="fa fa-list-ul"></i>
 					
-					<span>Inventarios</span>
+					<span>Inventario Equipos</span>
 					
 					<span class="pull-right-container">
 					
@@ -107,7 +107,7 @@
 					   <li>
 				        <a href="equipos">
 					     	<i class="fa fa-circle-o"></i>
-						       <span>Equipos</span>
+						       <span>Recepcion de Equipos</span>
 				        </a>
 	                   </li>
 
@@ -115,6 +115,67 @@
         </ul>
 
       </li>
+
+	  			
+	  <li class="treeview">
+
+<a href="#">
+
+	<i class="fa fa-list-ul"></i>
+	
+	<span>Inventario Consumibles</span>
+	
+	<span class="pull-right-container">
+	
+		<i class="fa fa-angle-left pull-right"></i>
+
+	</span>
+
+</a>
+
+
+			   <ul class="treeview-menu">
+				   <li>
+					   <a href="categoriasC">
+						   <i class="fa fa-circle-o"></i>
+						   <span>Categorías</span>
+						  </a>
+				</li>
+				<li>
+						<a href="tiposC">
+							  <i class="fa fa-circle-o"></i>
+								  <span>Tipos</span>
+					   </a>
+				</li>             
+				<li>
+					   <a href="marcasC">
+						  <i class="fa fa-circle-o"></i>
+						   <span>Marcas</span>
+					</a>
+			  </li>
+			<li>
+				<a href="modeloC">
+				 <i class="fa fa-circle-o"></i>
+				  <span>modelos</span>
+			  </a>
+	   </li>
+	 <!--  <li>
+		<a href="productos">
+			 <i class="fa fa-circle-o"></i>
+			   <span>productos</span>
+		</a>
+	   </li>-->
+	   <li>
+		<a href="consumibles">
+			 <i class="fa fa-circle-o"></i>
+			   <span>Recepcion de Consumibles</span>
+		</a>
+	   </li>
+
+
+</ul>
+
+</li>
 		
 
 		        <li>
@@ -126,7 +187,13 @@
 			 <li>
                  <a href="asignaciones">
 	                <i class="fa fa-users"></i>
-	                <span>Asignaciones</span>
+	                <span>Asignacion de Equipos</span>
+                  </a>
+             </li>
+			 <li>
+                 <a href="asignacionesC">
+	                <i class="fa fa-users"></i>
+	                <span>Asignacion de Consumibles</span>
                   </a>
              </li>
            <!--  <li class="treeview">

@@ -1,32 +1,32 @@
 <?php
 
-require_once "../controladores/equipos.controlador.php";
-require_once "../modelos/equipos.modelo.php";
+require_once "../controladores/consumibles.controlador.php";
+require_once "../modelos/consumibles.modelo.php";
 
-require_once "../controladores/categorias.controlador.php";
-require_once "../modelos/categorias.modelo.php";
+require_once "../controladores/categoriasC.controlador.php";
+require_once "../modelos/categoriasC.modelo.php";
 
-require_once "../controladores/tipos.controlador.php";
-require_once "../modelos/tipos.modelo.php";
+require_once "../controladores/tiposC.controlador.php";
+require_once "../modelos/tiposC.modelo.php";
 
-require_once "../controladores/marcas.controlador.php";
-require_once "../modelos/marcas.modelo.php";
+require_once "../controladores/marcasC.controlador.php";
+require_once "../modelos/marcasC.modelo.php";
 
-require_once "../controladores/modelos.controlador.php";
-require_once "../modelos/modelos.modelo.php";
+require_once "../controladores/modelosC.controlador.php";
+require_once "../modelos/modelosC.modelo.php";
 
-class TablaEquipos{
+class TablaConsumibles{
 
  	/*=============================================
- 	 MOSTRAR LA TABLA DE EQUIPOS
+ 	 MOSTRAR LA TABLA DE CONSUMIBLES
   	=============================================*/ 
 
-	public function mostrarTablaEquipos(){
+	public function mostrarTablaConsumibles(){
 
 		$item = null;
     	$valor = null;
 
-  		$equipos = ControladorEquipos::ctrMostrarEquipos($item, $valor);	
+  		$equipos = ControladorConsumibles::ctrMostrarConsumibles($item, $valor);	
 		
   		$datosJson = '{
 		  "data": [';
@@ -41,7 +41,7 @@ class TablaEquipos{
 		  	$item = "id";
 		  	$valor = $equipos[$i]["categoria"];
 
-			  $categorias = ControladorCategorias::ctrMostrarCategorias($item, $valor);
+			  $categorias = ControladorCategoriasC::ctrMostrarCategorias($item, $valor);
 			  
 	    	/*=============================================
  	 		TRAEMOS EL TIPO
@@ -50,7 +50,7 @@ class TablaEquipos{
 		  	$item = "id";
 		  	$valor = $equipos[$i]["tipo"];
 
-			  $tipos = ControladorTipos::ctrMostrarTipos($item, $valor);
+			  $tipos = ControladorTiposC::ctrMostrarTipos($item, $valor);
 
 
 			/*=============================================
@@ -60,7 +60,7 @@ class TablaEquipos{
 		  	$item = "id";
 		  	$valor = $equipos[$i]["marca"];
 
-		  	$marcas = ControladorMarcas::ctrMostrarMarcas($item, $valor);
+		  	$marcas = ControladorMarcasC::ctrMostrarMarcas($item, $valor);
 
 		  	/*=============================================
  	 		STOCK
@@ -84,7 +84,7 @@ class TablaEquipos{
  	 		TRAEMOS LAS ACCIONES
   			=============================================*/ 
 
-		  	$botones =  "<div class='btn-group'><button class='btn btn-warning btnEditarEquipo' idEquipo='".$equipos[$i]["id"]."' data-toggle='modal' data-target='#modalEditarEquipo'><i class='fa fa-pencil'></i></button><button class='btn btn-danger btnEliminarEquipo' idEquipo='".$equipos[$i]["id"]."' codigo='".$equipos[$i]["codigo"]."' asignado='".$equipos[$i]["asignacion"]."'><i class='fa fa-times'></i></button></div>";  
+		  	$botones =  "<div class='btn-group'><button class='btn btn-warning btnEditarConsumible' idEquipo='".$equipos[$i]["id"]."' data-toggle='modal' data-target='#modalEditarConsumible'><i class='fa fa-pencil'></i></button><button class='btn btn-danger btnEliminarConsumible' idEquipo='".$equipos[$i]["id"]."' codigo='".$equipos[$i]["codigo"]."' asignado='".$equipos[$i]["asignacion"]."'><i class='fa fa-times'></i></button></div>";  
 
 		  	$datosJson .='[
 				 
@@ -122,6 +122,6 @@ class TablaEquipos{
 /*=============================================
 ACTIVAR TABLA DE PRODUCTOS
 =============================================*/ 
-$activarProductos = new TablaEquipos();
-$activarProductos -> mostrarTablaEquipos();
+$activarProductos = new TablaConsumibles();
+$activarProductos -> mostrarTablaConsumibles();
 

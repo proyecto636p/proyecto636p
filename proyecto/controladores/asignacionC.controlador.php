@@ -1,6 +1,6 @@
 <?php
 
-class ControladorAsignaciones{
+class ControladorAsignacionesC{
 
 	/*=============================================
 	CREAR ASIGNACION
@@ -16,7 +16,7 @@ class ControladorAsignaciones{
 			preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoAsignadoPor"])){
 	
 
-				$tabla = "asignacion";
+				$tabla = "asignacionC";
 
 				  
 			   	$datos = array("asignacion"=>$_POST["nuevaAsignacion"],
@@ -25,7 +25,7 @@ class ControladorAsignaciones{
 							   "observacion"=>$_POST["nuevaObservacion"],
 							   "asignado"=>$_POST["asignado"]);
 
-			   	$respuesta = ModeloAsignaciones::mdlIngresarAsignacion($tabla, $datos);
+			   	$respuesta = ModeloAsignacionesC::mdlIngresarAsignacion($tabla, $datos);
 
 			   	if($respuesta == "ok"){
 
@@ -39,7 +39,7 @@ class ControladorAsignaciones{
 						  }).then(function(result){
 									if (result.value) {
 
-									window.location = "asignaciones";
+									window.location = "asignacionesC";
 
 									}
 								})
@@ -59,7 +59,7 @@ class ControladorAsignaciones{
 						  }).then(function(result){
 							if (result.value) {
 
-							window.location = "asignaciones";
+							window.location = "asignacionesC";
 
 							}
 						})
@@ -80,9 +80,9 @@ class ControladorAsignaciones{
 
 	static public function ctrMostrarAsignaciones($item, $valor){
 
-		$tabla = "asignacion";
+		$tabla = "asignacionC";
 
-		$respuesta = ModeloAsignaciones::mdlMostrarAsignaciones($tabla, $item, $valor);
+		$respuesta = ModeloAsignacionesC::mdlMostrarAsignaciones($tabla, $item, $valor);
 
 		return $respuesta;
 
@@ -111,7 +111,7 @@ class ControladorAsignaciones{
 			
 
 		
-			   	$tabla = "asignacion";
+			   	$tabla = "asignacionC";
 								  
 								  $datos = array("id"=>$_POST["editarId"],
 								  "asignacion"=>$_POST["editarAsignacion"],
@@ -119,7 +119,7 @@ class ControladorAsignaciones{
 								  "asignadopor"=>$_POST["editarAsignadoPor"],
 								  "observacion"=>$_POST["editarObservacion"]);
 
-			   	$respuesta = ModeloAsignaciones::mdlEditarAsignacion($tabla, $datos);
+			   	$respuesta = ModeloAsignacionesC::mdlEditarAsignacion($tabla, $datos);
 
 			   	if($respuesta == "ok"){
 
@@ -133,7 +133,7 @@ class ControladorAsignaciones{
 						  }).then(function(result){
 									if (result.value) {
 
-									window.location = "asignaciones";
+									window.location = "asignacionesC";
 
 									}
 								})
@@ -152,7 +152,7 @@ class ControladorAsignaciones{
 					  }).then(function(result){
 						if (result.value) {
 
-						window.location = "asignaciones";
+						window.location = "asignacionesC";
 
 						}
 					})
@@ -172,7 +172,7 @@ class ControladorAsignaciones{
 						  }).then(function(result){
 							if (result.value) {
 
-							window.location = "asignaciones";
+							window.location = "asignacionesC";
 
 							}
 						})
@@ -196,12 +196,11 @@ class ControladorAsignaciones{
 
 		if(isset($_GET["idAsignacion"])){
 
-			$tabla ="asignacion";
+			$tabla ="asignacionC";
 			$datos = $_GET["idAsignacion"];
 			$codigo = $_GET["codigo"];
 
-
-			$respuesta = ModeloAsignaciones::mdlEliminarAsignacion($tabla, $datos, $codigo);
+			$respuesta = ModeloAsignacionesC::mdlEliminarAsignacion($tabla, $datos, $codigo);
 
 			if($respuesta == "ok"){
 
@@ -215,7 +214,7 @@ class ControladorAsignaciones{
 					  }).then(function(result){
 								if (result.value) {
 
-								window.location = "asignaciones";
+								window.location = "asignacionesC";
 
 								}
 							})

@@ -9,7 +9,7 @@ $(".tablas").on("click", ".btnEditarModelo", function(){
 	datos.append("idModelo", idModelo);
 
 	$.ajax({
-		url: "ajax/modelos.ajax.php",
+		url: "ajax/modelosC.ajax.php",
 		method: "POST",
       	data: datos,
       	cache: false,
@@ -36,7 +36,7 @@ $(".tablas").on("click", ".btnEliminarModelo", function(){
 	 var idModelo = $(this).attr("idModelo");
 
 	 swal({
-	 	title: '¿Está seguro de borrar el Modelo?',
+	 	title: '¿Está seguro de borrar la Modelo?',
 	 	text: "¡Si no lo está puede cancelar la acción!",
 	 	type: 'warning',
 	 	showCancelButton: true,
@@ -48,7 +48,7 @@ $(".tablas").on("click", ".btnEliminarModelo", function(){
 
 	 	if(result.value){
 
-	 		window.location = "index.php?ruta=modelo&idModelo="+idModelo;
+	 		window.location = "index.php?ruta=modeloC&idModelo="+idModelo;
 
 	 	}
 

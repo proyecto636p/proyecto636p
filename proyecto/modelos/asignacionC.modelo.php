@@ -2,7 +2,7 @@
 
 require_once "conexion.php";
 
-class ModeloAsignaciones{
+class ModeloAsignacionesC{
 
 	/*=============================================
 	CREAR ASIGNACION
@@ -16,14 +16,13 @@ class ModeloAsignaciones{
 		$stmt->bindParam(":usuario", $datos["usuario"], PDO::PARAM_STR);
 		$stmt->bindParam(":asignadoPor", $datos["asignadoPor"], PDO::PARAM_STR);
 		$stmt->bindParam(":observacion", $datos["observacion"], PDO::PARAM_STR);
- 
-        $tabla2="equipos";
+
+		$tabla2="consumibles";
 
 		$stmt2 = Conexion::conectar()->prepare("UPDATE $tabla2 SET asignacion = :asignacion WHERE codigo = :codigo");
 		
 		$stmt2->bindParam(":codigo", $datos["asignacion"], PDO::PARAM_INT);
 		$stmt2->bindParam(":asignacion", $datos["asignado"], PDO::PARAM_STR);
-
 
 		if($stmt->execute() && $stmt2->execute()){
 
@@ -38,6 +37,7 @@ class ModeloAsignaciones{
 		$stmt->close();
 		$stmt = null;
 
+		
 		$stmt2->close();
 		$stmt2 = null;
 
@@ -116,7 +116,7 @@ class ModeloAsignaciones{
 
 		$stmt -> bindParam(":id", $datos, PDO::PARAM_INT);
 
-		$tabla2="equipos";
+		$tabla2="consumibles";
 
 		$stmt2 = Conexion::conectar()->prepare("UPDATE $tabla2 SET asignacion = :asignacion WHERE codigo = :codigo");
 		$asigna="no asignado";
@@ -124,7 +124,7 @@ class ModeloAsignaciones{
 		$stmt2->bindParam(":asignacion", $asigna, PDO::PARAM_STR);
 
 
-		if($stmt -> execute()&& $stmt2 -> execute()){
+		if($stmt -> execute() && $stmt2 -> execute()){
 
 			return "ok";
 		

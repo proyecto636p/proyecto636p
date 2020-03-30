@@ -2,13 +2,13 @@
 
 require_once "conexion.php";
 
-class ModeloEquipos{
+class ModeloConsumibles{
 
 	/*=============================================
-	MOSTRAR EQUIPOS
+	MOSTRAR CONSUMIBLES
 	=============================================*/
 
-	static public function mdlMostrarEquipos($tabla, $item, $valor){
+	static public function mdlMostrarConsumibles($tabla, $item, $valor){
 
 		if($item != null){
 
@@ -37,9 +37,9 @@ class ModeloEquipos{
 	}
 
 	/*=============================================
-	REGISTRO DE EQUIPO
+	REGISTRO DE CONSUMIBLES
 	=============================================*/
-	static public function mdlIngresarEquipo($tabla, $datos){
+	static public function mdlIngresarConsumible($tabla, $datos){
 
 		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(id, codigo, seriales, categoria, tipo, marca, modelo, estado, stock, asignacion, observacion) VALUES (null, :codigo, :seriales, :categoria, :tipo, :marca, :modelo, :estado, :stock, :asignacion, :observacion)");
 
@@ -70,9 +70,9 @@ class ModeloEquipos{
 	}
 
 	/*=============================================
-	EDITAR EQUIPO
+	EDITAR CONSUMIBLES
 	=============================================*/
-	static public function mdlEditarEquipo($tabla, $datos){
+	static public function mdlEditarConsumible($tabla, $datos){
 
 		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET codigo = :codigo, seriales = :seriales, categoria = :categoria, tipo = :tipo, marca = :marca, modelo = :modelo, estado = :estado, stock = :stock, asignacion = :asignacion, observacion = :observacion WHERE codigo = :codigo");
 
@@ -103,12 +103,12 @@ class ModeloEquipos{
 	}
 
 	/*=============================================
-	BORRAR EQUIPO
+	BORRAR CONSUMIBLE
 	=============================================*/
 
-	static public function mdlEliminarEquipo($tabla, $datos){
+	static public function mdlEliminarConsumible($tabla, $datos){
 
-		$stmt = Conexion::conectar()->prepare("DELETE FROM $tabla WHERE id = :id  and asignacion ='no asignado' ");
+		$stmt = Conexion::conectar()->prepare("DELETE FROM $tabla WHERE id = :id and asignacion ='no asignado' ");
 
 		$stmt -> bindParam(":id", $datos, PDO::PARAM_INT);
 

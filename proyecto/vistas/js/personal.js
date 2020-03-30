@@ -149,7 +149,7 @@ swal({
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
       cancelButtonText: 'Cancelar',
-      confirmButtonText: 'Si, borrar personal!'
+      confirmButtonText: 'Si, borrar Personal!'
       }).then(function(result){
       if (result.value) {
 

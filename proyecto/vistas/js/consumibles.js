@@ -1,20 +1,5 @@
-/*=============================================
-CARGAR LA TABLA DINÁMICA DE EQUIPOS
-=============================================*/
-
-// $.ajax({
-
-// 	url: "ajax/datatable-productos.ajax.php",
-// 	success:function(respuesta){
-		
-// 		console.log("respuesta", respuesta);
-
-// 	}
-
-// })
-
-$('.tablaEquipos').DataTable( {
-    "ajax": "ajax/datatable-equipos.ajax.php",
+$('.tablaConsumibles').DataTable( {
+    "ajax": "ajax/datatable-consumibles.ajax.php",
     "deferRender": true,
 	"retrieve": true,
 	"processing": true,
@@ -50,7 +35,7 @@ $('.tablaEquipos').DataTable( {
 /*=============================================
 CAPTURANDO LA CATEGORIA PARA ASIGNAR CÓDIGO
 =============================================*/
-$("#nuevaCategoriaE").change(function(){
+$("#nuevaCategoriaC").change(function(){
 
 	var idCategoria = $(this).val();
 
@@ -59,7 +44,7 @@ $("#nuevaCategoriaE").change(function(){
 
   	$.ajax({
 
-      url:"ajax/equipos.ajax.php",
+      url:"ajax/consumibles.ajax.php",
       method: "POST",
       data: datos,
       cache: false,
@@ -91,7 +76,7 @@ $("#nuevaCategoriaE").change(function(){
 EDITAR EQUIPO
 =============================================*/
 
-$(".tablaEquipos tbody").on("click", "button.btnEditarEquipo",function(){
+$(".tablaConsumibles tbody").on("click", "button.btnEditarConsumible",function(){
 
 	var idEquipo = $(this).attr("idEquipo");
     
@@ -102,7 +87,7 @@ $(".tablaEquipos tbody").on("click", "button.btnEditarEquipo",function(){
 
      $.ajax({
 
-      url:"ajax/equipos.ajax.php",
+      url:"ajax/consumibles.ajax.php",
       method: "POST",
       data: datos,
       cache: false,
@@ -116,7 +101,7 @@ $(".tablaEquipos tbody").on("click", "button.btnEditarEquipo",function(){
 
            $.ajax({
 
-              url:"ajax/categorias.ajax.php",
+              url:"ajax/categoriasC.ajax.php",
               method: "POST",
               data: datosCategoria,
               cache: false,
@@ -139,7 +124,7 @@ $(".tablaEquipos tbody").on("click", "button.btnEditarEquipo",function(){
  
             $.ajax({
  
-               url:"ajax/tipos.ajax.php",
+               url:"ajax/tiposC.ajax.php",
                method: "POST",
                data: datosTipo,
                cache: false,
@@ -160,7 +145,7 @@ $(".tablaEquipos tbody").on("click", "button.btnEditarEquipo",function(){
  
             $.ajax({
  
-               url:"ajax/marcas.ajax.php",
+               url:"ajax/marcasC.ajax.php",
                method: "POST",
                data: datosMarca,
                cache: false,
@@ -201,7 +186,7 @@ $(".tablaEquipos tbody").on("click", "button.btnEditarEquipo",function(){
 ELIMINAR EQUIPO
 =============================================*/
 
-$(".tablaEquipos tbody").on("click", "button.btnEliminarEquipo", function(){
+$(".tablaConsumibles tbody").on("click", "button.btnEliminarConsumible", function(){
 
 	var idEquipo = $(this).attr("idEquipo");
     var codigo = $(this).attr("codigo");
@@ -209,18 +194,18 @@ $(".tablaEquipos tbody").on("click", "button.btnEliminarEquipo", function(){
 	
 	swal({
 
-		title: '¿Está seguro de borrar el Equipo?',
+		title: '¿Está seguro de borrar el Consumible?',
 		text: "¡Si no lo está puede cancelar la accíón!",
 		type: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
         cancelButtonText: 'Cancelar',
-        confirmButtonText: 'Si, borrar Equipo!'
+        confirmButtonText: 'Si, borrar consumible!'
         }).then(function(result){
         if (result.value) {
 
-        	window.location = "index.php?ruta=equipos&idEquipo="+idEquipo+"&codigo="+codigo+"&asignado="+asignado;
+        	window.location = "index.php?ruta=consumibles&idEquipo="+idEquipo+"&codigo="+codigo+"&asignado="+asignado;
 
         }
 

@@ -1,15 +1,15 @@
 /*=============================================
-EDITAR CATEGORIA
+EDITAR TIPO
 =============================================*/
-$(".tablas").on("click", ".btnEditarModelo", function(){
+$(".tablas").on("click", ".btnEditarTipo", function(){
 
-	var idModelo = $(this).attr("idModelo");
+	var idTipo = $(this).attr("id");
 
 	var datos = new FormData();
-	datos.append("idModelo", idModelo);
+	datos.append("id", idTipo);
 
 	$.ajax({
-		url: "ajax/modelos.ajax.php",
+		url: "ajax/tiposC.ajax.php",
 		method: "POST",
       	data: datos,
       	cache: false,
@@ -18,8 +18,8 @@ $(".tablas").on("click", ".btnEditarModelo", function(){
      	dataType:"json",
      	success: function(respuesta){
 
-     		$("#editarModelo").val(respuesta["modelo"]);
-     		$("#idModelo").val(respuesta["id"]);
+     		$("#editarTipo").val(respuesta["descripcion"]);
+     		$("#id").val(respuesta["id"]);
 
      	}
 
@@ -29,26 +29,26 @@ $(".tablas").on("click", ".btnEditarModelo", function(){
 })
 
 /*=============================================
-ELIMINAR MODELO
+ELIMINAR TIPO
 =============================================*/
-$(".tablas").on("click", ".btnEliminarModelo", function(){
+$(".tablas").on("click", ".btnEliminarTipo", function(){
 
-	 var idModelo = $(this).attr("idModelo");
+	 var idTipo = $(this).attr("id");
 
 	 swal({
-	 	title: '¿Está seguro de borrar el Modelo?',
+	 	title: '¿Está seguro de borrar el Tipo?',
 	 	text: "¡Si no lo está puede cancelar la acción!",
 	 	type: 'warning',
 	 	showCancelButton: true,
 	 	confirmButtonColor: '#3085d6',
 	 	cancelButtonColor: '#d33',
 	 	cancelButtonText: 'Cancelar',
-	 	confirmButtonText: 'Si, borrar Modelo!'
+	 	confirmButtonText: 'Si, borrar Tipo!'
 	 }).then(function(result){
 
 	 	if(result.value){
 
-	 		window.location = "index.php?ruta=modelo&idModelo="+idModelo;
+	 		window.location = "index.php?ruta=tiposC&id="+idTipo;
 
 	 	}
 

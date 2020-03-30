@@ -4,7 +4,7 @@
     
     <h1>
       
-      Administrar Equipos
+      Administrar Consumibles
     
     </h1>
 
@@ -12,7 +12,7 @@
       
       <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
       
-      <li class="active">Administrar Equipos</li>
+      <li class="active">Administrar Consumibles</li>
     
     </ol>
 
@@ -24,9 +24,9 @@
 
       <div class="box-header with-border">
   
-        <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarEquipo">
+        <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarConsumible">
           
-          Agregar Equipo
+          Agregar Consumible
 
         </button>
 
@@ -34,7 +34,7 @@
 
       <div class="box-body">
         
-       <table class="table table-bordered table-striped dt-responsive tablaEquipos" width="100%">
+       <table class="table table-bordered table-striped dt-responsive tablaConsumibles" width="100%">
          
         <thead>
          
@@ -70,10 +70,10 @@
 </div>
 
 <!--=====================================
-MODAL AGREGAR PRODUCTO
+MODAL AGREGAR CONSUMIBLES
 ======================================-->
 
-<div id="modalAgregarEquipo" class="modal fade" role="dialog">
+<div id="modalAgregarConsumible" class="modal fade" role="dialog">
   
   <div class="modal-dialog">
 
@@ -89,7 +89,7 @@ MODAL AGREGAR PRODUCTO
 
           <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-          <h4 class="modal-title">Agregar Equipo</h4>
+          <h4 class="modal-title">Agregar Consumible</h4>
 
         </div>
 
@@ -110,7 +110,7 @@ MODAL AGREGAR PRODUCTO
               
                 <span class="input-group-addon"><i class="fa fa-th"></i></span> 
 
-                <select class="form-control input-lg" id="nuevaCategoriaE" name="nuevaCategoria" required>
+                <select class="form-control input-lg" id="nuevaCategoriaC" name="nuevaCategoria" required>
   
                 </select>
 
@@ -140,7 +140,7 @@ MODAL AGREGAR PRODUCTO
               
                 <span class="input-group-addon"><i  class="fa fa-product-hunt"></i></span> 
 
-                <select class="form-control input-lg" id="nuevaDescripcionE" name="nuevaDescripcion" required>
+                <select class="form-control input-lg" id="nuevaDescripcionC" name="nuevaDescripcion" required>
                 <option value="">Selecionar Descripcion</option>
                 </select>
 
@@ -157,7 +157,7 @@ MODAL AGREGAR PRODUCTO
               
                 <span class="input-group-addon"><i  class="fa fa-product-hunt"></i></span> 
 
-                <select class="form-control input-lg" id="nuevaMarcaE" name="nuevaMarca" required>
+                <select class="form-control input-lg" id="nuevaMarcaC" name="nuevaMarca" required>
                   
                   <option value="">Selecionar Marca</option>
   
@@ -175,7 +175,7 @@ MODAL AGREGAR PRODUCTO
               
                 <span class="input-group-addon"><i  class="fa fa-product-hunt"></i></span> 
 
-                <select class="form-control input-lg" id="nuevaModeloE" name="nuevaModelo" required>
+                <select class="form-control input-lg" id="nuevaModeloC" name="nuevaModelo" required>
                   
                   <option value="">Selecionar Modelo</option>
   
@@ -187,8 +187,7 @@ MODAL AGREGAR PRODUCTO
 
                <!-- ENTRADA PARA LA ASIGNACION -->
 
-
-               <input type="hidden" value="no asignado" name="nuevoAsignado">
+            <input type="hidden" value="no asignado" name="nuevoAsignado">
                            <!-- ENTRADA PARA EL STATUS -->
 
                            <div class="form-group">
@@ -259,7 +258,7 @@ MODAL AGREGAR PRODUCTO
 
           <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
 
-          <button type="submit" class="btn btn-primary">Guardar Equipo</button>
+          <button type="submit" class="btn btn-primary">Guardar Consumible</button>
 
         </div>
 
@@ -267,8 +266,8 @@ MODAL AGREGAR PRODUCTO
 
         <?php
 
-          $crearEquipo = new ControladorEquipos();
-          $crearEquipo -> ctrCrearEquipo();
+          $crearEquipo = new ControladorConsumibles();
+          $crearEquipo -> ctrCrearConsumible();
 
         ?>  
 
@@ -280,9 +279,9 @@ MODAL AGREGAR PRODUCTO
 </div>
 
 <!--=====================================
-MODAL EDITAR EQUIPO
+MODAL EDITAR CONSUMIBLE
 ======================================-->
-<div id="modalEditarEquipo" class="modal fade" role="dialog">
+<div id="modalEditarConsumible" class="modal fade" role="dialog">
   
   <div class="modal-dialog">
 
@@ -298,7 +297,7 @@ MODAL EDITAR EQUIPO
 
           <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-          <h4 class="modal-title">Editar Equipo</h4>
+          <h4 class="modal-title">Editar Consumible</h4>
 
         </div>
 
@@ -368,15 +367,13 @@ MODAL EDITAR EQUIPO
             </div>
 
                <!-- ENTRADA PARA LA ASIGNACION -->
-
                <div class="form-group">
                                 <div class="input-group">
                                         <span class="input-group-addon"><i class="fa fa-check"></i></span> 
                                        <input type="text" class="form-control input-lg" id="editarAsignado" name="editarAsignado"  readonly required>
                                 </div>
                           </div>
-
-                           <!-- ENTRADA PARA EL STATUS -->
+<!-- ENTRADA PARA EL STATUS -->
 
                   <div class="form-group">
                          <div class="input-group">
@@ -431,8 +428,8 @@ MODAL EDITAR EQUIPO
 
       </form>
       <?php
-            $editarEquipo = new ControladorEquipos();
-             $editarEquipo -> ctrEditarEquipo();
+            $editarEquipo = new ControladorConsumibles();
+             $editarEquipo -> ctrEditarConsumible();
 
       ?>
 
@@ -444,8 +441,8 @@ MODAL EDITAR EQUIPO
 
 <?php
 
-  $eliminarEquipo = new ControladorEquipos();
-  $eliminarEquipo -> ctrEliminarEquipo();
+  $eliminarEquipo = new ControladorConsumibles();
+  $eliminarEquipo -> ctrEliminarConsumible();
 
 ?>      
 

@@ -122,16 +122,22 @@ CUERPO DOCUMENTO
       if($_GET["ruta"] == "inicio" ||
          $_GET["ruta"] == "usuarios" ||
          $_GET["ruta"] == "categorias" ||
+         $_GET["ruta"] == "categoriasC" ||
          $_GET["ruta"] == "departamentos" ||
          $_GET["ruta"] == "cargos" ||
          $_GET["ruta"] == "personal" ||
          $_GET["ruta"] == "tipos" ||
+         $_GET["ruta"] == "tiposC" ||
          $_GET["ruta"] == "marcas" ||
          $_GET["ruta"] == "modelo" ||
+         $_GET["ruta"] == "marcasC" ||
+         $_GET["ruta"] == "modeloC" ||
          $_GET["ruta"] == "productos" ||
          $_GET["ruta"] == "equipos" ||
+         $_GET["ruta"] == "consumibles" ||
          $_GET["ruta"] == "solicitudes" ||
          $_GET["ruta"] == "asignaciones" ||
+         $_GET["ruta"] == "asignacionesC" ||
          $_GET["ruta"] == "salir"){
 
         include "modulos/".$_GET["ruta"].".php";
@@ -186,15 +192,22 @@ CUERPO DOCUMENTO
 <script src="vistas/js/modelos.js"></script>
 <script src="vistas/js/tipos.js"></script>
 <script src="vistas/js/marcas.js"></script>
+<script src="vistas/js/categoriasC.js"></script>
+<script src="vistas/js/modelosC.js"></script>
+<script src="vistas/js/tiposC.js"></script>
+<script src="vistas/js/marcasC.js"></script>
 <script src="vistas/js/productos.js"></script>
 <script src="vistas/js/equipos.js"></script>
+<script src="vistas/js/consumibles.js"></script>
 <script src="vistas/js/clientes.js"></script>
 <script src="vistas/js/cargar.js"></script>
+<script src="vistas/js/cargar3.js"></script>
 <script src="vistas/js/departamentos.js"></script>
 <script src="vistas/js/cargos.js"></script>
 <script src="vistas/js/personal.js"></script>
 <script src="vistas/js/solicitud.js"></script>
 <script src="vistas/js/asignacion.js"></script>
+<script src="vistas/js/asignacionC.js"></script>
 
 </body>
 </html>

@@ -34,7 +34,7 @@
 
       <div class="box-body">
         
-       <table class="table table-bordered table-striped dt-responsive tablaAsignacion" width="100%">
+       <table class="table table-bordered table-striped dt-responsive tablaAsignacionC" width="100%">
          
         <thead>
          
@@ -107,7 +107,7 @@ MODAL AGREGAR ASIGNACION
               
                 <span class="input-group-addon"><i class="fa fa-th"></i></span> 
 
-                <select class="form-control input-lg" id="nuevaAsignacion" name="nuevaAsignacion" required>
+                <select class="form-control input-lg" id="nuevaAsignacionC" name="nuevaAsignacion" required>
   
                 </select>
 
@@ -135,8 +135,9 @@ MODAL AGREGAR ASIGNACION
             <!-- entrada para el usuario -->
 
             <input type="hidden" value='<?php echo $_SESSION['nombre']; ?>' name="nuevoAsignadoPor">
-            
+
             <input type="hidden" value='asignado' name="asignado">
+            <input type="hidden" value="1" name="tipo">
                         
                       <!-- ENTRADA PARA EL  solicitud -->
             
@@ -168,7 +169,7 @@ MODAL AGREGAR ASIGNACION
 
         <?php
 
-$crearAsignacion = new ControladorAsignaciones();
+$crearAsignacion = new ControladorAsignacionesC();
 $crearAsignacion -> ctrCrearAsignacion();
         ?>  
 
@@ -315,7 +316,7 @@ MODAL EDITAR SOLICITUD
 
       </form>
       <?php
-            $editarAsignacion = new ControladorAsignaciones();
+            $editarAsignacion = new ControladorAsignacionesC();
              $editarAsignacion -> ctrEditarAsignacion();
 
       ?>
@@ -328,7 +329,7 @@ MODAL EDITAR SOLICITUD
 
 <?php
 
-  $eliminarAsignacion = new ControladorAsignaciones();
+  $eliminarAsignacion = new ControladorAsignacionesC();
   $eliminarAsignacion -> ctrEliminarAsignacion();
 
 ?>      

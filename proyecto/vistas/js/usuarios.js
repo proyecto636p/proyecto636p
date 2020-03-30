@@ -218,14 +218,14 @@ $(".tablas").on("click", ".btnEliminarUsuario", function(){
   var usuario = $(this).attr("usuario");
 
   swal({
-    title: '¿Está seguro de borrar el usuario?',
+    title: '¿Está seguro de borrar el Usuario?',
     text: "¡Si no lo está puede cancelar la accíón!",
     type: 'warning',
     showCancelButton: true,
     confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
       cancelButtonText: 'Cancelar',
-      confirmButtonText: 'Si, borrar usuario!'
+      confirmButtonText: 'Si, borrar Usuario!'
   }).then(function(result){
 
     if(result.value){

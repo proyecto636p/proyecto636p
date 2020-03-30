@@ -9,7 +9,7 @@ $(document).ready(function(){
         url: 'vistas/js/combo.categorias.php',
         data: {'peticion': 'cargar_listas'}
     }).done(function(listas_rep){
-      $('#nuevaCategoria').html(listas_rep)
+      $('#nuevaCategoriaE').html(listas_rep)
     }).fail(function(){
         alert("hubo un error al carga")
     })
@@ -17,15 +17,15 @@ $(document).ready(function(){
     /*=============================================
     tipo
 =============================================*/
-$("#nuevaCategoria").on("change", function(){
+$("#nuevaCategoriaE").on("change", function(){
 
-	var id = $("#nuevaCategoria").val()
+	var id = $("#nuevaCategoriaE").val()
 $.ajax({
 	type: 'POST',
 	url: 'vistas/js/combo.tipos.php',
 	data: {'id': id}
 	}).done(function(lista){
-		$('#nuevaDescripcion').html(lista)
+		$('#nuevaDescripcionE').html(lista)
 	})
 	.fail(function(){
 			alert('Hubo un error al cargar')
@@ -37,15 +37,15 @@ $.ajax({
 /*=============================================
 marca
 =============================================*/
-$("#nuevaDescripcion").on("change", function(){
+$("#nuevaDescripcionE").on("change", function(){
 
-var id = $("#nuevaDescripcion").val()
+var id = $("#nuevaDescripcionE").val()
 $.ajax({
 type: 'POST',
 url: 'vistas/js/combo.marcas.php',
 data: {'id': id}
 }).done(function(lista){
-    $('#nuevaMarca').html(lista)
+    $('#nuevaMarcaE').html(lista)
 })
 .fail(function(){
         alert('Hubo un error al cargar')
@@ -56,15 +56,15 @@ data: {'id': id}
 /*=============================================
 modelo
 =============================================*/
-$("#nuevaMarca").on("change", function(){
+$("#nuevaMarcaE").on("change", function(){
 
-    var id = $("#nuevaMarca").val()
+    var id = $("#nuevaMarcaE").val()
     $.ajax({
     type: 'POST',
     url: 'vistas/js/combo.modelos.php',
     data: {'id': id}
     }).done(function(lista){
-        $('#nuevaModelo').html(lista)
+        $('#nuevaModeloE').html(lista)
     })
     .fail(function(){
             alert('Hubo un error al cargar')
@@ -72,6 +72,7 @@ $("#nuevaMarca").on("change", function(){
     
     })
 
+    /*++++++++++++++++++++++++++++++
      /*=============================================
     departamento
 =============================================*/

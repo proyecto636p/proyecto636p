@@ -43,7 +43,7 @@ $(".tablas").on("click", ".btnEliminarMarca", function(){
 	 	confirmButtonColor: '#3085d6',
 	 	cancelButtonColor: '#d33',
 	 	cancelButtonText: 'Cancelar',
-	 	confirmButtonText: 'Si, borrar marca!'
+	 	confirmButtonText: 'Si, borrar Marca!'
 	 }).then(function(result){
 
 	 	if(result.value){

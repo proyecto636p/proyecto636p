@@ -1,9 +1,9 @@
 /*=============================================
 CARGAR LA TABLA DINÁMICA DE ASIGNACION
 =============================================*/
-$('.tablaAsignacion').DataTable( {
+$('.tablaAsignacionC').DataTable( {
   
-  "ajax": "ajax/datatable-asignacion.ajax.php",
+  "ajax": "ajax/datatable-asignacionC.ajax.php",
   "deferRender": true,
 "retrieve": true,
 "processing": true,
@@ -40,7 +40,7 @@ $('.tablaAsignacion').DataTable( {
 EDITAR SOLICITUD
 =============================================*/
 
-$(".tablaAsignacion tbody").on("click", "button.btnEditarAsignacion",function(){
+$(".tablaAsignacionC tbody").on("click", "button.btnEditarAsignacion",function(){
 
 var id = $(this).attr("idAsignacion");
 
@@ -51,7 +51,7 @@ var datos = new FormData();
 
    $.ajax({
 
-    url:"ajax/asignacion.ajax.php",
+    url:"ajax/asignacionC.ajax.php",
     method: "POST",
     data: datos,
     cache: false,
@@ -79,7 +79,7 @@ var datos = new FormData();
 
 $.ajax({
   type: 'POST',
-  url: 'vistas/js/combo.equipos.php',
+  url: 'vistas/js/combo.consumibles.php',
   data: {'peticion': 'cargar_listas'}
 }).done(function(listas_rep){
 $('#editarAsignacion').html(listas_rep)
@@ -107,7 +107,7 @@ $('#editarUsuario').html(listas_rep)
 ELIMINAR SOLICITUD
 =============================================*/
 
-$(".tablaAsignacion tbody").on("click", "button.btnEliminarAsignacion", function(){
+$(".tablaAsignacionC tbody").on("click", "button.btnEliminarAsignacion", function(){
 
 var idAsignacion = $(this).attr("idAsignacion");
 var codigo = $(this).attr("codigo");
@@ -125,7 +125,7 @@ swal({
       }).then(function(result){
       if (result.value) {
 
-        window.location = "index.php?ruta=asignaciones&idAsignacion="+idAsignacion+"&codigo="+codigo;
+        window.location = "index.php?ruta=asignacionesC&idAsignacion="+idAsignacion+"&codigo="+codigo;
 
       }
 

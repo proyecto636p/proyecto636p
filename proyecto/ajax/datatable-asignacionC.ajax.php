@@ -1,16 +1,16 @@
 <?php
 
-require_once "../controladores/asignacion.controlador.php";
-require_once "../modelos/asignacion.modelo.php";
+require_once "../controladores/asignacionC.controlador.php";
+require_once "../modelos/asignacionC.modelo.php";
 
 require_once "../controladores/usuarios.controlador.php";
 require_once "../modelos/usuarios.modelo.php";
 
-require_once "../controladores/tipos.controlador.php";
-require_once "../modelos/tipos.modelo.php";
+require_once "../controladores/tiposC.controlador.php";
+require_once "../modelos/tiposC.modelo.php";
 
-require_once "../controladores/equipos.controlador.php";
-require_once "../modelos/equipos.modelo.php";
+require_once "../controladores/consumibles.controlador.php";
+require_once "../modelos/consumibles.modelo.php";
 /*
 require_once "../controladores/modelos.controlador.php";
 require_once "../modelos/modelos.modelo.php";*/
@@ -28,7 +28,7 @@ class TablaAsignacion{
 		
 		
 
-  		$asignacion = ControladorAsignaciones::ctrMostrarAsignaciones($item, $valor);	
+  		$asignacion = ControladorAsignacionesC::ctrMostrarAsignaciones($item, $valor);	
 		
   		$datosJson = '{
 		  "data": [';
@@ -43,12 +43,12 @@ class TablaAsignacion{
 				
 				  $item = "codigo";
 				  $valor = $asignacion[$i]["equipo"];
-				  $equipo2 = ControladorEquipos::ctrMostrarEquipos($item, $valor);
+				  $equipo2 = ControladorConsumibles::ctrMostrarConsumibles($item, $valor);
 	
   
 				  $item = "id";
 				  $valor = $equipo2["tipo"];
-				  $equipo = ControladorTipos::ctrMostrarTipos($item, $valor);				  
+				  $equipo = ControladorTiposC::ctrMostrarTipos($item, $valor);				  
 				  
 		
 		  	/*=============================================

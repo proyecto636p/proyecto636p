@@ -255,14 +255,14 @@ $(".tablaSolicitud tbody").on("click", "button.btnEliminarSolicitud", function()
   
   swal({
   
-    title: '¿Está seguro de borrar la solicitud?',
+    title: '¿Está seguro de borrar la Solicitud?',
     text: "¡Si no lo está puede cancelar la accíón!",
     type: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
         cancelButtonText: 'Cancelar',
-        confirmButtonText: 'Si, borrar solicitud!'
+        confirmButtonText: 'Si, borrar Solicitud!'
         }).then(function(result){
         if (result.value) {
   
