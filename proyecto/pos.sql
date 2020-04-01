@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 30-03-2020 a las 02:02:47
+-- Tiempo de generación: 01-04-2020 a las 15:25:44
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.2.28
 
@@ -479,7 +479,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `cedulaf`, `nombre`, `usuario`, `password`, `perfil`, `foto`, `estado`, `ultimo_login`, `fecha`) VALUES
-(60, 0, '1', 'cesar', '$2a$07$asxx54ahjppf45sd87a5auJRR6foEJ7ynpjisKtbiKJbvJsoQ8VPS', 'Administrador', 'vistas/img/usuarios/cesar/510.jpg', 1, '2020-03-29 19:59:24', '2020-03-29 23:59:24'),
+(60, 0, '1', 'cesar', '$2a$07$asxx54ahjppf45sd87a5auJRR6foEJ7ynpjisKtbiKJbvJsoQ8VPS', 'Administrador', 'vistas/img/usuarios/cesar/510.jpg', 1, '2020-04-01 09:24:43', '2020-04-01 13:24:43'),
 (66, 0, '4', 'tecnico', '$2a$07$asxx54ahjppf45sd87a5auJRR6foEJ7ynpjisKtbiKJbvJsoQ8VPS', 'Tecnico', 'vistas/img/usuarios/cesar/510.jpg', 1, '2020-03-28 13:53:47', '2020-03-28 17:53:47'),
 (67, 0, '5', 'usuario', '$2a$07$asxx54ahjppf45sd87a5auJRR6foEJ7ynpjisKtbiKJbvJsoQ8VPS', 'Usuario', 'vistas/img/usuarios/cesar/510.jpg', 1, '2020-03-29 19:56:23', '2020-03-29 23:56:23');
 
