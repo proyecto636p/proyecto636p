@@ -180,19 +180,19 @@
 
 		        <li>
                  <a href="solicitudes">
-	                <i class="fa fa-users"></i>
+	                <i class="fa fa-circle-o"></i>
 	                <span>Solicitudes</span>
                   </a>
              </li>
 			 <li>
                  <a href="asignaciones">
-	                <i class="fa fa-users"></i>
+	                <i class="fa fa-circle-o"></i>
 	                <span>Asignacion de Equipos</span>
                   </a>
              </li>
 			 <li>
                  <a href="asignacionesC">
-	                <i class="fa fa-users"></i>
+	                <i class="fa fa-circle-o"></i>
 	                <span>Asignacion de Consumibles</span>
                   </a>
              </li>
@@ -208,13 +208,13 @@
 			   <ul class="treeview-menu">
 			   <li>
                  <a href="vistas/modulos/reporte_equipos.php">
-	                <i class="fa fa-users"></i>
+	                <i class="fa fa-circle-o"></i>
 	                <span>Reportes Equipos</span>
                   </a>
              </li>
 			 <li>
                  <a href="vistas/modulos/reporte_consumibles.php">
-	                <i class="fa fa-users"></i>
+	                <i class="fa fa-circle-o"></i>
 	                <span>Reportes Consumibles</span>
                   </a>
              </li>
