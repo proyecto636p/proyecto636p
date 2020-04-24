@@ -47,6 +47,8 @@ $('.tablaEquipos').DataTable( {
 
 } );
 
+
+
 /*=============================================
 CAPTURANDO LA CATEGORIA PARA ASIGNAR CÓDIGO
 =============================================*/

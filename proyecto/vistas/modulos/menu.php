@@ -196,6 +196,30 @@
 	                <span>Asignacion de Consumibles</span>
                   </a>
              </li>
+			 			
+	  <li class="treeview">
+<a href="#">
+	<i class="fa fa-list-ul"></i>
+	<span>Reportes</span>
+	     <span class="pull-right-container">
+	        	<i class="fa fa-angle-left pull-right"></i>
+	    </span>
+     </a>
+			   <ul class="treeview-menu">
+			   <li>
+                 <a href="vistas/modulos/reporte_equipos.php">
+	                <i class="fa fa-users"></i>
+	                <span>Reportes Equipos</span>
+                  </a>
+             </li>
+			 <li>
+                 <a href="vistas/modulos/reporte_consumibles.php">
+	                <i class="fa fa-users"></i>
+	                <span>Reportes Consumibles</span>
+                  </a>
+             </li>
+               </ul>
+           </li>
            <!--  <li class="treeview">
                      <a href="#">
 	                    <i class="fa fa-list-ul"></i>
