@@ -21,6 +21,7 @@ require_once "controladores/personal.controlador.php";
 require_once "controladores/solicitud.controlador.php";
 require_once "controladores/asignacion.controlador.php";
 require_once "controladores/asignacionC.controlador.php";
+require_once "controladores/soporte.controlador.php";
 
 require_once "modelos/usuarios.modelo.php";
 require_once "modelos/categorias.modelo.php";
@@ -42,6 +43,7 @@ require_once "modelos/personal.modelo.php";
 require_once "modelos/solicitud.modelo.php";
 require_once "modelos/asignacion.modelo.php";
 require_once "modelos/asignacionC.modelo.php";
+require_once "modelos/soporte.modelo.php";
 
 $plantilla = new ControladorPlantilla();
 $plantilla -> ctrPlantilla();

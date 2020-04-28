@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 01-04-2020 a las 15:25:44
+-- Tiempo de generación: 28-04-2020 a las 23:58:01
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.2.28
 
@@ -406,10 +406,43 @@ CREATE TABLE `solicitud` (
 
 INSERT INTO `solicitud` (`id`, `solicitud`, `usuariof`, `estado`, `fecha`) VALUES
 (18, 'un monitor', 1, 1, '2020-03-29 23:56:00'),
-(19, 'un teclado', 1, 0, '2020-03-29 23:56:09'),
-(20, 'un mouse', 5, 0, '2020-03-29 23:56:36'),
+(19, 'un teclado', 1, 0, '2020-04-20 18:07:31'),
+(20, 'un mouse1', 5, 0, '2020-04-28 21:36:02'),
 (21, 'un dvd', 5, 0, '2020-03-29 23:57:03'),
-(22, 'un toner', 5, 0, '2020-03-29 23:57:17');
+(22, 'un toner', 5, 0, '2020-04-20 18:40:31'),
+(23, 'otro', 5, 0, '2020-04-28 21:36:15');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `soporte`
+--
+
+CREATE TABLE `soporte` (
+  `id` int(11) NOT NULL,
+  `id_usuario` varchar(100) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `id_atiende` varchar(100) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `codigo` text COLLATE utf8mb4_spanish_ci NOT NULL,
+  `asunto` varchar(100) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `solucion` varchar(100) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `estatus` varchar(100) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `tipo_falla` varchar(100) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `sop_departamento` varchar(100) COLLATE utf8mb4_spanish_ci NOT NULL,
+  `Fecha_soporte` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `soporte`
+--
+
+INSERT INTO `soporte` (`id`, `id_usuario`, `id_atiende`, `codigo`, `asunto`, `solucion`, `estatus`, `tipo_falla`, `sop_departamento`, `Fecha_soporte`) VALUES
+(1, '18799886', '18799886', '1001', 'ADASDAS', 'en busca', 'En Proceso', 'Internet', '2', '2020-04-28 19:01:05'),
+(2, '18799886', '18799886', '1002', 'ninfiuna', 'en buscay', 'En Proceso', 'Equipo', '4', '2020-04-28 18:42:34'),
+(3, '18799886', '18799886', '1003', 'hkkkk', 'en busca', 'Finalizado', 'Configuracion', '2', '2020-04-28 19:01:16'),
+(4, '18799886', '18799886', '1004', 'nueva', 'en busca', 'Finalizado', 'Internet', '2', '2020-04-28 20:23:25'),
+(5, '18799886', '18799886', '1005', 'otra', 'en busca', 'En Proceso', 'Configuracion', '4', '2020-04-28 21:57:41'),
+(6, '18799886', '18799886', '1006', 'yuyuy', 'en busca', 'En Proceso', 'Internet', '2', '2020-04-28 20:26:52'),
+(7, '20799886', '18799886', '1007', 'no conecta', 'en busca', 'En Proceso', 'Internet', '2', '2020-04-28 21:34:19');
 
 -- --------------------------------------------------------
 
@@ -479,9 +512,9 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `cedulaf`, `nombre`, `usuario`, `password`, `perfil`, `foto`, `estado`, `ultimo_login`, `fecha`) VALUES
-(60, 0, '1', 'cesar', '$2a$07$asxx54ahjppf45sd87a5auJRR6foEJ7ynpjisKtbiKJbvJsoQ8VPS', 'Administrador', 'vistas/img/usuarios/cesar/510.jpg', 1, '2020-04-01 09:24:43', '2020-04-01 13:24:43'),
-(66, 0, '4', 'tecnico', '$2a$07$asxx54ahjppf45sd87a5auJRR6foEJ7ynpjisKtbiKJbvJsoQ8VPS', 'Tecnico', 'vistas/img/usuarios/cesar/510.jpg', 1, '2020-03-28 13:53:47', '2020-03-28 17:53:47'),
-(67, 0, '5', 'usuario', '$2a$07$asxx54ahjppf45sd87a5auJRR6foEJ7ynpjisKtbiKJbvJsoQ8VPS', 'Usuario', 'vistas/img/usuarios/cesar/510.jpg', 1, '2020-03-29 19:56:23', '2020-03-29 23:56:23');
+(60, 0, '1', '18799886', '$2a$07$asxx54ahjppf45sd87a5auJRR6foEJ7ynpjisKtbiKJbvJsoQ8VPS', 'Administrador', 'vistas/img/usuarios/cesar/510.jpg', 1, '2020-04-28 17:56:51', '2020-04-28 21:56:51'),
+(66, 0, '4', '19799886', '$2a$07$asxx54ahjppf45sd87a5auJRR6foEJ7ynpjisKtbiKJbvJsoQ8VPS', 'Tecnico', 'vistas/img/usuarios/cesar/510.jpg', 1, '2020-04-28 17:34:58', '2020-04-28 21:34:58'),
+(67, 0, '5', '20799886', '$2a$07$asxx54ahjppf45sd87a5auJRR6foEJ7ynpjisKtbiKJbvJsoQ8VPS', 'Usuario', 'vistas/img/usuarios/cesar/510.jpg', 1, '2020-04-28 17:35:23', '2020-04-28 21:35:23');
 
 --
 -- Índices para tablas volcadas
@@ -581,6 +614,12 @@ ALTER TABLE `productos`
 -- Indices de la tabla `solicitud`
 --
 ALTER TABLE `solicitud`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `soporte`
+--
+ALTER TABLE `soporte`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -699,7 +738,13 @@ ALTER TABLE `productos`
 -- AUTO_INCREMENT de la tabla `solicitud`
 --
 ALTER TABLE `solicitud`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+
+--
+-- AUTO_INCREMENT de la tabla `soporte`
+--
+ALTER TABLE `soporte`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `tipos`

@@ -120,12 +120,23 @@ url: 'vistas/js/combo.usuario.php',
 data: {'id': id}
 }).done(function(lista){
     $('#nuevoNombre').html(lista)
+    $('#nuevoUsuario').html(id)
 })
 .fail(function(){
         alert('Hubo un error al cargar')
 })
 
 })
+
+$("#nuevaCedula").on("change", function(){
+
+    var id = $("#nuevaCedula").val()
+
+
+        $('#nuevoUsuario').val(id)
+  
+    
+    })
 
      /*=============================================
     equipo

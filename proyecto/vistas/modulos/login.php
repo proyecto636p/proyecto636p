@@ -1,14 +1,13 @@
 <div id="back"></div>
 
 <div class="login-box">
-  
-  <div class="login-logo">
+  <br>
+  <br>
+  <br>
 
-    <img src="vistas/img/plantilla/logo-blanco-lineal.svg" class="img-responsive" style="padding:30px 100px 0px 100px">
+  <div class="login-box-body" style="border-radius:10px 10px 10px 10px;">
 
-  </div>
-
-  <div class="login-box-body">
+      <img src="vistas/img/cinti.jpg" class="img-responsive" style=" position: relative;">
 
     <p class="login-box-msg">Ingresar al sistema</p>
 

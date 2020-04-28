@@ -11,7 +11,7 @@ session_start();
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  <title>GADI</title>
+  <title>INCES</title>
 
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -90,7 +90,7 @@ CUERPO DOCUMENTO
 
 <!-- agregar para que inicie mini  sidebar-collapse-->
 
-<body class="hold-transition skin-blue  sidebar-mini login-page">
+<body class="hold-transition skin-blue  sidebar-mini sidebar-collapse login-page">
  
   <?php
 
@@ -138,6 +138,9 @@ CUERPO DOCUMENTO
          $_GET["ruta"] == "solicitudes" ||
          $_GET["ruta"] == "asignaciones" ||
          $_GET["ruta"] == "asignacionesC" ||
+         $_GET["ruta"] == "consultasol" ||
+         $_GET["ruta"] == "gestionar" ||
+         $_GET["ruta"] == "soporte" ||
          $_GET["ruta"] == "salir"){
 
         include "modulos/".$_GET["ruta"].".php";
@@ -153,6 +156,26 @@ CUERPO DOCUMENTO
       $_GET["ruta"] == "usuarios" ||
       $_GET["ruta"] == "equipos" ||
       $_GET["ruta"] == "solicitudes" ||
+      $_GET["ruta"] == "gestionar" ||
+      $_GET["ruta"] == "soporte" ||
+      $_GET["ruta"] == "salir"){
+
+     include "modulos/".$_GET["ruta"].".php";
+
+   }else{
+    echo '<script>alert("no tienes permiso")</script>';
+    include "modulos/inicio.php";
+   //  include "modulos/404.php";
+
+   }
+    }
+    if(isset($_GET["ruta"])&& $_SESSION["perfil"] == "Tecnico"){
+      if($_GET["ruta"] == "inicio" ||
+      $_GET["ruta"] == "usuarios" ||
+      $_GET["ruta"] == "equipos" ||
+      $_GET["ruta"] == "solicitudes" ||
+      $_GET["ruta"] == "gestionar" ||
+      $_GET["ruta"] == "soporte" ||
       $_GET["ruta"] == "salir"){
 
      include "modulos/".$_GET["ruta"].".php";
@@ -208,6 +231,8 @@ CUERPO DOCUMENTO
 <script src="vistas/js/solicitud.js"></script>
 <script src="vistas/js/asignacion.js"></script>
 <script src="vistas/js/asignacionC.js"></script>
+<script src="vistas/js/soporte.js"></script>
+<script src="vistas/js/reportes.js"></script>
 
 </body>
 </html>

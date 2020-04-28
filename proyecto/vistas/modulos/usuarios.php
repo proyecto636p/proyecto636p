@@ -194,12 +194,14 @@ MODAL AGREGAR USUARIO
             <!-- ENTRADA PARA EL USUARIO -->
 
              <div class="form-group">
-              
+             <b>EL USUARIO ES SU CEDULA</b>
               <div class="input-group">
               
                 <span class="input-group-addon"><i class="fa fa-key"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nuevoUsuario" placeholder="Ingresar usuario" id="nuevoUsuario" required>
+                
+
+                <input type="text" class="form-control input-lg" name="nuevoUsuario" id="nuevoUsuario" required readonly>
 
               </div>
 
