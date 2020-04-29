@@ -47,6 +47,7 @@ require_once "../../modelos/modelosC.modelo.php";
 	$pdf->SetMargins(5, 5, 5, false); 
 	$pdf->SetAutoPageBreak(true, 20); 
   $pdf->SetFont('Helvetica', '', 10);
+
   //$img = file_get_contents('alcaldia.jpg');
   //$pdf->Image('@' . $img);
   $pdf->addPage('L');
@@ -58,18 +59,27 @@ require_once "../../modelos/modelosC.modelo.php";
    
 
 
-	$content = '';
+  $content = '';
+  
+  $content .= '
+  
+  <table>
+		
+  <tr >
+    <td ><img  src="pdf/tcpdf/images/pdf-inces.png"></td>
+  </tr>
 
-  $content .= '<header></header>
-    <div class="row">
-          <div class="col-md-12">
+</table>';
+
+  $content .= '
+   
               <h1 style="text-align:center;">Datos de Consumibles</h1>
         
-      <table border="1" cellpadding="1" bgcolor=""  style="text-align:center;">
+      <table border="1"  bgcolor=""  style="text-align:center;">
         <thead >
-          <tr bgcolor="#23ffff" >
+          <tr bgcolor="#17a2b8" style="text-align:center; color:white; " >
            
-            <th HEIGHT="20"><B>CODIGO</B></th>
+            <th HEIGHT="15" WIDTH="50"><B>CODIGO</B></th>
             <th HEIGHT="20"><B>SERIAL</B></th>
             <th HEIGHT="20"><B>CATEGORIA</B></th>
             <th HEIGHT="20"><B>TIPO</B></th>
@@ -79,7 +89,6 @@ require_once "../../modelos/modelosC.modelo.php";
             <th HEIGHT="20" WIDTH="50"><B>STOCK</B></th>
             <th HEIGHT="20" WIDTH="80"><B>ASIGNACION</B></th>
             <th HEIGHT="20"><B>AGREGADO</B></th>
-            <th HEIGHT="20" WIDTH="90"><B>OBSERVACION</B></th>
 
           </tr>
         </thead>
@@ -139,9 +148,9 @@ require_once "../../modelos/modelosC.modelo.php";
     }
   
       $content .= '
-      <tr bgcolor="">
+      <tr bgcolor=""  >
              
-              <td>'.$equipos[$i]["codigo"].'</td>
+              <td WIDTH="50">'.$equipos[$i]["codigo"].'</td>
               <td>'.$equipos[$i]["seriales"].'</td>
               <td>'.$categorias["categoria"].'</td>
               <td>'.$tipos["descripcion"].'</td>
@@ -151,7 +160,6 @@ require_once "../../modelos/modelosC.modelo.php";
               <td WIDTH="50">'.$stock.'</td>
               <td WIDTH="80">'.$equipos[$i]["asignacion"].'</td>
               <td>'.$equipos[$i]["fecha"].'</td>
-              <td WIDTH="90">'.$equipos[$i]["observacion"].'</td>
           </tr>
   
             

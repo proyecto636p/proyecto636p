@@ -4,7 +4,7 @@
     
     <h1>
       
-      BIENVENIDOS
+      BIENVENIDO
     
     </h1>
 

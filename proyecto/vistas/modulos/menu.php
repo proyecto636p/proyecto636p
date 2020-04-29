@@ -29,25 +29,25 @@
 <ul class="treeview-menu">
 <li>
  <a href="departamentos">
-	<i class="fa fa-users"></i>
+	<i class="fa fa-circle-o"></i>
 	<span>Departamentos</span>
   </a>
 </li>
 <li>
  <a href="cargos">
-	<i class="fa fa-users"></i>
+	<i class="fa fa-circle-o"></i>
 	<span>Cargos</span>
   </a>
 </li>
 <li>
  <a href="personal">
-	<i class="fa fa-users"></i>
+	<i class="fa fa-circle-o"></i>
 	<span>Personal</span>
   </a>
 </li>
 <li>
   <a href="usuarios">
-	   <i class="fa fa-user"></i>
+	   <i class="fa fa-circle-o"></i>
 	  <span>Usuarios</span>
      </a>
 </li>
@@ -180,19 +180,19 @@
 
 		        <li>
                  <a href="solicitudes">
-	                <i class="fa fa-circle-o"></i>
+	                <i class="fa fa-ticket"></i>
 	                <span>Solicitudes</span>
                   </a>
              </li>
 			 <li>
                  <a href="asignaciones">
-	                <i class="fa fa-circle-o"></i>
+	                <i class="fa fa-handshake-o"></i>
 	                <span>Asignacion de Equipos</span>
                   </a>
              </li>
 			 <li>
                  <a href="asignacionesC">
-	                <i class="fa fa-circle-o"></i>
+	                <i class="fa fa-handshake-o"></i>
 	                <span>Asignacion de Consumibles</span>
                   </a>
              </li>
@@ -207,14 +207,14 @@
      </a>
 			   <ul class="treeview-menu">
 			   <li>
-                 <a href="vistas/modulos/reporte_equipos.php">
-	                <i class="fa fa-circle-o"></i>
+                 <a href="vistas/modulos/reporte_equipos.php "  target="_blank">
+	                <i class="fa fa-file-pdf-o"></i>
 	                <span>Reportes Equipos</span>
                   </a>
              </li>
 			 <li>
-                 <a href="vistas/modulos/reporte_consumibles.php">
-	                <i class="fa fa-circle-o"></i>
+                 <a href="vistas/modulos/reporte_consumibles.php"  target="_blank">
+	                <i class="fa fa-file-pdf-o"></i>
 	                <span>Reportes Consumibles</span>
                   </a>
              </li>

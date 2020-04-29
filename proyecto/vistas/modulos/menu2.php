@@ -16,7 +16,7 @@
 			</li>
 		        <li>
                  <a href="solicitudes">
-	                <i class="fa fa-users"></i>
+	                <i class="fa fa-ticket"></i>
 	                <span>Solicitudes</span>
                   </a>
              </li>
