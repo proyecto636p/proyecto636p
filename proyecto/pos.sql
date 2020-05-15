@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
--- Servidor: localhost
--- Tiempo de generación: 28-04-2020 a las 23:58:01
--- Versión del servidor: 10.4.11-MariaDB
--- Versión de PHP: 7.2.28
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 15-05-2020 a las 04:53:28
+-- Versión del servidor: 10.1.37-MariaDB
+-- Versión de PHP: 7.0.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -34,7 +34,7 @@ CREATE TABLE `asignacion` (
   `usuario` int(11) NOT NULL,
   `asignadoPor` int(11) NOT NULL,
   `observacion` text COLLATE utf8_spanish_ci NOT NULL,
-  `fecha` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `fecha` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
@@ -42,33 +42,29 @@ CREATE TABLE `asignacion` (
 --
 
 INSERT INTO `asignacion` (`id`, `equipo`, `usuario`, `asignadoPor`, `observacion`, `fecha`) VALUES
-(40, 1801, 1, 1, '', '2020-03-29 18:20:58');
+(44, 1801, 1, 1, '', '2020-05-15 01:58:05');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `asignacionC`
+-- Estructura de tabla para la tabla `asignacionc`
 --
 
-CREATE TABLE `asignacionC` (
+CREATE TABLE `asignacionc` (
   `id` int(11) NOT NULL,
   `equipo` int(11) NOT NULL,
   `usuario` int(11) NOT NULL,
   `asignadoPor` int(11) NOT NULL,
   `observacion` text COLLATE utf8_spanish_ci NOT NULL,
-  `fecha` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `fecha` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
--- Volcado de datos para la tabla `asignacionC`
+-- Volcado de datos para la tabla `asignacionc`
 --
 
-INSERT INTO `asignacionC` (`id`, `equipo`, `usuario`, `asignadoPor`, `observacion`, `fecha`) VALUES
-(29, 2101, 1, 1, '', '2020-03-29 23:48:23'),
-(30, 2201, 4, 1, '', '2020-03-29 23:48:38'),
-(31, 2102, 1, 1, '', '2020-03-29 23:48:44'),
-(32, 2002, 4, 1, '', '2020-03-29 23:48:53'),
-(33, 2103, 1, 1, '', '2020-03-29 23:49:05');
+INSERT INTO `asignacionc` (`id`, `equipo`, `usuario`, `asignadoPor`, `observacion`, `fecha`) VALUES
+(34, 2001, 5, 1, '', '2020-05-15 02:00:10');
 
 -- --------------------------------------------------------
 
@@ -100,7 +96,7 @@ INSERT INTO `cargos` (`id`, `descripcion`, `iddepartamentof`) VALUES
 CREATE TABLE `categorias` (
   `id` int(11) NOT NULL,
   `categoria` text COLLATE utf8_spanish_ci NOT NULL,
-  `fecha` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `fecha` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
@@ -115,51 +111,21 @@ INSERT INTO `categorias` (`id`, `categoria`, `fecha`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `categoriasC`
+-- Estructura de tabla para la tabla `categoriasc`
 --
 
-CREATE TABLE `categoriasC` (
+CREATE TABLE `categoriasc` (
   `id` int(11) NOT NULL,
   `categoria` text COLLATE utf8_spanish_ci NOT NULL,
-  `fecha` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `fecha` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
--- Volcado de datos para la tabla `categoriasC`
+-- Volcado de datos para la tabla `categoriasc`
 --
 
-INSERT INTO `categoriasC` (`id`, `categoria`, `fecha`) VALUES
-(20, 'lapiz', '2020-03-28 19:58:31'),
-(21, 'dvd', '2020-03-29 00:45:23'),
-(22, 'cd', '2020-03-29 00:45:57');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `clientes`
---
-
-CREATE TABLE `clientes` (
-  `id` int(11) NOT NULL,
-  `nombre` text COLLATE utf8_spanish_ci NOT NULL,
-  `documento` text COLLATE utf8_spanish_ci NOT NULL,
-  `email` text COLLATE utf8_spanish_ci NOT NULL,
-  `telefono` text COLLATE utf8_spanish_ci NOT NULL,
-  `direccion` text COLLATE utf8_spanish_ci NOT NULL,
-  `fecha_nacimiento` date NOT NULL,
-  `compras` int(11) NOT NULL,
-  `fecha` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
-
---
--- Volcado de datos para la tabla `clientes`
---
-
-INSERT INTO `clientes` (`id`, `nombre`, `documento`, `email`, `telefono`, `direccion`, `fecha_nacimiento`, `compras`, `fecha`) VALUES
-(2, 'elias', '18799886', 'elias2021@gmail.com', '(424) 577-7980', 'avenidad 1', '2020-03-15', 0, '2020-03-16 00:44:25'),
-(3, 'ratia', '18799886', 'cesar_ratia_1988@hotmail.com', '(424) 577-7980', 'av bolivae', '2020-03-15', 0, '2020-03-16 01:39:39'),
-(4, 'ratia', '18799886', 'cesar_ratia_1988@hotmail.com', '(424) 577-7980', 'la ciudadela', '1988-08-05', 0, '2020-03-16 02:03:14'),
-(6, 'cesar', '22102779', 'deglid@gmai', '(533) 533-5335', 'hghgg', '2011-11-11', 0, '2020-03-20 17:28:30');
+INSERT INTO `categoriasc` (`id`, `categoria`, `fecha`) VALUES
+(20, 'lapiz', '2020-03-28 19:58:31');
 
 -- --------------------------------------------------------
 
@@ -171,14 +137,14 @@ CREATE TABLE `consumibles` (
   `id` int(11) NOT NULL,
   `codigo` int(11) NOT NULL,
   `seriales` text COLLATE utf8_unicode_ci NOT NULL,
-  `categoria` text COLLATE utf8_unicode_ci NOT NULL,
-  `tipo` text COLLATE utf8_unicode_ci NOT NULL,
-  `marca` text COLLATE utf8_unicode_ci NOT NULL,
+  `categoria` int(11) NOT NULL,
+  `tipo` int(11) NOT NULL,
+  `marca` int(11) NOT NULL,
   `modelo` text COLLATE utf8_unicode_ci NOT NULL,
   `estado` text COLLATE utf8_unicode_ci NOT NULL,
   `stock` int(11) NOT NULL,
   `asignacion` text COLLATE utf8_unicode_ci NOT NULL,
-  `fecha` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `fecha` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `observacion` text COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -187,11 +153,7 @@ CREATE TABLE `consumibles` (
 --
 
 INSERT INTO `consumibles` (`id`, `codigo`, `seriales`, `categoria`, `tipo`, `marca`, `modelo`, `estado`, `stock`, `asignacion`, `fecha`, `observacion`) VALUES
-(31, 2101, '2101', '21', '21', '27', 'regrabable', 'activo', 13, 'asignado', '2020-03-29 23:48:23', 'ninguna'),
-(32, 2201, '2201', '22', '22', '28', 'desechables', 'activo', 24, 'asignado', '2020-03-29 23:48:38', 'ninguna1'),
-(33, 2102, '2102', '21', '21', '27', 'regrabable', 'activo', 23, 'asignado', '2020-03-29 23:48:45', 'ninguna'),
-(34, 2002, '2002', '20', '20', '26', 'punta fina', 'activo', 23, 'asignado', '2020-03-29 23:48:53', 'ninguna'),
-(35, 2103, 'rrerer', '21', '21', '27', 'regrabable', 'activo', 78, 'asignado', '2020-03-29 23:49:05', 'ninguna');
+(37, 2001, 'erfd', 20, 23, 29, 'punta fina', 'activo', 12, 'asignado', '2020-05-15 02:00:11', 'ninguna');
 
 -- --------------------------------------------------------
 
@@ -222,14 +184,14 @@ CREATE TABLE `equipos` (
   `id` int(11) NOT NULL,
   `codigo` int(11) NOT NULL,
   `seriales` text COLLATE utf8_unicode_ci NOT NULL,
-  `categoria` text COLLATE utf8_unicode_ci NOT NULL,
-  `tipo` text COLLATE utf8_unicode_ci NOT NULL,
-  `marca` text COLLATE utf8_unicode_ci NOT NULL,
+  `categoria` int(11) NOT NULL,
+  `tipo` int(11) NOT NULL,
+  `marca` int(11) NOT NULL,
   `modelo` text COLLATE utf8_unicode_ci NOT NULL,
   `estado` text COLLATE utf8_unicode_ci NOT NULL,
   `stock` int(11) NOT NULL,
   `asignacion` text COLLATE utf8_unicode_ci NOT NULL,
-  `fecha` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `fecha` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `observacion` text COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -238,7 +200,7 @@ CREATE TABLE `equipos` (
 --
 
 INSERT INTO `equipos` (`id`, `codigo`, `seriales`, `categoria`, `tipo`, `marca`, `modelo`, `estado`, `stock`, `asignacion`, `fecha`, `observacion`) VALUES
-(33, 1801, '1801', '18', '17', '23', 'lcd flash', 'activo', 12, 'asignado', '2020-03-29 22:37:03', 'ninguna');
+(42, 1801, 'erfd', 18, 20, 25, 'lcd full', 'activo', 12, 'asignado', '2020-05-15 01:58:05', 'ninguna');
 
 -- --------------------------------------------------------
 
@@ -250,7 +212,7 @@ CREATE TABLE `marcas` (
   `id` int(11) NOT NULL,
   `descripcion` text COLLATE utf8_unicode_ci NOT NULL,
   `idtipof` int(11) NOT NULL,
-  `fecha` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `fecha` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -258,30 +220,27 @@ CREATE TABLE `marcas` (
 --
 
 INSERT INTO `marcas` (`id`, `descripcion`, `idtipof`, `fecha`) VALUES
-(23, 'samsung', 17, '2020-03-28 15:24:52'),
-(24, 'hitachi', 19, '2020-03-29 15:43:57');
+(25, 'samsung', 20, '2020-05-14 22:12:39');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `marcasC`
+-- Estructura de tabla para la tabla `marcasc`
 --
 
-CREATE TABLE `marcasC` (
+CREATE TABLE `marcasc` (
   `id` int(11) NOT NULL,
   `descripcion` text COLLATE utf8_unicode_ci NOT NULL,
   `idtipof` int(11) NOT NULL,
-  `fecha` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `fecha` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Volcado de datos para la tabla `marcasC`
+-- Volcado de datos para la tabla `marcasc`
 --
 
-INSERT INTO `marcasC` (`id`, `descripcion`, `idtipof`, `fecha`) VALUES
-(26, 'mongol', 20, '2020-03-29 00:48:05'),
-(27, 'sony', 21, '2020-03-29 00:48:17'),
-(28, 'digital', 22, '2020-03-29 00:48:34');
+INSERT INTO `marcasc` (`id`, `descripcion`, `idtipof`, `fecha`) VALUES
+(29, 'mogolll', 23, '2020-05-14 22:30:36');
 
 -- --------------------------------------------------------
 
@@ -293,7 +252,7 @@ CREATE TABLE `modelos` (
   `id` int(11) NOT NULL,
   `modelo` text COLLATE utf8_unicode_ci NOT NULL,
   `idmarcaf` int(11) NOT NULL,
-  `fecha` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `fecha` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -301,30 +260,27 @@ CREATE TABLE `modelos` (
 --
 
 INSERT INTO `modelos` (`id`, `modelo`, `idmarcaf`, `fecha`) VALUES
-(16, 'lcd flash', 23, '2020-03-29 15:15:24'),
-(17, 'new live', 24, '2020-03-29 15:44:17');
+(18, 'lcd full', 25, '2020-05-14 22:13:02');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `modelosC`
+-- Estructura de tabla para la tabla `modelosc`
 --
 
-CREATE TABLE `modelosC` (
+CREATE TABLE `modelosc` (
   `id` int(11) NOT NULL,
   `modelo` text COLLATE utf8_unicode_ci NOT NULL,
   `idmarcaf` int(11) NOT NULL,
-  `fecha` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `fecha` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Volcado de datos para la tabla `modelosC`
+-- Volcado de datos para la tabla `modelosc`
 --
 
-INSERT INTO `modelosC` (`id`, `modelo`, `idmarcaf`, `fecha`) VALUES
-(17, 'punta fina', 26, '2020-03-29 00:48:59'),
-(18, 'regrabable', 27, '2020-03-29 00:49:15'),
-(19, 'desechables', 28, '2020-03-29 00:49:28');
+INSERT INTO `modelosc` (`id`, `modelo`, `idmarcaf`, `fecha`) VALUES
+(20, 'punta fina', 29, '2020-05-14 22:30:52');
 
 -- --------------------------------------------------------
 
@@ -344,7 +300,7 @@ CREATE TABLE `personal` (
   `cargo` int(11) NOT NULL,
   `departamento` int(11) NOT NULL,
   `estado` text COLLATE utf8_spanish_ci NOT NULL,
-  `fecha` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `fecha` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
@@ -359,36 +315,6 @@ INSERT INTO `personal` (`id`, `cedula`, `nombres`, `apellidos`, `email`, `telefo
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `productos`
---
-
-CREATE TABLE `productos` (
-  `id` int(11) NOT NULL,
-  `id_categoria` int(11) NOT NULL,
-  `codigo` text COLLATE utf8_spanish_ci NOT NULL,
-  `descripcion` text COLLATE utf8_spanish_ci NOT NULL,
-  `imagen` text COLLATE utf8_spanish_ci NOT NULL,
-  `stock` int(11) NOT NULL,
-  `precio_compra` float NOT NULL,
-  `precio_venta` float NOT NULL,
-  `ventas` int(11) NOT NULL,
-  `fecha` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `id_modelo` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
-
---
--- Volcado de datos para la tabla `productos`
---
-
-INSERT INTO `productos` (`id`, `id_categoria`, `codigo`, `descripcion`, `imagen`, `stock`, `precio_compra`, `precio_venta`, `ventas`, `fecha`, `id_modelo`) VALUES
-(68, 14, '1402', 'cpu', 'vistas/img/productos/default/anonymous.png', 12, 12, 16.8, 0, '2020-03-13 04:32:27', 0),
-(69, 14, '1403', 'monitor', 'vistas/img/productos/default/anonymous.png', 22, 24, 33.6, 0, '2020-03-13 04:32:47', 0),
-(70, 14, '1401', '12', 'vistas/img/productos/default/anonymous.png', 12, 21, 29.4, 0, '2012-11-01 18:06:34', 0),
-(71, 14, '1401', '12', 'vistas/img/productos/default/anonymous.png', 212, 12, 16.8, 0, '2012-11-01 18:06:53', 0);
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `solicitud`
 --
 
@@ -397,7 +323,7 @@ CREATE TABLE `solicitud` (
   `solicitud` text COLLATE utf8_spanish_ci NOT NULL,
   `usuariof` int(11) NOT NULL,
   `estado` int(11) NOT NULL,
-  `fecha` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `fecha` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
@@ -428,7 +354,7 @@ CREATE TABLE `soporte` (
   `estatus` varchar(100) COLLATE utf8mb4_spanish_ci NOT NULL,
   `tipo_falla` varchar(100) COLLATE utf8mb4_spanish_ci NOT NULL,
   `sop_departamento` varchar(100) COLLATE utf8mb4_spanish_ci NOT NULL,
-  `Fecha_soporte` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `Fecha_soporte` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 --
@@ -454,7 +380,7 @@ CREATE TABLE `tipos` (
   `id` int(11) NOT NULL,
   `descripcion` text COLLATE utf8_unicode_ci NOT NULL,
   `idcategoriaf` int(11) NOT NULL,
-  `fecha` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `fecha` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -462,31 +388,27 @@ CREATE TABLE `tipos` (
 --
 
 INSERT INTO `tipos` (`id`, `descripcion`, `idcategoriaf`, `fecha`) VALUES
-(17, 'lcd', 18, '2020-03-28 15:24:40'),
-(18, 'inalambrico', 0, '2020-03-29 00:44:24'),
-(19, 'plano', 19, '2020-03-29 15:43:43');
+(20, 'lcd', 18, '2020-05-14 22:12:08');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `tiposC`
+-- Estructura de tabla para la tabla `tiposc`
 --
 
-CREATE TABLE `tiposC` (
+CREATE TABLE `tiposc` (
   `id` int(11) NOT NULL,
   `descripcion` text COLLATE utf8_unicode_ci NOT NULL,
   `idcategoriaf` int(11) NOT NULL,
-  `fecha` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `fecha` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Volcado de datos para la tabla `tiposC`
+-- Volcado de datos para la tabla `tiposc`
 --
 
-INSERT INTO `tiposC` (`id`, `descripcion`, `idcategoriaf`, `fecha`) VALUES
-(20, 'mongol', 20, '2020-03-29 00:47:02'),
-(21, 'sony', 21, '2020-03-29 00:47:15'),
-(22, 'digital', 22, '2020-03-29 00:47:36');
+INSERT INTO `tiposc` (`id`, `descripcion`, `idcategoriaf`, `fecha`) VALUES
+(23, 'mongol', 20, '2020-05-14 22:30:19');
 
 -- --------------------------------------------------------
 
@@ -498,13 +420,13 @@ CREATE TABLE `usuarios` (
   `id` int(11) NOT NULL,
   `cedulaf` int(11) NOT NULL,
   `nombre` text COLLATE utf8_spanish_ci NOT NULL,
-  `usuario` text COLLATE utf8_spanish_ci NOT NULL,
+  `usuario` int(11) NOT NULL,
   `password` text COLLATE utf8_spanish_ci NOT NULL,
   `perfil` text COLLATE utf8_spanish_ci NOT NULL,
   `foto` text COLLATE utf8_spanish_ci NOT NULL,
   `estado` int(11) NOT NULL,
   `ultimo_login` datetime NOT NULL,
-  `fecha` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `fecha` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
@@ -512,9 +434,9 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `cedulaf`, `nombre`, `usuario`, `password`, `perfil`, `foto`, `estado`, `ultimo_login`, `fecha`) VALUES
-(60, 0, '1', '18799886', '$2a$07$asxx54ahjppf45sd87a5auJRR6foEJ7ynpjisKtbiKJbvJsoQ8VPS', 'Administrador', 'vistas/img/usuarios/cesar/510.jpg', 1, '2020-04-28 17:56:51', '2020-04-28 21:56:51'),
-(66, 0, '4', '19799886', '$2a$07$asxx54ahjppf45sd87a5auJRR6foEJ7ynpjisKtbiKJbvJsoQ8VPS', 'Tecnico', 'vistas/img/usuarios/cesar/510.jpg', 1, '2020-04-28 17:34:58', '2020-04-28 21:34:58'),
-(67, 0, '5', '20799886', '$2a$07$asxx54ahjppf45sd87a5auJRR6foEJ7ynpjisKtbiKJbvJsoQ8VPS', 'Usuario', 'vistas/img/usuarios/cesar/510.jpg', 1, '2020-04-28 17:35:23', '2020-04-28 21:35:23');
+(60, 0, '1', 18799886, '$2a$07$asxx54ahjppf45sd87a5auJRR6foEJ7ynpjisKtbiKJbvJsoQ8VPS', 'Administrador', '', 1, '2020-05-14 21:45:40', '2020-05-15 01:45:40'),
+(67, 0, '5', 20799886, '$2a$07$asxx54ahjppf45sd87a5auJRR6foEJ7ynpjisKtbiKJbvJsoQ8VPS', 'Usuario', '', 1, '2020-04-28 17:35:23', '2020-05-15 01:44:14'),
+(68, 0, '4', 19799886, '$2a$07$asxx54ahjppf45sd87a5auJRR6foEJ7ynpjisKtbiKJbvJsoQ8VPS', 'Tecnico', '', 1, '0000-00-00 00:00:00', '2020-05-15 01:40:09');
 
 --
 -- Índices para tablas volcadas
@@ -527,16 +449,17 @@ ALTER TABLE `asignacion`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `asignacionC`
+-- Indices de la tabla `asignacionc`
 --
-ALTER TABLE `asignacionC`
+ALTER TABLE `asignacionc`
   ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `cargos`
 --
 ALTER TABLE `cargos`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `iddepartamentof` (`iddepartamentof`);
 
 --
 -- Indices de la tabla `categorias`
@@ -545,22 +468,19 @@ ALTER TABLE `categorias`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `categoriasC`
+-- Indices de la tabla `categoriasc`
 --
-ALTER TABLE `categoriasC`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `clientes`
---
-ALTER TABLE `clientes`
+ALTER TABLE `categoriasc`
   ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `consumibles`
 --
 ALTER TABLE `consumibles`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `categoria` (`categoria`),
+  ADD KEY `tipo` (`tipo`),
+  ADD KEY `marca` (`marca`);
 
 --
 -- Indices de la tabla `departamento`
@@ -572,43 +492,47 @@ ALTER TABLE `departamento`
 -- Indices de la tabla `equipos`
 --
 ALTER TABLE `equipos`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `categoria` (`categoria`),
+  ADD KEY `tipo` (`tipo`),
+  ADD KEY `marca` (`marca`);
 
 --
 -- Indices de la tabla `marcas`
 --
 ALTER TABLE `marcas`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idtipof` (`idtipof`);
 
 --
--- Indices de la tabla `marcasC`
+-- Indices de la tabla `marcasc`
 --
-ALTER TABLE `marcasC`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `marcasc`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idtipof` (`idtipof`);
 
 --
 -- Indices de la tabla `modelos`
 --
 ALTER TABLE `modelos`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idmarcaf` (`idmarcaf`);
 
 --
--- Indices de la tabla `modelosC`
+-- Indices de la tabla `modelosc`
 --
-ALTER TABLE `modelosC`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `modelosc`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idmarcaf` (`idmarcaf`);
 
 --
 -- Indices de la tabla `personal`
 --
 ALTER TABLE `personal`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indices de la tabla `productos`
---
-ALTER TABLE `productos`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `cedula` (`cedula`),
+  ADD KEY `departamento` (`departamento`),
+  ADD KEY `cargo` (`cargo`);
 
 --
 -- Indices de la tabla `solicitud`
@@ -626,19 +550,22 @@ ALTER TABLE `soporte`
 -- Indices de la tabla `tipos`
 --
 ALTER TABLE `tipos`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idcategoriaf` (`idcategoriaf`);
 
 --
--- Indices de la tabla `tiposC`
+-- Indices de la tabla `tiposc`
 --
-ALTER TABLE `tiposC`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `tiposc`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `idcategoriaf` (`idcategoriaf`);
 
 --
 -- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `usuario` (`usuario`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -648,43 +575,37 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `asignacion`
 --
 ALTER TABLE `asignacion`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
--- AUTO_INCREMENT de la tabla `asignacionC`
+-- AUTO_INCREMENT de la tabla `asignacionc`
 --
-ALTER TABLE `asignacionC`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+ALTER TABLE `asignacionc`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT de la tabla `cargos`
 --
 ALTER TABLE `cargos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
--- AUTO_INCREMENT de la tabla `categoriasC`
+-- AUTO_INCREMENT de la tabla `categoriasc`
 --
-ALTER TABLE `categoriasC`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
-
---
--- AUTO_INCREMENT de la tabla `clientes`
---
-ALTER TABLE `clientes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+ALTER TABLE `categoriasc`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT de la tabla `consumibles`
 --
 ALTER TABLE `consumibles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT de la tabla `departamento`
@@ -696,43 +617,37 @@ ALTER TABLE `departamento`
 -- AUTO_INCREMENT de la tabla `equipos`
 --
 ALTER TABLE `equipos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT de la tabla `marcas`
 --
 ALTER TABLE `marcas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
--- AUTO_INCREMENT de la tabla `marcasC`
+-- AUTO_INCREMENT de la tabla `marcasc`
 --
-ALTER TABLE `marcasC`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+ALTER TABLE `marcasc`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT de la tabla `modelos`
 --
 ALTER TABLE `modelos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
--- AUTO_INCREMENT de la tabla `modelosC`
+-- AUTO_INCREMENT de la tabla `modelosc`
 --
-ALTER TABLE `modelosC`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+ALTER TABLE `modelosc`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT de la tabla `personal`
 --
 ALTER TABLE `personal`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT de la tabla `productos`
---
-ALTER TABLE `productos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 
 --
 -- AUTO_INCREMENT de la tabla `solicitud`
@@ -750,19 +665,94 @@ ALTER TABLE `soporte`
 -- AUTO_INCREMENT de la tabla `tipos`
 --
 ALTER TABLE `tipos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
--- AUTO_INCREMENT de la tabla `tiposC`
+-- AUTO_INCREMENT de la tabla `tiposc`
 --
-ALTER TABLE `tiposC`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+ALTER TABLE `tiposc`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `cargos`
+--
+ALTER TABLE `cargos`
+  ADD CONSTRAINT `cargos_ibfk_1` FOREIGN KEY (`iddepartamentof`) REFERENCES `departamento` (`id`);
+
+--
+-- Filtros para la tabla `consumibles`
+--
+ALTER TABLE `consumibles`
+  ADD CONSTRAINT `consumibles_ibfk_1` FOREIGN KEY (`categoria`) REFERENCES `categoriasc` (`id`),
+  ADD CONSTRAINT `consumibles_ibfk_2` FOREIGN KEY (`tipo`) REFERENCES `tiposc` (`id`),
+  ADD CONSTRAINT `consumibles_ibfk_3` FOREIGN KEY (`marca`) REFERENCES `marcasc` (`id`);
+
+--
+-- Filtros para la tabla `equipos`
+--
+ALTER TABLE `equipos`
+  ADD CONSTRAINT `equipos_ibfk_1` FOREIGN KEY (`categoria`) REFERENCES `categorias` (`id`),
+  ADD CONSTRAINT `equipos_ibfk_2` FOREIGN KEY (`tipo`) REFERENCES `tipos` (`id`),
+  ADD CONSTRAINT `equipos_ibfk_3` FOREIGN KEY (`marca`) REFERENCES `marcas` (`id`);
+
+--
+-- Filtros para la tabla `marcas`
+--
+ALTER TABLE `marcas`
+  ADD CONSTRAINT `marcas_ibfk_1` FOREIGN KEY (`idtipof`) REFERENCES `tipos` (`id`);
+
+--
+-- Filtros para la tabla `marcasc`
+--
+ALTER TABLE `marcasc`
+  ADD CONSTRAINT `marcasC_ibfk_1` FOREIGN KEY (`idtipof`) REFERENCES `tiposc` (`id`);
+
+--
+-- Filtros para la tabla `modelos`
+--
+ALTER TABLE `modelos`
+  ADD CONSTRAINT `modelos_ibfk_1` FOREIGN KEY (`idmarcaf`) REFERENCES `marcas` (`id`);
+
+--
+-- Filtros para la tabla `modelosc`
+--
+ALTER TABLE `modelosc`
+  ADD CONSTRAINT `modelosC_ibfk_1` FOREIGN KEY (`idmarcaf`) REFERENCES `marcasc` (`id`);
+
+--
+-- Filtros para la tabla `personal`
+--
+ALTER TABLE `personal`
+  ADD CONSTRAINT `personal_ibfk_1` FOREIGN KEY (`departamento`) REFERENCES `departamento` (`id`),
+  ADD CONSTRAINT `personal_ibfk_2` FOREIGN KEY (`cargo`) REFERENCES `cargos` (`id`);
+
+--
+-- Filtros para la tabla `tipos`
+--
+ALTER TABLE `tipos`
+  ADD CONSTRAINT `tipos_ibfk_1` FOREIGN KEY (`idcategoriaf`) REFERENCES `categorias` (`id`);
+
+--
+-- Filtros para la tabla `tiposc`
+--
+ALTER TABLE `tiposc`
+  ADD CONSTRAINT `tiposC_ibfk_1` FOREIGN KEY (`idcategoriaf`) REFERENCES `categoriasc` (`id`);
+
+--
+-- Filtros para la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD CONSTRAINT `usuarios_ibfk_1` FOREIGN KEY (`usuario`) REFERENCES `personal` (`cedula`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

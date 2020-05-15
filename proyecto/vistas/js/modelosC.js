@@ -1,7 +1,7 @@
 /*=============================================
 EDITAR CATEGORIA
 =============================================*/
-$(".tablas").on("click", ".btnEditarModelo", function(){
+$(".tablas").on("click", ".btnEditarModeloC", function(){
 
 	var idModelo = $(this).attr("idModelo");
 
@@ -31,7 +31,7 @@ $(".tablas").on("click", ".btnEditarModelo", function(){
 /*=============================================
 ELIMINAR MODELO
 =============================================*/
-$(".tablas").on("click", ".btnEliminarModelo", function(){
+$(".tablas").on("click", ".btnEliminarModeloC", function(){
 
 	 var idModelo = $(this).attr("idModelo");
 

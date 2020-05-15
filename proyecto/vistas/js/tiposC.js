@@ -1,7 +1,7 @@
 /*=============================================
 EDITAR TIPO
 =============================================*/
-$(".tablas").on("click", ".btnEditarTipo", function(){
+$(".tablas").on("click", ".btnEditarTipoC", function(){
 
 	var idTipo = $(this).attr("id");
 
@@ -31,7 +31,7 @@ $(".tablas").on("click", ".btnEditarTipo", function(){
 /*=============================================
 ELIMINAR TIPO
 =============================================*/
-$(".tablas").on("click", ".btnEliminarTipo", function(){
+$(".tablas").on("click", ".btnEliminarTipoC", function(){
 
 	 var idTipo = $(this).attr("id");
 

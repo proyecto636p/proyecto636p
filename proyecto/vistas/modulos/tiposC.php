@@ -69,9 +69,9 @@
 
                       <div class="btn-group">
                           
-                        <button class="btn btn-warning btnEditarTipo" id="'.$value["id"].'" data-toggle="modal" data-target="#modalEditarTipo"><i class="fa fa-pencil"></i></button>
+                        <button class="btn btn-warning btnEditarTipoC" id="'.$value["id"].'" data-toggle="modal" data-target="#modalEditarTipo"><i class="fa fa-pencil"></i></button>
 
-                        <button class="btn btn-danger btnEliminarTipo" id="'.$value["id"].'"><i class="fa fa-times"></i></button>
+                        <button class="btn btn-danger btnEliminarTipoC" id="'.$value["id"].'"><i class="fa fa-times"></i></button>
 
                       </div>  
 

@@ -236,6 +236,8 @@ MODAL EDITAR TIPO
 
           <div class="box-body">
 
+          
+
             <!-- ENTRADA PARA LA DESCRIPCION -->
             
             <div class="form-group">

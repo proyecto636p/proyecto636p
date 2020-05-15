@@ -176,7 +176,7 @@ $(".tablas").on("click", ".btnActivar", function(){
 REVISAR SI EL USUARIO YA ESTÁ REGISTRADO
 =============================================*/
 
-$("#nuevoUsuario").change(function(){
+$("#nuevaCedula").change(function(){
 
 	$(".alert").remove();
 
@@ -197,9 +197,12 @@ $("#nuevoUsuario").change(function(){
 	    	
 	    	if(respuesta){
 
-	    		$("#nuevoUsuario").parent().after('<div class="alert alert-warning">Este usuario ya existe en la base de datos</div>');
+	    		$("#nuevaCedula").parent().after('<div class="alert alert-warning">Este usuario ya existe en la base de datos</div>');
 
-	    		$("#nuevoUsuario").val("");
+				$("#nuevaCedula").val("");
+				$("#nuevoUsuario").val("");
+				$("#nuevoNombre").val("");
+				$("#nuevoPassword").val("");
 
 	    	}
 

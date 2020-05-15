@@ -69,9 +69,9 @@
 
                       <div class="btn-group">
                           
-                        <button class="btn btn-warning btnEditarModelo" idModelo="'.$value["id"].'" data-toggle="modal" data-target="#modalEditarModelo"><i class="fa fa-pencil"></i></button>
+                        <button class="btn btn-warning btnEditarModeloC" idModelo="'.$value["id"].'" data-toggle="modal" data-target="#modalEditarModelo"><i class="fa fa-pencil"></i></button>
 
-                        <button class="btn btn-danger btnEliminarModelo" idModelo="'.$value["id"].'"><i class="fa fa-times"></i></button>
+                        <button class="btn btn-danger btnEliminarModeloC" idModelo="'.$value["id"].'"><i class="fa fa-times"></i></button>
 
                       </div>  
 

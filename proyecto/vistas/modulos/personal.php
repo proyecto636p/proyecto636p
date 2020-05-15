@@ -111,7 +111,7 @@ MODAL AGREGAR PERSONAL
               
                 <span class="input-group-addon"><i class="fa fa-key"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nuevoDocumentoId" placeholder="Ingresar su Cedula" required>
+                <input type="text" class="form-control input-lg" name="nuevoDocumentoId" id="nuevoDocumentoId" placeholder="Ingresar su Cedula" required>
 
               </div>
 

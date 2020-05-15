@@ -93,7 +93,7 @@ class ControladorCargos{
 
 				$tabla = "cargos";
 
-				$datos = array("descripcion"=>$_POST["editarCargo"],
+				$datos = array("descripcion"=>$_POST["editarCargo"],"editarDepartamento"=>$_POST["editarDepartamento"],
 							   "id"=>$_POST["id"]);
 
 				$respuesta = ModeloCargos::mdlEditarCargo($tabla, $datos);

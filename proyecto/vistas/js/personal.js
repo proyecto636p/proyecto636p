@@ -130,6 +130,41 @@ var datos = new FormData();
 })
 
 })
+/*=============================================
+REVISAR SI EL USUARIO YA ESTÁ REGISTRADO
+=============================================*/
+
+$("#nuevoDocumentoId").change(function(){
+
+	$(".alert").remove();
+
+	var usuario = $(this).val();
+
+	var datos = new FormData();
+	datos.append("validarUsuario", usuario);
+
+	 $.ajax({
+	    url:"ajax/personal.ajax.php",
+	    method:"POST",
+	    data: datos,
+	    cache: false,
+	    contentType: false,
+	    processData: false,
+	    dataType: "json",
+	    success:function(respuesta){
+	    	
+	    	if(respuesta){
+
+	    		$("#nuevoDocumentoId").parent().after('<div class="alert alert-warning">Este personal ya existe en la base de datos</div>');
+
+	    		$("#nuevoDocumentoId").val("");
+
+	    	}
+
+	    }
+
+	})
+})
 
 /*=============================================
 ELIMINAR PERSONAL

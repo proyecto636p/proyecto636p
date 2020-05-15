@@ -45,10 +45,10 @@ class ModeloEquipos{
 
 		$stmt->bindParam(":codigo", $datos["codigo"], PDO::PARAM_STR);
 		$stmt->bindParam(":seriales", $datos["seriales"], PDO::PARAM_STR);
-		$stmt->bindParam(":categoria", $datos["categoria"], PDO::PARAM_STR);
-		$stmt->bindParam(":tipo", $datos["tipo"], PDO::PARAM_STR);
-		$stmt->bindParam(":marca", $datos["marca"], PDO::PARAM_STR);
-		$stmt->bindParam(":modelo", $datos["modelo"], PDO::PARAM_STR);
+		$stmt->bindParam(":categoria", $datos["categoria"], PDO::PARAM_INT);
+		$stmt->bindParam(":tipo", $datos["tipo"], PDO::PARAM_INT);
+		$stmt->bindParam(":marca", $datos["marca"], PDO::PARAM_INT);
+		$stmt->bindParam(":modelo", $datos["modelo"], PDO::PARAM_INT);
 		$stmt->bindParam(":estado", $datos["estado"], PDO::PARAM_STR);
 		$stmt->bindParam(":stock", $datos["stock"], PDO::PARAM_STR);
 		$stmt->bindParam(":asignacion", $datos["asignacion"], PDO::PARAM_STR);

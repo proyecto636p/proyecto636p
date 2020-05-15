@@ -1,7 +1,7 @@
 /*=============================================
 EDITAR MARCA
 =============================================*/
-$(".tablas").on("click", ".btnEditarMarca", function(){
+$(".tablas").on("click", ".btnEditarMarcaC", function(){
 
 	var idTipo = $(this).attr("id");
 
@@ -31,7 +31,7 @@ $(".tablas").on("click", ".btnEditarMarca", function(){
 /*=============================================
 ELIMINAR MARCA
 =============================================*/
-$(".tablas").on("click", ".btnEliminarMarca", function(){
+$(".tablas").on("click", ".btnEliminarMarcaC", function(){
 
 	 var idMarca = $(this).attr("id");
 

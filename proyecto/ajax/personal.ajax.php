@@ -22,6 +22,23 @@ class AjaxPersonal{
 	  echo json_encode($respuesta);
   
 	}
+
+		/*=============================================
+	VALIDAR NO REPETIR USUARIO
+	=============================================*/	
+
+	public $validarUsuario;
+
+	public function ajaxValidarUsuario(){
+
+		$item = "cedula";
+		$valor = $this->validarUsuario;
+
+		$respuesta = ControladorPersonals::ctrMostrarPersonals($item, $valor);
+
+		echo json_encode($respuesta);
+
+	}
   
   }
 
@@ -36,4 +53,16 @@ class AjaxPersonal{
 	$editarEquipo -> ajaxEditarPersonal();
   
   }
+
+  /*=============================================
+VALIDAR NO REPETIR USUARIO
+=============================================*/
+
+if(isset( $_POST["validarUsuario"])){
+
+	$valUsuario = new AjaxPersonal();
+	$valUsuario -> validarUsuario = $_POST["validarUsuario"];
+	$valUsuario -> ajaxValidarUsuario();
+
+}
   

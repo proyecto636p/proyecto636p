@@ -169,7 +169,7 @@ MODAL AGREGAR USUARIO
               
                 <span class="input-group-addon"><i class="fa fa-lock"></i></span> 
 
-                <input type="text" class="form-control input-lg" id="nuevaCedula" name="nuevaCedula" placeholder="Ingresar cedula" required>
+                <input type="text" class="form-control input-lg" id="nuevaCedula" name="nuevaCedula" placeholder="Ingresar cedula del personal registrado" required>
 
               </div>
 
@@ -215,7 +215,7 @@ MODAL AGREGAR USUARIO
               
                 <span class="input-group-addon"><i class="fa fa-lock"></i></span> 
 
-                <input type="password" class="form-control input-lg" name="nuevoPassword" placeholder="Ingresar contraseña" required>
+                <input type="password" class="form-control input-lg" id="nuevoPassword" name="nuevoPassword" placeholder="Ingresar contraseña" required>
 
               </div>
 

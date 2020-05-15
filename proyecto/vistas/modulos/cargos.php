@@ -235,6 +235,38 @@ MODAL EDITAR CARGO
 
           <div class="box-body">
 
+                        <!-- ENTRADA PARA SELECCIONAR CATEGORÍA -->
+
+                        <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+
+                <select class="form-control input-lg" id="editarDepartamento" name="editarDepartamento" required>
+                  
+                  <option value="">Selecionar Departamento</option>
+
+                  <?php
+
+                  $item = null;
+                  $valor = null;
+
+                  $departamentos = ControladorDepartamentos::ctrMostrarDepartamentos($item, $valor);
+
+                  foreach ($departamentos as $key => $value) {
+                    
+                    echo '<option value="'.$value["id"].'">'.$value["descripcion"].'</option>';
+                  }
+
+                  ?>
+  
+                </select>
+
+              </div>
+
+            </div> 
+
             <!-- ENTRADA PARA EL CARGO -->
             
             <div class="form-group">

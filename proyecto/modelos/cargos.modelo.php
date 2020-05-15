@@ -68,9 +68,10 @@ class ModeloCargos{
 
 	static public function mdlEditarCargo($tabla, $datos){
 
-		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET descripcion = :descripcion WHERE id = :id");
+		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET descripcion = :descripcion ,  iddepartamentof = :departamento  WHERE id = :id");
 
 		$stmt -> bindParam(":descripcion", $datos["descripcion"], PDO::PARAM_STR);
+		$stmt -> bindParam(":departamento", $datos["editarDepartamento"], PDO::PARAM_STR);
 		$stmt -> bindParam(":id", $datos["id"], PDO::PARAM_INT);
 
 		if($stmt->execute()){
