@@ -232,7 +232,7 @@ CUERPO DOCUMENTO
 <script src="vistas/js/asignacion.js"></script>
 <script src="vistas/js/asignacionC.js"></script>
 <script src="vistas/js/soporte.js"></script>
-<script src="vistas/js/reportes.js"></script>
+<!--<script src="vistas/js/reportes.js"></script>-->
 
 </body>
 </html>

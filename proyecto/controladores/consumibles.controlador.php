@@ -16,6 +16,21 @@ class ControladorConsumibles{
 
 	}
 
+		/*=============================================
+	count
+	=============================================*/
+
+	static public function ctrCountConsumibles($item, $valor){
+
+		$tabla = "consumibles";
+
+		$respuesta = ModeloConsumibles::mdlCountConsumibles($tabla, $item, $valor);
+
+		return $respuesta;
+
+	}
+
+
 	/*=============================================
 	CREAR CONSUMIBLE
 	=============================================*/

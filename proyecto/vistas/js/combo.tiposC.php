@@ -5,7 +5,7 @@ function getListasDes(){
 
     $conexion = getConn();
     $id = $_POST['id'];
-    $query = "select * from tiposC where idcategoriaf =$id";
+    $query = "select * from tiposc where idcategoriaf =$id";
     $result = $conexion -> query($query);
     $listas="<option value='0'>Elige una Descripcion</option>";
     while($row = $result->fetch_array(MYSQLI_ASSOC)){

@@ -66,19 +66,25 @@ class TablaConsumibles{
  	 		STOCK
   			=============================================*/ 
 
-  			if($equipos[$i]["stock"] <= 10){
+			  $item22 ="categoria";
+			  $valor11 = $equipos[$i]["categoria"];
+	  
+				$count = current(ControladorConsumibles::ctrCountConsumibles($item22, $valor11));
 
-  				$stock = "<button class='btn btn-danger'>".$equipos[$i]["stock"]."</button>";
 
-  			}else if($equipos[$i]["stock"] > 11 && $equipos[$i]["stock"] <= 15){
+  			if($count <= 10){
 
-  				$stock = "<button class='btn btn-warning'>".$equipos[$i]["stock"]."</button>";
+  				$stock = "<button class='btn btn-danger'>".$count."</button>";
+
+  			}else if($count > 11 && $count <= 15){
+
+  				$stock = "<button class='btn btn-warning'>".$count."</button>";
 
   			}else{
 
-  				$stock = "<button class='btn btn-success'>".$equipos[$i]["stock"]."</button>";
+  				$stock = "<button class='btn btn-success'>".$count."</button>";
 
-  			}
+			  }
 
 		  	/*=============================================
  	 		TRAEMOS LAS ACCIONES

@@ -5,7 +5,7 @@ function getListasDes(){
 
     $conexion = getConn();
     $id = $_POST['id'];
-    $query = "select * from marcasC where idtipof =$id";
+    $query = "select * from marcasc where idtipof =$id";
     $result = $conexion -> query($query);
     $listas="<option value='0'>Elige una Marca</option>";
     while($row = $result->fetch_array(MYSQLI_ASSOC)){

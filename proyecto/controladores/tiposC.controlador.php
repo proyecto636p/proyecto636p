@@ -12,7 +12,7 @@ class ControladorTiposC{
 
 			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoTipo"])){
 
-				$tabla = "tiposC";
+				$tabla = "tiposc";
 
 				$datos = array("descripcion" => $_POST["nuevoTipo"] ,
 				               "idcategoriaf" => $_POST["nuevaCategoria"]) ;
@@ -74,7 +74,7 @@ class ControladorTiposC{
 
 	static public function ctrMostrarTipos($item, $valor){
 
-		$tabla = "tiposC";
+		$tabla = "tiposc";
 
 		$respuesta = ModeloTiposC::mdlMostrarTipos($tabla, $item, $valor);
 
@@ -92,7 +92,7 @@ class ControladorTiposC{
 
 			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["editarTipo"])){
 
-				$tabla = "tiposC";
+				$tabla = "tiposc";
 
 				$datos = array("descripcion"=>$_POST["editarTipo"],
 							   "id"=>$_POST["id"]);
@@ -154,7 +154,7 @@ class ControladorTiposC{
 
 		if(isset($_GET["id"])){
 
-			$tabla ="tiposC";
+			$tabla ="tiposc";
 			$datos = $_GET["id"];
 
 			$respuesta = ModeloTiposC::mdlBorrarTipo($tabla, $datos);

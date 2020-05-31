@@ -12,7 +12,7 @@ class ControladorMarcasC{
 
 			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevaMarca"])){
 
-				$tabla = "marcasC";
+				$tabla = "marcasc";
 
 				$datos = array("descripcion" => $_POST["nuevaMarca"] ,
 				"idtipof" => $_POST["nuevoTipo"]) ;
@@ -73,7 +73,7 @@ class ControladorMarcasC{
 
 	static public function ctrMostrarMarcas($item, $valor){
 
-		$tabla = "marcasC";
+		$tabla = "marcasc";
 
 		$respuesta = ModeloMarcasC::mdlMostrarMarcas($tabla, $item, $valor);
 
@@ -91,7 +91,7 @@ class ControladorMarcasC{
 
 			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["editarMarca"])){
 
-				$tabla = "marcasC";
+				$tabla = "marcasc";
 
 				$datos = array("descripcion"=>$_POST["editarMarca"],
 							   "id"=>$_POST["id"]);
@@ -153,7 +153,7 @@ class ControladorMarcasC{
 
 		if(isset($_GET["id"])){
 
-			$tabla ="marcasC";
+			$tabla ="marcasc";
 			$datos = $_GET["id"];
 
 			$respuesta = ModeloMarcasC::mdlBorrarMarca($tabla, $datos);

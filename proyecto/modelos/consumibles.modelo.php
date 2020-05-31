@@ -36,6 +36,30 @@ class ModeloConsumibles{
 
 	}
 
+		/*=============================================
+	count
+	=============================================*/
+
+	static public function mdlCountConsumibles($tabla, $item, $valor){
+
+		if($item != null){
+
+			$stmt = Conexion::conectar()->prepare("SELECT count(id) FROM $tabla WHERE  $item like :$item+'%' and asignacion = 'no asignado'");
+
+			$stmt -> bindParam(":".$item, $valor, PDO::PARAM_STR);
+
+			$stmt -> execute();
+
+			return $stmt -> fetch();
+
+		}
+
+		$stmt -> close();
+
+		$stmt = null;
+
+	}
+
 	/*=============================================
 	REGISTRO DE CONSUMIBLES
 	=============================================*/

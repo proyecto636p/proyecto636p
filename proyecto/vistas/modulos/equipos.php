@@ -222,7 +222,7 @@ MODAL AGREGAR PRODUCTO
 
             </div>
 
-             <!-- ENTRADA PARA STOCK -->
+             <!-- ENTRADA PARA STOCK
 
              <div class="form-group">
               
@@ -230,11 +230,13 @@ MODAL AGREGAR PRODUCTO
               
                 <span class="input-group-addon"><i class="fa fa-check"></i></span> 
 
-                <input type="number" class="form-control input-lg" name="nuevoStock" min="0" placeholder="Stock" required>
+               
 
               </div>
 
-            </div>
+            </div> -->
+
+            <input type="hidden" class="form-control input-lg" name="nuevoStock"  value="1">
 
             <!-- ENTRADA PARA LA OBSERVACION -->
                  <div class="form-group">
@@ -398,14 +400,16 @@ MODAL EDITAR EQUIPO
                                 </div>
                           </div>
 
-             <!-- ENTRADA PARA STOCK -->
+             <!-- ENTRADA PARA STOCK 
 
                  <div class="form-group">             
                      <div class="input-group">              
                            <span class="input-group-addon"><i class="fa fa-check"></i></span>
-                           <input type="number" class="form-control input-lg" name="editarStock" min="0" id="editarStock" required>
+                           
                     </div>
-                </div>
+                </div>-->
+
+                <input type="hidden" class="form-control input-lg" name="editarStock"  id="editarStock" >
 
             <!-- ENTRADA PARA LA OBSERVACION -->
                  <div class="form-group">              

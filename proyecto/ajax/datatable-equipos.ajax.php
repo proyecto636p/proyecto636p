@@ -15,6 +15,8 @@ require_once "../modelos/marcas.modelo.php";
 require_once "../controladores/modelos.controlador.php";
 require_once "../modelos/modelos.modelo.php";
 
+require_once "../modelos/conexion.php";
+
 class TablaEquipos{
 
  	/*=============================================
@@ -64,21 +66,30 @@ class TablaEquipos{
 
 		  	/*=============================================
  	 		STOCK
-  			=============================================*/ 
+			  =============================================*/ 
+			  
+			  $item22 ="categoria";
+			  $valor11 = $equipos[$i]["categoria"];
+	  
+				$count = current(ControladorEquipos::ctrCountEquipos($item22, $valor11));
 
-  			if($equipos[$i]["stock"] <= 10){
 
-  				$stock = "<button class='btn btn-danger'>".$equipos[$i]["stock"]."</button>";
+  			if($count <= 10){
 
-  			}else if($equipos[$i]["stock"] > 11 && $equipos[$i]["stock"] <= 15){
+  				$stock = "<button class='btn btn-danger'>".$count."</button>";
 
-  				$stock = "<button class='btn btn-warning'>".$equipos[$i]["stock"]."</button>";
+  			}else if($count > 11 && $count <= 15){
+
+  				$stock = "<button class='btn btn-warning'>".$count."</button>";
 
   			}else{
 
-  				$stock = "<button class='btn btn-success'>".$equipos[$i]["stock"]."</button>";
+  				$stock = "<button class='btn btn-success'>".$count."</button>";
 
-  			}
+			  }
+
+
+		
 
 		  	/*=============================================
  	 		TRAEMOS LAS ACCIONES

@@ -12,7 +12,7 @@ class ControladorModeloC{
 
 			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoModelo"])){
 
-				$tabla = "modelosC";
+				$tabla = "modelosc";
 
 				
 				$datos = array("descripcion" => $_POST["nuevoModelo"] ,
@@ -73,7 +73,7 @@ class ControladorModeloC{
 
 	static public function ctrMostrarModelos($item, $valor){
 
-		$tabla = "modelosC";
+		$tabla = "modelosc";
 
 		$respuesta = ModeloModelosC::mdlMostrarModelos($tabla, $item, $valor);
 
@@ -91,7 +91,7 @@ class ControladorModeloC{
 
 			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["editarModelo"])){
 
-				$tabla = "modelosC";
+				$tabla = "modelosc";
 
 				$datos = array("modelo"=>$_POST["editarModelo"],
 							   "id"=>$_POST["idModelo"]);
@@ -153,7 +153,7 @@ class ControladorModeloC{
 
 		if(isset($_GET["idModelo"])){
 
-			$tabla ="modelosC";
+			$tabla ="modelosc";
 			$datos = $_GET["idModelo"];
 
 			$respuesta = ModeloModelosC::mdlBorrarModelo($tabla, $datos);

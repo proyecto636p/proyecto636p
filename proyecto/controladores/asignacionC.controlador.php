@@ -16,7 +16,7 @@ class ControladorAsignacionesC{
 			preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoAsignadoPor"])){
 	
 
-				$tabla = "asignacionC";
+				$tabla = "asignacionc";
 
 				  
 			   	$datos = array("asignacion"=>$_POST["nuevaAsignacion"],
@@ -80,7 +80,7 @@ class ControladorAsignacionesC{
 
 	static public function ctrMostrarAsignaciones($item, $valor){
 
-		$tabla = "asignacionC";
+		$tabla = "asignacionc";
 
 		$respuesta = ModeloAsignacionesC::mdlMostrarAsignaciones($tabla, $item, $valor);
 
@@ -111,7 +111,7 @@ class ControladorAsignacionesC{
 			
 
 		
-			   	$tabla = "asignacionC";
+			   	$tabla = "asignacionc";
 								  
 								  $datos = array("id"=>$_POST["editarId"],
 								  "asignacion"=>$_POST["editarAsignacion"],
@@ -196,7 +196,7 @@ class ControladorAsignacionesC{
 
 		if(isset($_GET["idAsignacion"])){
 
-			$tabla ="asignacionC";
+			$tabla ="asignacionc";
 			$datos = $_GET["idAsignacion"];
 			$codigo = $_GET["codigo"];
 

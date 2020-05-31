@@ -16,6 +16,21 @@ class ControladorEquipos{
 
 	}
 
+	
+	/*=============================================
+	count
+	=============================================*/
+
+	static public function ctrCountEquipos($item, $valor){
+
+		$tabla = "equipos";
+
+		$respuesta = ModeloEquipos::mdlCountEquipos($tabla, $item, $valor);
+
+		return $respuesta;
+
+	}
+
 	/*=============================================
 	CREAR EQUIPO
 	=============================================*/
@@ -24,7 +39,10 @@ class ControladorEquipos{
 
 		if(isset($_POST["nuevaDescripcion"])){
 
+
 			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoAsignado"])){
+
+				
 
 		
 

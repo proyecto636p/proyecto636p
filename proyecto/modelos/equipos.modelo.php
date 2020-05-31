@@ -37,6 +37,30 @@ class ModeloEquipos{
 	}
 
 	/*=============================================
+	count
+	=============================================*/
+
+	static public function mdlCountEquipos($tabla, $item, $valor){
+
+		if($item != null){
+
+			$stmt = Conexion::conectar()->prepare("SELECT count(id) FROM $tabla WHERE  $item like :$item+'%' and asignacion = 'no asignado'");
+
+			$stmt -> bindParam(":".$item, $valor, PDO::PARAM_STR);
+
+			$stmt -> execute();
+
+			return $stmt -> fetch();
+
+		}
+
+		$stmt -> close();
+
+		$stmt = null;
+
+	}
+
+	/*=============================================
 	REGISTRO DE EQUIPO
 	=============================================*/
 	static public function mdlIngresarEquipo($tabla, $datos){
@@ -48,7 +72,7 @@ class ModeloEquipos{
 		$stmt->bindParam(":categoria", $datos["categoria"], PDO::PARAM_INT);
 		$stmt->bindParam(":tipo", $datos["tipo"], PDO::PARAM_INT);
 		$stmt->bindParam(":marca", $datos["marca"], PDO::PARAM_INT);
-		$stmt->bindParam(":modelo", $datos["modelo"], PDO::PARAM_INT);
+		$stmt->bindParam(":modelo", $datos["modelo"], PDO::PARAM_STR);
 		$stmt->bindParam(":estado", $datos["estado"], PDO::PARAM_STR);
 		$stmt->bindParam(":stock", $datos["stock"], PDO::PARAM_STR);
 		$stmt->bindParam(":asignacion", $datos["asignacion"], PDO::PARAM_STR);
